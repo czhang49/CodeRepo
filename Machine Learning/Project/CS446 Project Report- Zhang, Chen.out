@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{Report Objective and Organization}{}% 1
+\BOOKMARK [1][-]{section.2}{Machine Learning }{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Supervised Learning algorithms}{section.2}% 3
+\BOOKMARK [1][-]{section.3}{Symbolic Propagation in MLR}{}% 4
+\BOOKMARK [1][-]{section.4}{Multi-Linear Representation}{}% 5
+\BOOKMARK [2][-]{subsection.4.1}{Validity of ML Representation}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.2}{Exact Learning of Coefficients }{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.3}{Approximate Algorithm for Learning}{section.4}% 8
+\BOOKMARK [1][-]{section.5}{Learning with mixture of trees}{}% 9
+\BOOKMARK [1][-]{section.6}{Learning Probabilistic Decision Graphs}{}% 10
+\BOOKMARK [1][-]{section.7}{Summary}{}% 11

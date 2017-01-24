@@ -1,0 +1,167 @@
+\input{cs446.tex}
+\usepackage{graphicx,amssymb,amsmath,url}
+\usepackage{xcolor}
+\sloppy
+\newcommand{\ignore}[1]{}
+\newcommand{\bx}{{\bf x}}
+\newcommand{\bw}{{\bf w}}
+
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+\topmargin -0.5in
+\textheight 9.0in
+
+\newcommand{\bb}[1]{{\bf #1}}
+
+\begin{document}
+
+\assignment{Fall 2014}{4}{October $8^{th}$, $2014$}{October $17^{th}$, $2014$}
+
+
+\begin{footnotesize}
+\begin{itemize}
+\item Feel free to talk to other members of the class in doing the homework.  I am
+more concerned that you learn how to solve the problem than that you
+demonstrate that you solved it entirely on your own.  You should, however,
+write down your solution yourself.  Please try to keep the solution brief and
+clear.
+
+\item Please use Piazza first if you have questions about the homework.
+  Also feel free to send us e-mails and come to office hours.
+
+\item Please, no handwritten solutions. You will submit your solution manuscript as a single pdf file.
+
+\item Please present your algorithms in both pseudocode and English.  That is, give
+a precise formulation of your algorithm as pseudocode and {\em also} explain
+in one or two concise paragraphs what your algorithm does.  Be aware that
+pseudocode is much simpler and more abstract than real code. 
+
+\item The homework is due at 11:59 PM on the due date. We will be using
+Compass for collecting the homework assignments. Please submit your solution manuscript as a pdf file via Compass
+(\texttt{http://compass2g.illinois.edu}). Please do NOT hand in a hard copy of your write-up.
+Contact the TAs if you are having technical difficulties in
+submitting the assignment.
+
+\item \textcolor{red}{You cannot utilize the late submission credit hours for this problem set.}
+
+\item No code is needed for any of these problems. You can do the
+calculations however you please. You need to turn in only the report.
+
+\end{itemize}
+\end{footnotesize}
+\begin{enumerate}
+\item \textbf{[VC Dimension - 30 points]}
+\begin{enumerate}
+  \item \textbf{[15 points]}  Assume that all examples are points in two-dimensional space,
+  i.e.~$\bb{x} = \langle x_1, x_2\rangle \in \mathbb{R}^2$.
+Consider the concept space of circles with
+  arbitrary origin and radius. Hence, a concept $h \in \bb{H}$ has three
+  parameters, $r \in \mathbb{R}^+$ and the two coordinates of the center $\bb{x}_0 \in \mathbb{R}^2$.
+  An example $\bb{x} \in \mathbb{R}^2$ is labeled as positive by $h$
+  if and only if $\bb{x}$ lies within a circle of radius $r$ centered at $\bb{x}_0$ and of
+  radius $r$, i.e.~$\|\bb{x} - \bb{x}_0\| < r$. Give the VC dimension of $\bb{H}$ and prove that your answer is correct.
+
+  \item \textbf{[15 points]} Consider the concept space of the union of $k$ disjoint intervals in a real line.
+  Hence, a concept $h \in \bb{H}$ is represented by $2k$ parameters $a_1 < b_1 < a_2 < b_2 < \ldots < a_k < b_k$.
+  An example $x \in \mathbb{R}$ is labeled as positive by $h$
+  if and only if $x$ lies in one of the intervals $[a_p,b_p], p\in \{1,2,\ldots,k\}$. Give the VC dimension of $\bb{H}$ and  prove that your answer is correct.
+
+  \end{enumerate}
+
+{\bf Grading note:} You will not get any points without proper justification of your answer.
+
+\item \textbf{[Decision Lists - 40 points]}
+
+  In this problem, we are going to learn the class of $k$-decision
+  lists.  A decision list is an ordered sequence of if-then-else
+  statements. The sequence of if-then-else conditions are tested in
+  order, and the answer associated with the first satisfied condition is
+  returned. The class of $k$-decision lists is a subset of the class of all 
+  decision lists, where the statements in each rule are of a bounded size.
+  Formally, for a fixed $k$, we define:
+
+\begin{definition}
+  A \textbf{\underline{\em $k$-decision list}} over the variables $x_1, \ldots, x_n$
+  is an ordered sequence $L=(c_1, b_1), \ldots, (c_\ell, b_\ell)$ and
+  a bit $b$, in which each $c_i$ is a conjunction of at most $k$
+  literals over $x_1,\ldots, x_n$.  The bit $b_i$ is referred to as the bit
+  \underline{\em associated} with condition $c_{i}$, and $b$ is called the \underline{\em default} value.  For any input $\bb{x} \in \{0,
+  1\}^{n}$, $L(\bb{x})$ is defined to take the value $b_{j}$, where $j \in \{1, \ell\}$ is the
+  smallest index satisfying $c_j(\bb{x})=1$; if no such index exists,
+  then $L(\bb{x})=b$.
+
+  We denote by \textbf{\underline{\em $k$-DL}} the class of concepts that can be
+  represented by a $k$-decision list.
+\end{definition}
+
+Figure~\ref{fig:decision_list} shows an example of a $2$-decision list over six variables, $x_1, \ldots, x_6$. For this decision list, $L(\bb{x}_1 = \langle 0,1,1,0,0,1\rangle) = 1$ and $L(\bb{x}_2 = \langle 1,0,0,1,0,0\rangle) = 0$,
+where in the case of $x_1$ no condition is satisfied, so the labels is determined by the default bit, and for $x_2$, the second condition is satisfied. 
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=1.35in]{dec-list.jpg}
+\caption{A $2$-decision list.}
+\label{fig:decision_list}
+\end{center}
+\end{figure}
+
+
+
+\begin{enumerate}
+\item \textbf{[5 points]} Show that if a concept $c$ can be represented as a $k$-decision
+  list so can its complement, $\neg c$. You can show this by providing
+  a $k$-decision list that represents $\neg c$, given $c =
+  \langle (c_1,b_1), \ldots, (c_\ell,b_\ell), b\rangle$.
+
+\item \textbf{[10 points]} Show that
+$$k\textrm{-DNF} \cup k\textrm{-CNF} \subseteq k\textrm{-DL}$$
+
+\item \textbf{[15 points]} Let $S$ be a sample data set that is \emph{consistent} with some
+  $k$-decision list. Provide an algorithm to construct a $k$-decision
+  list that is consistent with $S$. Prove the correctness of your
+  algorithm.
+
+\item \textbf{[10 points]} Use  Occam's Razor to show: \\
+  For any constant $k \geq 1$, the class of $k$-decision lists is
+  efficiently PAC-learnable.
+
+
+\end{enumerate}
+
+
+\item \textbf{[Constructing Kernels - 30 points]}
+
+  For this problem, we wish to learn a Boolean function represented as a DNF (not necessarily
+  monotone) using kernel Perceptron. For this problem, assume that the size of each term in the DNF
+  is bounded by $k$, i.e., the number of literals in each term of the DNF is 
+  between $1$ to $k$. In order to complete this task,
+  we will first define a kernel that maps an example $\bb{x} \in \{0, 1\}^n$ into a
+  new space of conjunctions of \textbf{upto} $k$ different literals from the
+  $n$-dimensional space. Then, we will use the kernel Perceptron to perform our
+  learning task. 
+ 
+  \begin{enumerate}
+  \item \textbf{[10 points]} Define a kernel $K(\bb{x}_1, \bb{x}_2) = \sum_{c \in C} c(\bb{x}_1) c(\bb{x}_2)$,
+    where $C$ is a family of conjunctions containing upto $k$ different
+    literals, and $c(\bb{x}) \in \{0, 1\}$ is the value of $c$ when evaluated
+    on example $\bb{x}$. Show that $K(x_1,x_2)$ can be computed in time that is linear in $n$. [Hint: It would be useful to think about the case where each term of the 
+  DNF is \emph{exactly} of $k$ literals and then generalize to the case where each term of the DNF 
+  is from $1$ to $k$ literals.]
+
+
+  \item \textbf{[10 points]} Write explicitly the kernel Perceptron algorithm that uses
+    your kernel.
+
+  \item \textbf{[10 points]} State a bound on the number of mistakes the kernel Perceptron algorithm will
+    make on a sample of examples consistent with a function in this class.
+[Hint: In class, we proved a theorem by Novikoff; use this bound and estimate the two constants in it for this specific case. 
+When doing it observe that you are no longer learning in the original $n$ dimensional space, but rather in a blown-up space 
+that has a different dimensionality.]
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
+

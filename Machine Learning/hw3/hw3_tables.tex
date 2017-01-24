@@ -1,0 +1,96 @@
+\input{cs446.tex}
+\usepackage{amsmath,amssymb,url,color,multirow,array}
+\sloppy
+\newcommand{\ignore}[1]{}
+
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+\topmargin -0.5in
+\textheight 9.0in
+
+\begin{document}
+
+\begin{center}
+  \begin{table}[!hbp]
+    \begin{tabular}{|p{4.3cm}<{\centering}|p{2.5cm}<{\centering}|p{4cm}<{\centering}|p{4cm}<{\centering}|}
+      \hline
+      \multirow{2}{*}{Algorithm} & \multirow{2}{*}{Parameters} & \multicolumn{2}{|c|}{Data Set} \\
+      \cline{3-4}
+ & & $n=500$& $n=1000$\\
+ \hline
+      %Perceptron    & $\eta$               &                             &                                   \\\hline \hline
+      Perceptron w/margin &          $\eta$          &                   &                                   \\ \hline
+      %\cline{2-4}
+      %& $\gamma$ &  & \\ \hline \hline
+      Winnow               &     $\alpha$           &                     &                                   \\\hline %\hline
+      \multirow{2}{*}{Winnow w/margin}     & $\alpha$&                                     &                     \\
+      \cline{2-4}
+      & $\gamma$ &  & \\ \hline %\hline
+      AdaGrad             & $\eta$&                                      &                                   \\\hline %\hline
+      %\multirow{2}{*}{AdaGrad w/margin}    & $\eta$&                                               &                                   \\
+%      \cline{2-4}
+%      & $\gamma$ &  & \\ \hline
+    \end{tabular}
+    \end{table}
+  \end{center}
+  
+    \begin{table}[!hbp]
+    \begin{tabular}{|p{4.7cm}<{\centering}|p{2.0cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|}
+      \hline
+      \multirow{2}{*}{Algorithm} & \multirow{2}{*}{Parameters} & \multicolumn{5}{|c|}{Data Set} \\
+      \cline{3-7}
+ & & $n=40$& $n=80$& $n=120$& $n=160$& $n=200$\\
+ \hline
+     % Perceptron    & $\eta$               &                             &   & & &                              \\\hline \hline
+      Perceptron w/margin &          $\eta$          &                   &     & & &                              \\\hline
+
+      %& $\gamma$ &  & & & &\\ \hline \hline
+      Winnow               &     $\alpha$           &                     &         & & &                          \\\hline %\hline
+      \multirow{2}{*}{Winnow w/margin}     & $\alpha$&                                     &     & & &                \\
+      \cline{2-7}
+      & $\gamma$ &  & & & &\\ \hline %\hline
+      AdaGrad             & $\eta$&                                      &               & & &                    \\\hline %\hline
+      %\multirow{2}{*}{AdaGrad w/margin}    & $\eta$&                                               &   & & &                                \\
+%      \cline{2-7}
+%      & $\gamma$ &  & & & &\\ \hline
+    \end{tabular}
+    \end{table}
+    
+      \begin{center}
+  \begin{table}
+    \begin{tabular}{|p{4.3cm}<{\centering}|p{2.5cm}<{\centering}|p{2.7cm}<{\centering}|p{2.7cm}<{\centering}|p{2.7cm}<{\centering}|}
+      \hline
+      \multirow{2}{*}{Algorithm} & \multirow{2}{*}{Parm \& Accy} & \multicolumn{3}{|c|}{Data Set} \\
+      \cline{3-5}
+ & & $m=100$& $m=500$& $m=1000$\\
+ \hline
+      Perceptron    & Accy \%               &                             &   &                               \\ \hline
+%      \cline{2-5}
+%      & Accy\% &  & & \\ \hline \hline
+      \multirow{2}{*}{Perceptron w/margin} &          $\eta$          &                   &     &                               \\
+      \cline{2-5}
+      %& $\gamma$ &  & & \\
+      %\cline{2-5}
+      & Accy\% &  & & \\ \hline \hline
+      \multirow{2}{*}{Winnow}               &     $\alpha$           &                     &         &                           \\
+      \cline{2-5}
+      & Accy\% &  & & \\ \hline \hline
+      \multirow{3}{*}{Winnow w/margin}     & $\alpha$&                                     &     &                \\
+      \cline{2-5}
+      & $\gamma$ &  & & \\
+      \cline{2-5}
+      & Accy\% &  & & \\ \hline \hline
+      \multirow{2}{*}{AdaGrad}             & $\eta$&                                      &               &                     \\
+      \cline{2-5}
+      & Accy\% &  & & \\ \hline %\hline
+      %\multirow{3}{*}{AdaGrad w/margin}    & $\eta$&                                               &   &                                \\
+%      \cline{2-5}
+%      & $\gamma$ &  & &\\
+%      \cline{2-5}
+%      & Accy\% &  & & \\\hline
+    \end{tabular}
+    \end{table}
+    \end{center}
+
+\end{document}

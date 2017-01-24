@@ -1,0 +1,17 @@
+Here is a brief description of the contents of this directory
+
+- README: This file
+
+- src: This contains the java sources. It contains three files:
+   1. Id3.java: A modified version of Weka's Id3 code, which can be trained upto a limited depth.
+
+   2. FeatureGenerator.java: An example feature generator that generates features in the ARFF format.
+
+   3. WekaTester.java: An example that shows how the decision tree learner can be used
+
+- lib: This contains the weka.jar corresponding to Weka v3.6.3
+  
+- test.sh: A shell script that runs the feature generator and the decision tree trainer
+
+- Makefile: A makefile to compile the java code
+

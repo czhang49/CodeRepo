@@ -1,0 +1,12 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+00:0C:E6:9A:E3:C3, 2015-10-15 19:02:01, 2015-10-15 19:19:14,  1,  54, WEP , WEP, OPN, -57,      279,    77703,   0.  0.  0.  0,   9, cs461fa15, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+AC:29:3A:EB:14:04, 2015-10-15 19:15:35, 2015-10-15 19:15:35,  -1,        1, 00:0C:E6:9A:E3:C3,
+50:CC:F8:DA:F3:FA, 2015-10-15 19:07:15, 2015-10-15 19:19:14, -64,    79682, 00:0C:E6:9A:E3:C3,
+00:DB:DF:04:19:BF, 2015-10-15 19:07:25, 2015-10-15 19:19:14, -56,     1445, 00:0C:E6:9A:E3:C3,
+00:C0:CA:81:CB:B9, 2015-10-15 19:07:15, 2015-10-15 19:19:14, -54,     6631, 00:0C:E6:9A:E3:C3,
+00:C0:CA:81:CB:96, 2015-10-15 19:02:01, 2015-10-15 19:19:14,  -1,     3639, 00:0C:E6:9A:E3:C3,
+AC:29:3A:EB:74:D0, 2015-10-15 19:02:02, 2015-10-15 19:19:10,  -1,      700, 00:0C:E6:9A:E3:C3,
+

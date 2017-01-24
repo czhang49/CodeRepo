@@ -1,0 +1,76 @@
+\begin{thebibliography}{10}
+
+\bibitem{roth2009learning}
+Dan Roth and Rajhans Samdani.
+\newblock Learning multi-linear representations of distributions for efficient
+  inference.
+\newblock {\em Machine Learning}, 76(2-3):195--209, 2009.
+
+\bibitem{meila2001learning}
+Marina Meila and Michael~I Jordan.
+\newblock Learning with mixtures of trees.
+\newblock {\em The Journal of Machine Learning Research}, 1:1--48, 2001.
+
+\bibitem{jaeger2006learning}
+Manfred Jaeger, Jens~D Nielsen, and Tomi Silander.
+\newblock Learning probabilistic decision graphs.
+\newblock {\em International Journal of Approximate Reasoning}, 42(1):84--100,
+  2006.
+
+\bibitem{anderson1986machine}
+John~Robert Anderson, Ryszard~Stanis{\l}aw Michalski, Jaime~Guillermo
+  Carbonell, and Tom~Michael Mitchell.
+\newblock {\em Machine learning: An artificial intelligence approach},
+  volume~2.
+\newblock Morgan Kaufmann, 1986.
+
+\bibitem{dutton1997review}
+David~M Dutton and Gerard~V Conroy.
+\newblock A review of machine learning.
+\newblock {\em The Knowledge Engineering Review}, 12(04):341--367, 1997.
+
+\bibitem{lopez1998machine}
+Ramon Lopez~de Mantaras and Eva Armengol.
+\newblock Machine learning from examples: Inductive and lazy methods.
+\newblock {\em Data \& Knowledge Engineering}, 25(1):99--123, 1998.
+
+\bibitem{russell1995modern}
+Stuart Russell, Peter Norvig, and Artificial Intelligence.
+\newblock A modern approach.
+\newblock {\em Artificial Intelligence. Prentice-Hall, Egnlewood Cliffs}, 25,
+  1995.
+
+\bibitem{kotsiantis2007supervised}
+Sotiris~B Kotsiantis, ID~Zaharakis, and PE~Pintelas.
+\newblock Supervised machine learning: A review of classification techniques,
+  2007.
+
+\bibitem{michie1994machine}
+Donald Michie, David~J Spiegelhalter, and Charles~C Taylor.
+\newblock Machine learning, neural and statistical classification.
+\newblock 1994.
+
+\bibitem{dietterich1998approximate}
+Thomas~G Dietterich.
+\newblock Approximate statistical tests for comparing supervised classification
+  learning algorithms.
+\newblock {\em Neural computation}, 10(7):1895--1923, 1998.
+
+\bibitem{vilalta2002perspective}
+Ricardo Vilalta and Youssef Drissi.
+\newblock A perspective view and survey of meta-learning.
+\newblock {\em Artificial Intelligence Review}, 18(2):77--95, 2002.
+
+\bibitem{castillo1996goal}
+Enrique Castillo, Jos{\'e}~Manuel Guti{\'e}rrez, and Ali~S Hadi.
+\newblock Goal oriented symbolic propagation in bayesian networks.
+\newblock In {\em PROCEEDINGS OF THE NATIONAL CONFERENCE ON ARTIFICIAL
+  INTELLIGENCE}, pages 1263--1268. Citeseer, 1996.
+
+\bibitem{heckerman1995learning}
+David Heckerman, Dan Geiger, and David~M Chickering.
+\newblock Learning bayesian networks: The combination of knowledge and
+  statistical data.
+\newblock {\em Machine learning}, 20(3):197--243, 1995.
+
+\end{thebibliography}

@@ -1,0 +1,12 @@
+I keep getting blow-up error in matlab for the linprog. But I don't see what is the problem of my formulation. 
+For the linear program, I expand the equation to 
+Yi * W * Xi + Yi * Theta + Delta >=1 
+
+Such that my b=[ 1 1 1 1 1 ..... 1]  c=[0 0 0 0 0 ......0 0 1]
+A=[ X11*Y1, X12*Y1, X13*Y1, ...... X1n*Y1, Y1, 1 
+                                ......................
+       Xm1*Ym, Xm2*Ym, Xm3*Ym ...... Xmn*Ym, Ym, 1] 
+
+Xmn is the m-th training data and n-th coordinate value
+
+I can't see what the problem is , could anyone take a look?  Thanks ~~~~

@@ -1,0 +1,169 @@
+\input{cs446.tex}
+
+\usepackage{amsmath}
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+\topmargin -0.5in
+\textheight 9.0in
+
+\begin{document}
+
+\solution{Chen Zhang}{11/18/2014}{6}{Fall 2014}
+% Fill in the above, for example, as follows:
+% \solution{Joe Smith}{\today}{1}{Fall 2012}
+
+\pagestyle{myheadings}  % Leave this command alone
+
+\section{Problem 1}
+\subsection{Part A}
+The function $f_{TH(3,7)}$ can be stated as: \[\vec{w}^T=[\dfrac{1}{3},\dfrac{1}{3},\ldots \dfrac{1}{3}]_{(7\times 1)},\quad \theta=-1 \] 
+\begin{equation*}
+f_{TH(3,7)}= \left\{
+\begin{array}{cc}
+1, & \vec{w}^T \vec{x_i} + \theta \geq 0\\
+0, & \vec{w}^T \vec{x_i} + \theta < 0
+\end{array}
+\right. \label{eq:separable}
+\end{equation*}
+Obviously this is a linear function, thus $f_{TH(3,7)}$ has a linear decision surface over the 7 dimensional boolean cube. 
+
+\subsection{Part B}
+Since this function can be expressed as a linear function and $x_i$ and $f_{TH(3,7)}$ have only two values, the classifier could be expressed as 
+\begin{align*}
+& \theta=\log{\dfrac{P(v_j=1)}{P(v_j=0)}}+\sum_1^7\log\dfrac{1-p_i}{1-q_i} \\ 
+& w_i=\log\dfrac{p_i}{1-p_i}-\log\dfrac{q_i}{1-q_i}
+\end{align*}
+We can calculate that 
+\begin{align*}
+& P(v_j=0)={(\dfrac{1}{2})}^7+{(\dfrac{1}{2})}^7\times7+{(\dfrac{1}{2})}^7\times C_7^2=\dfrac{29}{128} \\
+& P(v_j=1)=1-P(v_j=0)=\dfrac{99}{128}\\
+& p_i=Pr(x_i=1|v=1)=\dfrac{Pr(xi=1,v=1)}{P(v=1)}=\dfrac{57}{99}\\
+& q_i=Pr(x_i=1|v=0)=\dfrac{Pr(xi=1,v=0)}{P(v=0)}=\dfrac{7}{29}
+\end{align*}
+Plug in the expression for $\theta$ and $w_i$, we have 
+\begin{align*}
+& \theta=7\times \log{\dfrac{\dfrac{42}{99}}{\dfrac{22}{29}}}+\log{\dfrac{\dfrac{99}{128}}{\dfrac{29}{128}}}=7\times (-0.8384)+1.77=-4.1 \\
+& w_i=\log\dfrac{p_i}{1-p_i}-\log\dfrac{q_i}{1-q_i}=\log\dfrac{\dfrac{57}{99}}{\dfrac{42}{99}}-\log\dfrac{\dfrac{7}{29}}{\dfrac{22}{29}}=0.44-(-1.652)=2.1
+\end{align*}
+
+\subsection{Part C}
+Suppose that we have a vector 
+\[\vec{X}=[1,\;1,\;0,\;0,\;0,\;0,\;0] \]
+Plug in the classifier we have 
+\[ \vec{w}^T \vec{x_i} + \theta =0.1>0 \]
+Thus based on the classifier, $f_{TH(\vec{X})}=1$. But obviously this is wrong. Thus the final hypothesis does not represent this function.
+
+\subsection{Part D}
+It's not satisfied. The Naive Bayes states that $(x_i|A)$ and $(x_j|A)$ are independent. Thus that 
+\[ Pr(x_i,x_j|v)=Pr(x_i|v)Pr(x_j|v) \]
+We know that 
+\begin{align*}
+& Pr(x_1=1,x_2=1|v=0) = {(\dfrac{1}{2})}^7=\dfrac{1}{128} \\
+& Pr(x_1=1|v=0)\times Pr(x_2=1|v=0)={(\dfrac{7}{29})}^2=\dfrac{49}{841}
+\end{align*}
+These two values are not equal. Thus we can see that the Naive Bayes assumption is not satisfied.
+
+\section{Problem 2}
+We need to solve \[argmax \quad Pr(D)=argmax\quad\prod Pr(D_i,y_i)\] Call $\eta=Pr(y_i=1)$, it follows 
+\[Pr(D)=\prod Pr(D_i,y_i)=\prod [\eta\dfrac{n!}{a_i!b_i!c_i!}\alpha_1^{a_i}\beta_1^{b_i}\gamma_1^{c_i}]^{y_i}[(1-\eta)\dfrac{n!}{a_i!b_i!c_i!}\alpha_0^{a_i}\beta_0^{b_i}\gamma_0^{c_i}]^{1-y_i}\]
+Taking the logrithmic, it follows 
+\begin{multline*}
+\log{Pr(D)} =\sum \log{Pr(D_i,y_i)} =\sum y_i[\log{\eta}+C+a_i\log{\alpha_1}+b_i\log{\beta_1}+c_i\log{\gamma_1}]+\\(1-y_i)[\log{(1-\eta)}+C'+a_i\log{\alpha_0}+b_i\log{\beta_0}+c_i\log{\gamma_0}]
+\end{multline*}
+Using Lagrange Multiplier to put in the constraints, we have 
+\begin{multline*}
+\log{Pr(D)} =\sum \log{Pr(D_i,y_i)} =\sum y_i[\log{\eta}+C+a_i\log{\alpha_1}+b_i\log{\beta_1}+c_i\log{\gamma_1}]+
+\\(1-y_i)[\log{(1-\eta)}+C'+a_i\log{\alpha_0}+b_i\log{\beta_0}+c_i\log{\gamma_0}]
+\\+\xi_1(\alpha_1+\beta_1+\gamma_1-1)+\xi_0(\alpha_0+\beta_0+\gamma_0-1)+\xi_2(a_i+b_i+c_i-n)
+\end{multline*}
+We take derivative with respect to $\alpha_1$, $\beta_1$,$\gamma_1$,$\alpha_0$, $\beta_0$,$\gamma_0$,$\xi_0$,$\xi_1$,$\xi_2$ and we get the following equation.
+\begin{align*}
+&\dfrac{d\log{Pr(D)}}{\alpha_1}=\dfrac{1}{\alpha_1}\sum y_ia_i+\xi_1=0\quad(1)\\
+&\dfrac{d\log{Pr(D)}}{\beta_1}=\dfrac{1}{\beta_1}\sum y_ib_i+\xi_1=0\quad(2)\\
+&\dfrac{d\log{Pr(D)}}{\gamma_1}=\dfrac{1}{\gamma_1}\sum y_ic_i+\xi_1=0\quad(3)\\
+&\dfrac{d\log{Pr(D)}}{\xi_1}=\alpha_1+\beta_1+\gamma_1-1=0\quad(4)\\
+&\dfrac{d\log{Pr(D)}}{\alpha_0}=\dfrac{1}{\alpha_0}\sum (1-y_i)a_i+\xi_1=0\quad(5)\\
+&\dfrac{d\log{Pr(D)}}{\beta_0}=\dfrac{1}{\beta_0}\sum (1-y_i)b_i+\xi_1=0\quad(6)\\
+&\dfrac{d\log{Pr(D)}}{\gamma_0}=\dfrac{1}{\gamma_0}\sum (1-y_i)c_i+\xi_1=0\quad(7)\\
+&\dfrac{d\log{Pr(D)}}{\xi_0}=\alpha_0+\beta_0+\gamma_0-1=0\quad (8)\\
+&\dfrac{d\log{Pr(D)}}{\xi_2}=a_i+b_i+c_i-n=0\quad (9)\\
+\end{align*}
+Using (1)(2)(3)(4), we have 
+\[ (\dfrac{\sum y_ib_i}{\sum y_ia_i}+\dfrac{\sum y_ic_i}{\sum y_ia_i}+\dfrac{\sum y_ia_i}{\sum y_ia_i})\alpha_1=1\]
+Using (9), we have
+\[ (\dfrac{\sum y_ib_i}{\sum y_ia_i}+\dfrac{\sum y_ic_i}{\sum y_ia_i}+\dfrac{\sum y_ia_i}{\sum y_ia_i})\alpha_1=\dfrac{\sum(a_i+b_i+c_i)y_i}{\sum y_ia_i}\alpha_1=\dfrac{n\sum y_i}{\sum y_ia_i}\alpha_1=1\]
+It leads to \[\alpha_1=\dfrac{\sum y_ia_i}{n\sum y_i} \]
+Using the same method, we have 
+\[ (\dfrac{\sum y_ib_i}{\sum y_ib_i}+\dfrac{\sum y_ic_i}{\sum y_ib_i}+\dfrac{\sum y_ia_i}{\sum y_ib_i})\beta_1=\dfrac{\sum(a_i+b_i+c_i)y_i}{\sum y_ib_i}\beta_1=\dfrac{n\sum y_i}{\sum y_ib_i}\beta_1=1\]
+and
+\[ (\dfrac{\sum y_ib_i}{\sum y_ic_i}+\dfrac{\sum y_ic_i}{\sum y_ic_i}+\dfrac{\sum y_ia_i}{\sum y_ic_i})\gamma_1=\dfrac{\sum(a_i+b_i+c_i)y_i}{\sum y_ic_i}\gamma_1=\dfrac{n\sum y_i}{\sum y_ic_i}\gamma_1=1\]
+For the result, we have
+\begin{align*}
+\beta_1=\dfrac{\sum y_ib_i}{n\sum y_i} \\
+\gamma_1=\dfrac{\sum y_ic_i}{n\sum y_i}
+\end{align*}
+Using (5)(6)(7)(8)(9), we could have
+\[(\dfrac{\sum (1-y_i)b_i}{\sum (1-y_i)a_i}+\dfrac{\sum (1-y_i)c_i}{\sum (1-y_i)a_i}+\dfrac{\sum (1-y_i)a_i}{\sum (1-y_i)a_i})\alpha_0=1\]
+Using (9), we have
+\[ (\dfrac{\sum (1-y_i)b_i}{\sum (1-y_i)a_i}+\dfrac{\sum (1-y_i)c_i}{\sum (1-y_i)a_i}+\dfrac{\sum (1-y_i)a_i}{\sum (1-y_i)a_i})\alpha_0=\dfrac{\sum(a_i+b_i+c_i)(1-y_i)}{\sum (1-y_i)a_i}\alpha_0=\dfrac{n\sum (1-y_i)}{\sum (1-y_i)a_i}\alpha_0=1\]
+It leads to \[\alpha_0=\dfrac{\sum (1-y_i)a_i}{n\sum (1-y_i)} \]
+
+Using the same method, we have 
+\[ (\dfrac{\sum (1-y_i)b_i}{\sum (1-y_i)b_i}+\dfrac{\sum (1-y_i)c_i}{\sum (1-y_i)b_i}+\dfrac{\sum (1-y_i)a_i}{\sum (1-y_i)b_i})\beta_0=\dfrac{\sum(a_i+b_i+c_i)(1-y_i)}{\sum (1-y_i)b_i}\beta_0=\dfrac{n\sum (1-y_i)}{\sum (1-y_i)b_i}\beta_0=1\]
+and
+\[ (\dfrac{\sum (1-y_i)b_i}{\sum (1-y_i)c_i}+\dfrac{\sum (1-y_i)c_i}{\sum (1-y_i)c_i}+\dfrac{\sum (1-y_i)a_i}{\sum (1-y_i)c_i})\gamma_0=\dfrac{\sum(a_i+b_i+c_i)(1-y_i)}{\sum (1-y_i)c_i}\gamma_0=\dfrac{n\sum (1-y_i)}{\sum (1-y_i)c_i}\gamma_0=1\]
+For the result, we have
+\begin{align*}
+\beta_0=\dfrac{\sum (1-y_i)b_i}{n\sum (1-y_i)} \\
+\gamma_0=\dfrac{\sum (1-y_i)c_i}{n\sum (1-y_i)}
+\end{align*}
+
+\section{Problem 3}
+\subsection{Part A}
+It's easy to see that $Pr(Y=A)=\dfrac{3}{7}$ and $Pr(Y=B)=\dfrac{4}{7}$. For the parameters, we need to solve\[ argmax\quad Pr(D)=argmax\quad\prod Pr(D_i)\] Using the Bayes rule, it becomes \[ argmax\quad\prod Pr(D_i)= argmax\quad \prod Pr(D_i|Y)Pr(Y)\] Plug in the values, we could have \[Pr(D)=C\times\exp[-3\lambda_1^A](\lambda_1^A)^6\exp[-3\lambda_2^A](\lambda_2^A)^{15}\exp[-4\lambda_1^B](\lambda_1^B)^{16}\exp[-4\lambda_2^B](\lambda_2^B)^{12}\]
+where $C=\dfrac{3}{7}\dfrac{4}{7}\dfrac{1}{0!4!2!3!8!4!6!3!2!5!2!5!1!4!}$. By taking derivatives and setting to zeros, it follows \[\dfrac{dPr(D)}{d\lambda_1^A}=\dfrac{dPr(D)}{d\lambda_2^A}=\dfrac{dPr(D)}{d\lambda_1^B}=\dfrac{dPr(D)}{d\lambda_2^B}=0\]
+Solving the equation, it leads to $\lambda_1^A=2,\lambda_2^A=5,\lambda_1^B=4,\lambda_2^B=3$.
+\begin{table}[!h]
+	\begin{center}
+		\begin{tabular}{|rp{1in}|rp{1in}|}
+			\hline
+			$\Pr(Y=A)=\dfrac{3}{7}$ & & $\Pr(Y=B)=\dfrac{4}{7}$ & \\ \hline
+			$\lambda^A_1=2$ & & $\lambda^B_1=4$ & \\ \hline
+			$\lambda^A_2=5$ & & $\lambda^B_2=3$ & \\ \hline
+		\end{tabular}
+		\caption{Parameters for Poisson na\"ive Bayes}
+		\label{tab:poissonNBparams}
+	\end{center}
+\end{table}
+\subsection{Part B}
+
+\begin{align*}
+\dfrac{Pr(X_1=2,X_2=3|Y=A)}{Pr(X_1=2,X_2=3|Y=B)}
+& =\dfrac{Pr(X_1=2|Y=A)Pr(X_2=3|Y=A)}{Pr(X_1=2|Y=B)Pr(X_2=3|Y=B)} \\
+&=\dfrac{\exp[-\lambda_1^A](\lambda_1^A)^2\exp[-\lambda_2^A](\lambda_2^A)^3}{\exp[-\lambda_1^B](\lambda_1^B)^2\exp[-\lambda_2^B](\lambda_2^B)^3}.
+\end{align*}
+By solving, we have
+\begin{align*}
+ \dfrac{Pr(X_1=2,X_2=3|Y=A)}{Pr(X_1=2,X_2=3|Y=B)}
+ &=\exp[-\lambda_1^A-\lambda_2^A+\lambda_1^B+\lambda_2^B](\dfrac{\lambda_1^A}{\lambda_1^B})^2(\dfrac{\lambda_2^A}{\lambda_2^B})^3\\
+ & =\dfrac{125}{108}
+\end{align*}
+
+\subsection{Part C}
+Using Naive Bayes, it could be stated as 
+\[argmax\quad Pr(X_1,X_2|Y)=argmax\quad Pr(X_1|Y)Pr(X_2|Y)\]
+Thus we can determine $Y=A$ if
+\[\dfrac{Pr(X_1,X_2|Y=A)Pr(Y=A)}{Pr(X_1,X_2|Y=B)Pr(Y=B)}=\dfrac{Pr(X_1|Y=A)Pr(X_2|Y=A)Pr(Y=A)}{Pr(X_1|Y=B)Pr(X_2|Y=B)Pr(Y=B)}>1\] Plugging in the values, we have $Y=A$ if \[\exp[-\lambda_1^A-\lambda_2^A+\lambda_1^B+\lambda_2^B](\dfrac{\lambda_1^A}{\lambda_1^B})^2(\dfrac{\lambda_2^A}{\lambda_2^B})^3\dfrac{3}{4}>1\] and $Y=B$ otherwise. 
+
+Plugging in the value of $X_1=3,X_2=3$, we have \[\exp[-\lambda_1^A-\lambda_2^A+\lambda_1^B+\lambda_2^B](\dfrac{\lambda_1^A}{\lambda_1^B})^2(\dfrac{\lambda_2^A}{\lambda_2^B})^3\dfrac{3}{4}=\dfrac{125}{144}<1\] Thus the label is $Y=B$. We could see the role of the prior played in this case.
+
+
+
+\section{Problem 4}
+We could calculate that the probability of having an H is $Pr(H)=p^2$ and the probability of having a T is $ Pr(T)=1-p^2 $. 
+
+Thus with the Bernoulli model, the probability of having TTHTHHTHTT is \[Pr=(1-p^2)^6p^8\]. The MLE can be calculated as \[\dfrac{dPr}{dp}=8(1-p^2)^6p^7-12(1-p^2)^5p^9=0\] The most likely value of $p$ can be solved as \[p=\dfrac{\sqrt{10}}{5}=0.632\]
+
+\end{document}
+
