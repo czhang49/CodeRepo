@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/sp16-cs431/!svn/ver/239/czhang49/lab09/lab10
+END
+performance.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/sp16-cs431/!svn/ver/239/czhang49/lab09/lab10/performance.c
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/sp16-cs431/!svn/ver/239/czhang49/lab09/lab10/main.c
+END
+performance.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/sp16-cs431/!svn/ver/239/czhang49/lab09/lab10/performance.h
+END
+lcd.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/sp16-cs431/!svn/ver/239/czhang49/lab09/lab10/lcd.h
+END
+led.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/sp16-cs431/!svn/ver/239/czhang49/lab09/lab10/led.h
+END
+types.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/sp16-cs431/!svn/ver/239/czhang49/lab09/lab10/types.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/sp16-cs431/!svn/ver/239/czhang49/lab09/lab10/Makefile
+END

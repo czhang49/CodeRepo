@@ -1,0 +1,199 @@
+Monad Autograder
+Testing lab_allocate at 2014-07-06 18:06:55
+
+"It may look like I'm doing nothing, but I'm actively waiting for my problems to go away." ~ Scott Adams
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+test_constructor (asan) [5 pts]  - FAILED: Memory errors detected by ASAN
+test_allocate (asan)  . [5 pts]  - FAILED: Memory errors detected by ASAN
+test_printrooms (asan)  [20 pts] - FAILED: Memory errors detected by ASAN
+test_any_output . . . . [30 pts] - passed
+test_correct_output . . [40 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 70
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+test_constructor (run under asan) [5 points]
+Result: FAILED: Memory errors detected by ASAN
+Took unknown time (10000ms timeout)
+Output:
+----------------------------------------------------------------
+Running test_constructor [worth 5 points, output below]
+=================================================================
+==16296==ERROR: AddressSanitizer: alloc-dealloc-mismatch (operator new [] vs operator delete) on 0x611000009280
+    #0 0x456abe in operator delete(void*) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:83
+    #1 0x4ab8b7 in operator delete(void*, unsigned long) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x4ab8b7)
+    #2 0x6a5c35 in Room::clear() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6a5c35)
+    #3 0x6a5981 in Room::~Room() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6a5981)
+    #4 0x66bcde in Allocator::clear() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x66bcde)
+    #5 0x66ba61 in Allocator::~Allocator() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x66ba61)
+    #6 0x654560 in proxy_test::test_constructor(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x654560)
+    #7 0x4b7ebb in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x4b7ebb)
+    #8 0x49b459 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x49b459)
+    #9 0x48a4cb in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x48a4cb)
+    #10 0x484205 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x484205)
+    #11 0x47c3f8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47c3f8)
+    #12 0x47b471 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47b471)
+    #13 0x47706c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47706c)
+    #14 0x474c8a in main (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x474c8a)
+    #15 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+    #16 0x46c1c8 in _start (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x46c1c8)
+
+0x611000009280 is located 0 bytes inside of 208-byte region [0x611000009280,0x611000009350)
+allocated by thread T0 here:
+    #0 0x45687e in operator new[](unsigned long) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:54
+    #1 0x6a16f4 in Room::Room(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6a16f4)
+    #2 0x6ad8d9 in fileio::(anonymous namespace)::parse_room(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6ad8d9)
+    #3 0x6ad2b0 in fileio::room_list::next() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6ad2b0)
+    #4 0x66a660 in Allocator::loadRooms(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x66a660)
+    #5 0x6687dc in Allocator::Allocator(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6687dc)
+    #6 0x6544d9 in proxy_test::test_constructor(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6544d9)
+    #7 0x4b7ebb in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x4b7ebb)
+    #8 0x49b459 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x49b459)
+    #9 0x48a4cb in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x48a4cb)
+    #10 0x484205 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x484205)
+    #11 0x47c3f8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47c3f8)
+    #12 0x47b471 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47b471)
+    #13 0x47706c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47706c)
+    #14 0x474c8a in main (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x474c8a)
+    #15 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+
+SUMMARY: AddressSanitizer: alloc-dealloc-mismatch /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:83 operator delete(void*)
+==16296==HINT: if you don't care about these warnings you may set ASAN_OPTIONS=alloc_dealloc_mismatch=0
+==16296==ABORTING
+Result: FAILED:
+Memory Errors Detected by ASAN
+
+----------------------------------------------------------------
+test_allocate (run under asan) [5 points]
+Result: FAILED: Memory errors detected by ASAN
+Took unknown time (10000ms timeout)
+Output:
+----------------------------------------------------------------
+Running test_allocate [worth 5 points, output below]
+=================================================================
+==16301==ERROR: AddressSanitizer: alloc-dealloc-mismatch (operator new [] vs operator delete) on 0x611000009280
+    #0 0x456abe in operator delete(void*) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:83
+    #1 0x4ab8b7 in operator delete(void*, unsigned long) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x4ab8b7)
+    #2 0x6a5c35 in Room::clear() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6a5c35)
+    #3 0x6a5981 in Room::~Room() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6a5981)
+    #4 0x66bcde in Allocator::clear() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x66bcde)
+    #5 0x66ba61 in Allocator::~Allocator() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x66ba61)
+    #6 0x6550a3 in proxy_test::test_allocate(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6550a3)
+    #7 0x4b7ebb in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x4b7ebb)
+    #8 0x49b459 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x49b459)
+    #9 0x48a4cb in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x48a4cb)
+    #10 0x484205 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x484205)
+    #11 0x47c3f8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47c3f8)
+    #12 0x47b471 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47b471)
+    #13 0x47706c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47706c)
+    #14 0x474c8a in main (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x474c8a)
+    #15 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+    #16 0x46c1c8 in _start (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x46c1c8)
+
+0x611000009280 is located 0 bytes inside of 208-byte region [0x611000009280,0x611000009350)
+allocated by thread T0 here:
+    #0 0x45687e in operator new[](unsigned long) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:54
+    #1 0x6a16f4 in Room::Room(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6a16f4)
+    #2 0x6ad8d9 in fileio::(anonymous namespace)::parse_room(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6ad8d9)
+    #3 0x6ad2b0 in fileio::room_list::next() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6ad2b0)
+    #4 0x66a660 in Allocator::loadRooms(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x66a660)
+    #5 0x6687dc in Allocator::Allocator(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6687dc)
+    #6 0x655009 in proxy_test::test_allocate(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x655009)
+    #7 0x4b7ebb in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x4b7ebb)
+    #8 0x49b459 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x49b459)
+    #9 0x48a4cb in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x48a4cb)
+    #10 0x484205 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x484205)
+    #11 0x47c3f8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47c3f8)
+    #12 0x47b471 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47b471)
+    #13 0x47706c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47706c)
+    #14 0x474c8a in main (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x474c8a)
+    #15 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+
+SUMMARY: AddressSanitizer: alloc-dealloc-mismatch /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:83 operator delete(void*)
+==16301==HINT: if you don't care about these warnings you may set ASAN_OPTIONS=alloc_dealloc_mismatch=0
+==16301==ABORTING
+Result: FAILED:
+Memory Errors Detected by ASAN
+
+----------------------------------------------------------------
+test_printrooms (run under asan) [20 points]
+Result: FAILED: Memory errors detected by ASAN
+Took unknown time (10000ms timeout)
+Output:
+----------------------------------------------------------------
+Running test_printrooms [worth 20 points, output below]
+Room Allocation (237/248)
+MEB 153 (31/32): W F
+MEB 218 (30/31): L H
+MEB 243 (29/30): S P Q
+MEB 335 (28/30): K R U V
+Siebel 1105 (24/24): G A X
+Siebel 1109 (23/24): M J I
+Siebel 1302 (20/21): Z N O
+Siebel 1304 (19/21): B D E
+BUR 140 (33/35): C Y T
+=================================================================
+==16308==ERROR: AddressSanitizer: alloc-dealloc-mismatch (operator new [] vs operator delete) on 0x611000009280
+    #0 0x456abe in operator delete(void*) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:83
+    #1 0x4ab8b7 in operator delete(void*, unsigned long) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x4ab8b7)
+    #2 0x6a5c35 in Room::clear() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6a5c35)
+    #3 0x6a5981 in Room::~Room() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6a5981)
+    #4 0x66bcde in Allocator::clear() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x66bcde)
+    #5 0x66ba61 in Allocator::~Allocator() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x66ba61)
+    #6 0x655cb5 in proxy_test::test_printrooms(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x655cb5)
+    #7 0x4b7ebb in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x4b7ebb)
+    #8 0x49b459 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x49b459)
+    #9 0x48a4cb in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x48a4cb)
+    #10 0x484205 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x484205)
+    #11 0x47c3f8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47c3f8)
+    #12 0x47b471 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47b471)
+    #13 0x47706c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47706c)
+    #14 0x474c8a in main (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x474c8a)
+    #15 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+    #16 0x46c1c8 in _start (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x46c1c8)
+
+0x611000009280 is located 0 bytes inside of 208-byte region [0x611000009280,0x611000009350)
+allocated by thread T0 here:
+    #0 0x45687e in operator new[](unsigned long) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:54
+    #1 0x6a16f4 in Room::Room(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6a16f4)
+    #2 0x6ad8d9 in fileio::(anonymous namespace)::parse_room(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6ad8d9)
+    #3 0x6ad2b0 in fileio::room_list::next() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6ad2b0)
+    #4 0x66a660 in Allocator::loadRooms(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x66a660)
+    #5 0x6687dc in Allocator::Allocator(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x6687dc)
+    #6 0x655c09 in proxy_test::test_printrooms(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x655c09)
+    #7 0x4b7ebb in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x4b7ebb)
+    #8 0x49b459 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x49b459)
+    #9 0x48a4cb in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x48a4cb)
+    #10 0x484205 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x484205)
+    #11 0x47c3f8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47c3f8)
+    #12 0x47b471 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47b471)
+    #13 0x47706c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x47706c)
+    #14 0x474c8a in main (/dev/shm/geigle1/su14/monad/lab_allocate_grade/proxy-asan+0x474c8a)
+    #15 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+
+SUMMARY: AddressSanitizer: alloc-dealloc-mismatch /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:83 operator delete(void*)
+==16308==HINT: if you don't care about these warnings you may set ASAN_OPTIONS=alloc_dealloc_mismatch=0
+==16308==ABORTING
+Result: FAILED:
+Memory Errors Detected by ASAN
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 70
+

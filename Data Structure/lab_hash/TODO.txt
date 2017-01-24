@@ -1,0 +1,6 @@
+1. update the testing classes to use the following template:
+       template <template <class K, class V> class HT>
+   to allow for templatized hashtables (like AnagramFinder<SCHashTable>).
+
+2. document the iterator setups, but don't document the classes themselves
+   (so they do not appear in students' doxygen)

@@ -1,0 +1,5 @@
+1. /tmp/jenkins.jpg on VM
+2. http://fa15-cs427-175.cs.illinois.edu:8080/newJob
+3. java -jar jenkins.war —httpPort=9000 &
+4. /home/czhang49/jenkins/plugins
+5. test-output.txt in SVN

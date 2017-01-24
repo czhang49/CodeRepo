@@ -1,0 +1,22 @@
+Monad Autograder
+Testing lab_trees at 2014-07-10 23:19:42
+
+"Computer Science is no more about computers than astronomy is about telescopes." ~ E. Dijkstra
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+test_isOrdered  . [25 pts] - passed
+test_mirror . . . [25 pts] - passed
+test_printPaths . [25 pts] - passed
+test_sumDistances [25 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 100
+

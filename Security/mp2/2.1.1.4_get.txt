@@ -1,0 +1,4 @@
+Below are two {name: value} parameter pairs for a GET request form.
+
+{netid: czhang49}
+{val_get: 1c4c0e267178bfe0c64da1e6a181c0f6501480204110b2561534620ce56d4dea}

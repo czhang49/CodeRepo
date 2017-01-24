@@ -1,0 +1,76 @@
+Monad Autograder
+Testing mp_list at 2014-07-08 00:56:03
+
+"Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live. Code for readability." ~ John Woods
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+test_push_front . . . . . . . . . . [2 pts]  - passed
+test_push_back  . . . . . . . . . . [2 pts]  - passed
+test_dtor_10 (asan) . . . . . . . . [3 pts]  - passed
+test_dtor_37 (asan) . . . . . . . . [3 pts]  - passed
+test_reverse_20_size  . . . . . . . [1 pts]  - passed
+test_reverse_20_forward . . . . . . [1 pts]  - passed
+test_reverse_20_backward  . . . . . [1 pts]  - passed
+test_reverse_37_size  . . . . . . . [1 pts]  - passed
+test_reverse_37_forward . . . . . . [1 pts]  - passed
+test_reverse_37_backward  . . . . . [1 pts]  - passed
+test_reverse_empty (asan) . . . . . [1 pts]  - passed
+test_reverse_20_memory (asan) . . . [1 pts]  - passed
+test_reverse_nth_20_2_size  . . . . [1 pts]  - passed
+test_reverse_nth_20_2_forward . . . [1 pts]  - passed
+test_reverse_nth_20_2_backward  . . [1 pts]  - passed
+test_reverse_nth_37_4_size  . . . . [1 pts]  - passed
+test_reverse_nth_37_4_forward . . . [1 pts]  - passed
+test_reverse_nth_37_4_backward  . . [1 pts]  - passed
+test_reverse_nth_37_37  . . . . . . [1 pts]  - passed
+test_reverse_nth_37_4_memory (asan) [1 pts]  - passed
+test_reverse_nth_empty (asan) . . . [1 pts]  - passed
+test_waterfall_4_size . . . . . . . [1 pts]  - passed
+test_waterfall_4_forward  . . . . . [1 pts]  - passed
+test_waterfall_4_backward . . . . . [2 pts]  - passed
+test_waterfall_7_size . . . . . . . [1 pts]  - passed
+test_waterfall_7_forward  . . . . . [1 pts]  - passed
+test_waterfall_7_backward . . . . . [2 pts]  - passed
+testWaterfall12_size  . . . . . . . [1 pts]  - passed
+testWaterfall12_forward . . . . . . [1 pts]  - passed
+testWaterfall12_backward  . . . . . [2 pts]  - passed
+test_waterfall_7_memory (asan)  . . [3 pts]  - passed
+test_waterfall_empty (asan) . . . . [3 pts]  - passed
+test_split_5_this_size  . . . . . . [1 pts]  - passed
+test_split_5_this_forward . . . . . [1 pts]  - passed
+test_split_5_this_backward  . . . . [1 pts]  - passed
+test_split_5_split_size . . . . . . [1 pts]  - passed
+test_split_5_split_forward  . . . . [1 pts]  - passed
+test_split_5_split_backward . . . . [1 pts]  - passed
+test_split_5_mem (asan) . . . . . . [3 pts]  - passed
+test_merge_size . . . . . . . . . . [1 pts]  - passed
+test_merge_forward  . . . . . . . . [1 pts]  - passed
+test_merge_backward . . . . . . . . [1 pts]  - passed
+test_merge_mem (asan) . . . . . . . [3 pts]  - passed
+test_sort_16p_s . . . . . . . . . . [1 pts]  - passed
+test_sort_16p_f . . . . . . . . . . [2 pts]  - passed
+test_sort_16p_b . . . . . . . . . . [2 pts]  - passed
+test_sort_20p_s . . . . . . . . . . [1 pts]  - passed
+test_sort_20p_f . . . . . . . . . . [2 pts]  - passed
+test_sort_20p_b . . . . . . . . . . [2 pts]  - passed
+test_sort_27p_s . . . . . . . . . . [1 pts]  - passed
+test_sort_27p_f . . . . . . . . . . [2 pts]  - passed
+test_sort_27p_b . . . . . . . . . . [2 pts]  - passed
+test_sort_empty . . . . . . . . . . [5 pts]  - passed
+test_sort_259p_s  . . . . . . . . . [1 pts]  - passed
+test_sort_259p_f  . . . . . . . . . [2 pts]  - passed
+test_sort_259p_b  . . . . . . . . . [2 pts]  - passed
+test_sort_memory (asan) . . . . . . [5 pts]  - passed
+test_sort_nlogn . . . . . . . . . . [10 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 100
+

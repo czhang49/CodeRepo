@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" ng-app="eventApp">
+<head>
+    <meta charset="UTF-8">
+    <title>EventPage</title>
+
+    <script src="./lib/jquery-2.1.3.min/index.js"></script>
+    <script src="./foundation/js/vendor/modernizr.js"></script>
+    <script src="./foundation/js/foundation.min.js"></script>
+
+    <script src="./js/photoswipe.js"></script>
+    <script src="./js/photoswipe-ui-default.js"></script>
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <script src="./lib/angular/angular.js"></script>
+    <script src="./lib/angular-route/angular-route.js"></script>
+    <script src="./js/ngAutocomplete.js"></script>
+    <script src="./lib/angular-mass-autocomplete/massautocomplete.js"></script>
+    <script src="./lib/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+    <script src="./lib/ng-file-upload/ng-file-upload-shim.js"></script>
+    <script src="./lib/ng-file-upload/ng-file-upload.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.js"></script>
+
+    <script src="./js/event/app.js"></script>
+    <script src="./js/dataService.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/event/script.js"></script>
+
+    <link rel="stylesheet" href="./css/event.css">
+    <link rel="stylesheet" href="./foundation/css/foundation.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/angular-mass-autocomplete/massautocomplete.theme.css"/>
+    <link rel="stylesheet" href="./lib/angularjs-datepicker/src/css/angular-datepicker.css"/>
+    <link rel="stylesheet" href="./css/photoswipe.css"/>
+    <link rel="stylesheet" href="./css/default-skin.css"/>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body ng-controller="event">
+<div id="fb-root"></div>
+
+<div class="fixed" ng-controller="nav">
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name">
+                <h1><a href="#">ShareThePik</a></h1>
+            </li>
+            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li ><a ng-href="/user.html?id={{me._id}}">HomePage</a></li>
+                <li ><a ng-href="/setting.html?id={{me._id}}">Setting</a></li>
+                <li ><a ng-click="logout()">Logout</a></li>
+            </ul>
+        </section>
+    </nav>
+</div>
+
+<section class="row" id="titleSec">
+    <div class="columns small-8 noPadding">
+        <img ng-src="{{logo.src}}" id="eventProfile"/>
+        <div id="eventTitle">
+            <h4><a href="#">{{event.name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a ng-show="canEdit" data-reveal-id="eventEditModal"><i class="fa fa-pencil-square-o"></i></a></h4>
+            <div id="author">Created by <a ng-href="/user.html?id={{creater._id}}">{{creater.name}}</a> on {{event.date.toLocaleDateString()}} | <b>{{peopleCount}}</b> People | <b>{{photos.length}}</b> Photos</div>
+        </div>
+        <div class="blank"></div>
+    </div>
+    <div class="columns small-4 text-right">
+
+    </div>
+</section>
+
+<section class="row" id="detailSec">
+    <div class="columns small-12 large-6" id="leftColumn">
+        <div class="row">
+            <div class="columns small-12 large-12" id="eventDescription">
+                {{event.description}}
+            </div>
+            <div class="columns small-11 large-11 left" id="map-canvas"></div>
+        </div>
+    </div>
+    <div class="columns small-12 large-6" id="rightColumn">
+        <div id="people">
+            <ul class="example-orbit-content" data-orbit>
+                <li ng-repeat="group in list_user_id">
+                    <ul class="small-block-grid-5 slide">
+                        <li ng-repeat="user in group">
+                            <a ng-href="/user.html?id={{user._id}}">
+                                <img ng-src="{{user.profileUrl}}"/>
+                            </a>
+                            <div class="deleteIcon">
+                                <img src="./css/images/deleteIcon.png" ng-click="removeUser(user._id)"/>
+                            </div>
+                        </li>
+                        <li ng-show="canEdit"><a><img src="./css/images/plus.png" data-reveal-id="addUserModal"/></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row" id="pics">
+            <div id="imgs">
+                <a ng-repeat = "img in photos">
+                    <img ng-src="{{img.src}}" ng-click="showImage($index)"/>
+                    <div class="deleteIcon">
+                        <img src="./css/images/deleteIcon.png" ng-click="deleteImage($index)"/>
+                    </div>
+                </a>
+
+                <a id="uploadButton" ngf-select ngf-multiple="true" ng-model="files" ng-show="canEdit" accept="image/*"><img src="./css/images/plus.png"/></a>
+            </div>
+            <div>Want to delete images or remove user? Press 'Alt' or 'Option' key</div>
+
+            <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+                <!-- Background of PhotoSwipe.
+                     It's a separate element as animating opacity is faster than rgba(). -->
+                <div class="pswp__bg"></div>
+                <!-- Slides wrapper with overflow:hidden. -->
+                <div class="pswp__scroll-wrap">
+                    <!-- Container that holds slides.
+                        PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                        Don't modify these 3 pswp__item elements, data is added later on. -->
+                    <div class="pswp__container">
+                        <div class="pswp__item"></div>
+                        <div class="pswp__item"></div>
+                        <div class="pswp__item"></div>
+                    </div>
+                    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+                    <div class="pswp__ui pswp__ui--hidden">
+                        <div class="pswp__top-bar">
+                            <!--  Controls are self-explanatory. Order can be changed. -->
+                            <div class="pswp__counter"></div>
+                            <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                            <button class="pswp__button pswp__button--share" title="Share"></button>
+                            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                            <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                            <!-- element will get class pswp__preloader--active when preloader is running -->
+                            <div class="pswp__preloader">
+                                <div class="pswp__preloader__icn">
+                                    <div class="pswp__preloader__cut">
+                                        <div class="pswp__preloader__donut"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                            <div class="pswp__share-tooltip"></div>
+                        </div>
+                        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                        </button>
+                        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                        </button>
+                        <div class="pswp__caption">
+                            <div class="pswp__caption__center"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<div id="uploadModal" class="reveal-modal small" data-reveal aria-hidden="true" role="dialog">
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="addUserModal" class="reveal-modal medium" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <h2>Update the event info...</h2>
+    <div class="row collapse">
+        <div class="small-3 large-2 columns">
+            <span class="prefix">User's Name:</span>
+        </div>
+        <div class="small-9 large-10 columns">
+            <div mass-autocomplete id="acContainer">
+                <input type="text" placeholder="Who were in this event..." ng-model="addUserData.value" mass-autocomplete-item="ac_option_delimited">
+            </div>
+        </div>
+    </div>
+
+    <ul class="button-group even-2 columns small-12 medium-5 right" style="padding-right:0px;">
+        <li><a class="button tiny alert" ng-click="addUser()">Add User</a></li>
+        <li><a class="button tiny alert" ng-click="cancelAddUser()">Cancel</a></li>
+    </ul>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="eventEditModal" class="reveal-modal medium" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <h2>Update the event info...</h2>
+    <div class="row collapse">
+        <div class="small-3 large-2 columns">
+            <span class="prefix">Name:</span>
+        </div>
+        <div class="small-9 large-10 columns">
+            <input type="text" ng-model="editEvent.name">
+        </div>
+    </div>
+    <div class="row collapse">
+        <div class="small-3 large-2 columns">
+            <span class="prefix">Location:</span>
+        </div>
+        <div class="small-9 large-10 columns">
+            <input type="text" ng-autocomplete options="options" details="details" ng-model="editEvent.location">
+        </div>
+    </div>
+    <div class="row collapse">
+        <div class="small-3 large-2 columns">
+            <span class="prefix">Date:</span>
+        </div>
+        <div class="small-9 large-10 columns">
+            <input type="text" ng-model="editEvent.start_date">
+        </div>
+    </div>
+    Description:
+    <textarea type="text" ng-model="editEvent.description"></textarea>
+    <ul class="button-group even-2 columns small-12 medium-5 right" style="padding-right:0px;">
+        <li><a class="button tiny alert" ng-click="updateEvent()">Update</a></li>
+        <li><a class="button tiny alert" ng-click="cancelUpdate()">Cancel</a></li>
+    </ul>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

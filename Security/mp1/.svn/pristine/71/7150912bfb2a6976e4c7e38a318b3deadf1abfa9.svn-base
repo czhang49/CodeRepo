@@ -1,0 +1,27 @@
+czhang49 total : 0/50
+Testing md5_length_extension	0/15	
+
+*Failed*
+
+Student answer : 
+Correct answer : token=a03494a7b314a05e37f053c08f06c688&user=admin&command1=ListFiles&command2=NoOp%80%00%00%00%00%98%01%00%00%00%00%00%00&command3=DeleteAllFiles
+
+
+Testing break_rsa	0/20	
+
+*Failed*
+
+Student answer : -1
+Correct answer : 25654000002565400000256540000025654000002565400000256540000025654000002565400000256540000025654000002565400000256540000025654000002565400000256540000025654000002565400000256540000025654000002565400000
+
+
+Testing md5_goodevil_collision	0/15	
+
+*Failed*
+
+MD5 of good.py, evil.py: d41d8cd98f00b204e9800998ecf8427e, d41d8cd98f00b204e9800998ecf8427e
+
+Output of good.py: 
+Output of evil.py:
+
+

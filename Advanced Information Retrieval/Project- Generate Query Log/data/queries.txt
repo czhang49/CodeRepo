@@ -1,0 +1,5 @@
+data integration for semi-structured data
+network comparison for evolving network over time
+finding shortest path between nodes in very large graphs
+named entity resolution for hierarchical entities
+big data applications in health care

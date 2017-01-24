@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" ng-app='loginApp'>
+<head>
+    <meta charset="UTF-8">
+    <title>SHARE THE PIK</title>
+    <script src="./lib/angular/angular.js"></script>
+    <script src="./lib/angular-route/angular-route.min.js"></script>
+
+    <script src="./lib/jquery-2.1.3.min/index.js"></script>
+    <script src="./foundation/js/foundation.min.js"></script>
+    <script src="./foundation/js/vendor/modernizr.js"></script>
+    <script src="./js/auth/app.js"></script>
+    <script src="./js/dataService.js"></script>
+    <script src="./js/utils.js"></script>
+
+    <link rel="stylesheet" href="./foundation/css/foundation.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body ng-controller="login">
+
+<section class="row">
+    <div class="columns small-12 text-center" id="title">SHARE THE PIK</div>
+</section>
+<section class="row" id="login">
+    <div class="columns small-12 medium-6 large-4 medium-push-3 large-push-4">
+        <input type="text" placeholder="Email" ng-model="email"  autocomplete="off"/>
+        <input type="password" placeholder="Password" ng-model="password" autocomplete="off"/>
+        <ul class="button-group even-2 columns small-12" style="padding:0;">
+            <li><a class="button radius small alert" ng-click="signin()">Login</a></li>
+            <li><a class="button radius small alert" ng-click="showSignUp()">Sign up</a></li>
+        </ul>
+        <div class="row" style="text-align: center; padding-top: 40px;">
+            <a class="button radius small alert" ng-click="aboutus()">About Us</a>
+        </div>
+
+    </div>
+</section>
+
+<div id="signup" class="reveal-modal small" data-reveal aria-labelledby="Sign Up" aria-hidden="true" role="dialog">
+    <div class="row">
+        <div class="columns small-12 text-center">
+            <h3>SIGN UP NOW!</h3>
+        </div>
+        <div class="columns small-12" id="form">
+            <label><b>Username:</b>
+                <input type="text" placeholder="Username" ng-model="signup.userName"/>
+            </label>
+            <label><b>Email:</b>
+                <input type="email" placeholder="Email Address" ng-model="signup.email"/>
+            </label>
+            <label><b>Password:</b>
+                <input type="password" placeholder="Password" ng-model="signup.password"/>
+            </label>
+            <label><b>Repeat Password:</b>
+                <input type="password" placeholder="Repeat your password" ng-model="pwdRepeat"/>
+            </label>
+            <a class="button radius alert expand" ng-click="signup()">Submit</a>
+        </div>
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="aboutUs" class="reveal-modal small" data-reveal aria-labelledby="Sign Up" aria-hidden="true" role="dialog">
+    <div class="row" style="margin-top: 40px;">
+        <div class="columns small-12 text-center">
+            ShareThePik allows users to create events, invite other users to those events where everyone has the ownership of the event and can upload and share pictures to that event. ShareThePik is focused on providing a platform for event based image sharing where multiple users assume the ownership of the uploaded event specific images.
+            <br/><br/>
+            By: <br/>
+            Xiupeng Ma (xma33) <br />
+            Abhishek Harish (harish2) <br/>
+            Chen Zhang (czhang49) <br />
+            Kathryn Garbacz (kgarbac2)
+        </div>
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

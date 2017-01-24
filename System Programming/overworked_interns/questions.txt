@@ -1,0 +1,65 @@
+Overworked Interns
+CS 241 Fall 2015
+-------------------------------------------------------------------------------------
+
+Define
+    Deadlock
+        Response Here: No action.
+    Livelock
+        Response Here: action but no progress
+    Starvation
+        Response Here: some people keep doing stuff, some people just wait
+
+What are the Coffman conditions? Define/describe them.
+1)	mutual exclusion	
+2)	circular wait
+3)	hold and wait
+4)	pre-emption
+
+For each Coffman condition, describe one way to break only that condition
+and no others in the COMPANY AND INTERN SCENARIO (Label what condition you are breaking).
+1)	two companies can share an intern
+2)	require that number of interns is larger than number of companies
+3)	a company can grab the two interns at the same time
+4)	some companies has a higher priority on grabbing interns over other companies.
+
+For each of the following scenarios answer:
+    Is this
+        deadlock
+        livelock
+        starvation
+        some of the above
+        none of the above
+    Explain
+
+    Scenario 1: You are walking down the street and someone is getting in your way.
+    You move in one direction to get out of their way, but they move in the same direction.
+    You then switch, but they do the same. This repeats till the end of time.
+        Response Here: livelock
+
+    Scenario 2: You are a 241 TA eager to answer questions on piazza, but Jake Bailey gets to all of them first.
+        Response Here: starvation
+
+    Scenario 3: You tell your friend that you will write the latex for the 374 homework once he solves it.
+    Your friend says that they will solve the problems as soon as you write the latex.
+        Response Here:deadlock
+
+Please run the simulation in the following ways and answer the respective questions:
+
+    Experiment 1: Run the bad solution with 5 companies and 5 interns
+        What happens?
+            Response Here: The program stucks
+        Why?
+            Response Here: deadlock
+
+    Experiment 2: Run the bad solution with 5 companies and 15 interns. Notice that it no longer deadlocks.
+        Why is this (which of the Coffman Condition(s) did we break)?
+            Response Here: Circular wait is broken.
+        For N companies what is the minimum number of interns do you need to break the same condition(s)?
+            Response Here: number of companies +1
+
+    Experiment 3: Run the bad solution with 2 companies and 2 interns, then 20 companies and 20 interns several times each.
+        Which deadlocks faster?
+            Response Here: 2 companies and 2 interns	
+        Why is that?
+            Response Here: diff thread may be created at diff time, not exactly in the order of creation. So it could happen some threads actually get running, but due to the nature of the problem, deadlock will occur. 

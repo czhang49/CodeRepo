@@ -1,0 +1,94 @@
+% ---------
+%  Compile with "pdflatex hw0".
+% --------
+%!TEX TS-program = pdflatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt]{article}
+\usepackage{jeffe,handout,graphicx}
+\usepackage[utf8]{inputenc}		% Allow some non-ASCII Unicode in source
+\usepackage{amsmath}
+%  Redefine suits
+\usepackage{pifont}
+\def\Spade{\text{\ding{171}}}
+\def\Heart{\text{\textcolor{Red}{\ding{170}}}}
+\def\Diamond{\text{\textcolor{Red}{\ding{169}}}}
+\def\Club{\text{\ding{168}}}
+
+% =========================================================
+%   Define common stuff for solution headers
+% =========================================================
+\Class{New CS 473}
+\Semester{Spring 2015}
+%\Section{}
+
+% =========================================================
+\begin{document}
+
+% ---------------------------------------------------------
+% Change authors for all future solutions
+\AuthorOne{Arash Khatibi}{khatibi2}
+\AuthorTwo{Liang Tao}{ltao3}
+\AuthorThree{Chen Zhang}{czhang49}
+\HomeworkHeader{6}{2}
+
+Define the following variables:
+
+\noindent L :  The L-th item in the stream.\newline
+\noindent n : The total number of items in the stream, which is unknown.\newline
+\noindent Pr(L): The probability that the L-th item is returned as the sample.
+
+\section{Part A}
+
+\noindent For an item numbered L (the L-th item), the possibility to pick up this item is $\dfrac{1}{L}$ and the possibility that this item is not picked up (line is not executed) is $\dfrac{L-1}{L}$. This is true because for the L-th item, we are randomly choosing a number from 1 to L, and if the result is 1, the line is executed, otherwise not. So if an item is returned as the sample, it means that  line is executed at this item and after this item, the line is not executed until the algorithm ends. \newline
+\noindent Therefore, the probability that the first item is returned as the sample is 
+\begin{align*}
+Pr(1)
+&=1\times\dfrac{1}{2}\times\dfrac{2}{3}\times\dfrac{3}{4}\ldots\times\dfrac{n-2}{n-1}\times\dfrac{n-1}{n}\\
+&=\dfrac{1}{n}
+\end{align*}
+Similarly, the probability that the L-th item will be returned as the sample is 
+\begin{align*}
+Pr(L)
+&=\dfrac{1}{L}\times\dfrac{L}{L+1}\times\dfrac{L+1}{L+2}\ldots\times\dfrac{n-2}{n-1}\times\dfrac{n-1}{n}\\
+&=\dfrac{1}{n}
+\end{align*}
+This proves that the item returned by GETONESAMPLE(S) is chosen randomly from S.
+
+
+\section{Part B}
+Define the following function:\newline
+\noindent F(L) : $F(L)=1$ if at item L, line is executed. $F(L)=0$ if at item L, line is not executed.
+
+\noindent Therefore, the expected number of line executions can be defined as $E[F(1)+F(2)+F(3)+\ldots+F(n)]$. Since the $F(L)$ function is independent of each other, the following equation holds true:
+\begin{align*}
+E[F(1)+F(2)+F(3)+\ldots+F(n-1)+F(n)]
+&= E[F(1)]+E[F(2)]+E[F(3)]+\ldots+E[F(n-1)]+E[F(n)] \\
+&= 1+\dfrac{1}{2}+\dfrac{1}{3}+\ldots+\dfrac{1}{n-1}+\dfrac{1}{n}
+\end{align*}
+Thus the expected number of line executions is the harmonic function. 
+
+
+\section{Part C}
+At item L, if the line is executed for the last time, it means that the L-th item is returned as the sample of the stream S. Since in Part A, we proved that the probability of each item returned as the sample is $\dfrac{1}{n}$, the expected value of $L$ can be calculated as:
+\begin{align*}
+E[L]
+&=1\times\dfrac{1}{n}+2\times\dfrac{1}{n}+3\times\dfrac{1}{n}+\ldots+(n-1)\times\dfrac{1}{n}+n\times\dfrac{1}{n}\\
+&=\dfrac{1}{n}\times(1+2+3+\ldots+(n-1)+(n))\\
+&=\dfrac{n+1}{2}
+\end{align*}
+
+\section{Part D}
+Because we know that at item 1, line is executed. So when the line is executed for the second time at another item L, it means that the first situation is that from item 1 to  L-1, line is not executed and at item L, line is executed. The second situation is that line is only executed at item 1 and not executed until algorithm ends. Therefore the expected value of L can be calculated from:
+\begin{align*}
+E[L]=
+&(2\times\dfrac{1}{2})+(3\times\dfrac{1}{2}\times\dfrac{1}{3})+(4\times\dfrac{1}{2}\times\dfrac{2}{3}\times\dfrac{1}{4})+\ldots+(n\times\dfrac{1}{2}\times\dfrac{2}{3}\times\ldots\times\dfrac{n-2}{n-1}\times\dfrac{1}{n})\\
+& +(n\times\dfrac{1}{2}\times\dfrac{2}{3}\times\ldots\times\dfrac{n-2}{n-1}\times\dfrac{n-1}{n})
+\end{align*}
+The last part of the equation corresponds to the case that the algorithm ends before line is executed for the second time. The rest of the elements in the equations corresponds to the line is executed for the second time before the algorithm ends.\newline
+\noindent Rearrange the equation we have the following result:
+\[
+E[L]=1+\sum\limits_{L=2}^{L=n-1}\dfrac{1}{L-1}
+\]
+
+\end{document}

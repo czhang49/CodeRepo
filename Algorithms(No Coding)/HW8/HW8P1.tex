@@ -1,0 +1,55 @@
+% ---------
+%  Compile with "pdflatex hw0".
+% --------
+%!TEX TS-program = pdflatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt]{article}
+\usepackage{jeffe,handout,graphicx}
+\usepackage[utf8]{inputenc}		% Allow some non-ASCII Unicode in source
+\usepackage{amsmath}
+%  Redefine suits
+\usepackage{pifont}
+\def\Spade{\text{\ding{171}}}
+\def\Heart{\text{\textcolor{Red}{\ding{170}}}}
+\def\Diamond{\text{\textcolor{Red}{\ding{169}}}}
+\def\Club{\text{\ding{168}}}
+
+% =========================================================
+%   Define common stuff for solution headers
+% =========================================================
+\Class{New CS 473}
+\Semester{Spring 2015}
+%\Section{}
+
+% =========================================================
+\begin{document}
+
+% ---------------------------------------------------------
+% Change authors for all future solutions
+\AuthorOne{Arash Khatibi}{khatibi2}
+\AuthorTwo{Liang Tao}{ltao3}
+\AuthorThree{Chen Zhang}{czhang49}
+\HomeworkHeader{8}{1}
+
+\section{Part A}
+\noindent The idea is that, if a flow is a maximum flow, then in the residual graph of that flow, there is no path that we could push forward along from source to target to increase the flow.\newline
+\noindent Given a function $f(e)$, we first need to check that it is a valid capacity function by checking:
+\begin{align*}
+& f(e) \geq 0 \\
+& f(e)\leq c(e)
+\end{align*}
+This would take time $O(E)$, which is linear time. \newline
+\noindent Then we need to compute the residual graph from the given flow function $f(e)$, which also takes linear time $O(E)$.  Now that we have the residual graph, we can use Depth-First Search or Breadth-First-Search to try to find a path that we could push forward along from the source to the target. If there exists such a path, then the flow $f(e)$ we are given is not a maximum flow, and if there does not exit such a path, then the flow $f(e)$ we are given is a maximum flow. This DFS or BFS algorithm takes $O(E)$ time as well.\newline
+\noindent In total , the algorithm to verify if a given flow is a maximum flow takes $O(E)+O(E)+O(E)$ time, which is $O(E)$ linear time. 
+
+\section{Part B}
+The idea is to first prove that if a maximum flow is not a unique maximum flow, then in the corresponding residual graph, there is at least one cycle in the graph, and the cycle has at least one node whose edge has non-zeros value in the flow $f(e)$. Also, if in a residual graph, there is a cycle with at least one node whose edge has non-zeros value in the flow $f(e)$, then the corresponding maximum flow is not unique. With this, we can analyze if a flow $f(e)$ is a unique maximum flow by looking at if there is a cycle in its residual graph with at least one node whose edge has non-zero value in the $f(e)$ .\newline
+\noindent If in a residual graph, there is a cycle, with at least one node that has edges with non-zero flow, we can push forward in that cycle, such that the flow value is not changed since it is a cycle and the flow is conserved, but when we add the augmenting path to the original flow, the flow path is changed while maintaining the magnitude of the flow. This means that the maximum flow we are given is not unique maximum flow. 
+\noindent  On the other hand, if a maximum flow we are given is not unique, then there is another flow that will give us the same magnitude. This means that we can subtract the current flow from the target and push it using another path to the target with the same magnitude. Now that in the residual graph there is a path from the target to the source and from the source to the target, there exist this cycle from the source to the target. This proves that if a maximum flow is not a unique maximum flow, then in the corresponding residual graph, there is at least one cycle in the graph, and the cycle has at least one node whose edge has non-zeros value in the flow $f(e)$.
+
+
+\noindent With the above logic, given a flow $f(e)$, first we need to use the algorithm described in Part A to analyze if it is a maximum flow in $O(E)$ time. Then we need to compute the residual graph in $O(E)$ time and then analyze if there is a cycle in the residual graph with at least one node whose edge has non-zero value in the $f(e)$ flow, and this part takes $O(VE)$ time. 
+
+
+\end{document}

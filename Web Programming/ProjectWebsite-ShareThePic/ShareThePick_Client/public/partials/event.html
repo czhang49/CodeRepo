@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User HomePage</title>
+    <script src="./lib/angular/angular.js"></script>
+    <script src="./lib/angular-route/angular-route.min.js"></script>
+
+    <script src="./lib/jquery-2.1.3.min/index.js"></script>
+    <script src="./foundation/js/foundation.min.js"></script>
+    <script src="./js/event/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_IqDjU8UG2LfvIwh9PYauFzpAtRqt6W8"></script>
+
+    <link rel="stylesheet" href="./foundation/css/foundation.css">
+    <link rel="stylesheet" href="./css/event.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+<div id="fb-root"></div>
+
+<div class="fixed">
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name">
+                <h1><a href="#">My Site</a></h1>
+            </li>
+            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li class="active"><a href="#">Right Button Active</a></li>
+                <li class="has-dropdown">
+                    <a href="#">Right Button Dropdown</a>
+                    <ul class="dropdown">
+                        <li><a href="#">First link in dropdown</a></li>
+                        <li class="active"><a href="#">Active link in dropdown</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Left Nav Section -->
+            <ul class="left">
+                <li><a href="#">Left Nav Button</a></li>
+            </ul>
+        </section>
+    </nav>
+</div>
+
+<section class="row" id="titleSec">
+    <div class="columns small-8 noPadding">
+        <img src="./css/images/eventPic2.jpg" id="userProfile"/>
+        <div id="eventTitle">
+            <h4><a href="#">CS498 Prototype Presentation</a></h4>
+            <div id="author">Created by <a href="#">Xiupeng Ma</a> on 04/22/2015 | <b>10</b> People | <b>20</b> Photos</div>
+        </div>
+        <div class="blank"></div>
+    </div>
+    <div class="columns small-4 text-right">
+        G F
+    </div>
+</section>
+
+<section class="row" id="detailSec">
+    <div class="columns small-12" id="leftColumn">
+        <div class="row">
+            <div class="columns small-12 large-6" id="eventDescription">
+                Description to the event.Description to the event.Description to the event.Description to the event.Description to the event.
+            </div>
+            <div class="columns small-12 large-6" id="map-canvas">
+        </div>
+
+
+        </div>
+    </div>
+    <div class="columns small-12" id="rightColumn">
+        <div id="people">
+            <ul class="example-orbit-content" data-orbit>
+                <li>
+                    <ul class="small-block-grid-11 slide">
+                        <li><img src="./css/images/profile.jpeg"/></li>
+                        <li><img src="./css/images/profile1.jpeg"/></li>
+                        <li><img src="./css/images/profile2.jpeg"/></li>
+                        <li><img src="./css/images/profile3.jpeg"/></li>
+                        <li><img src="./css/images/profile4.jpeg"/></li>
+                        <li><img src="./css/images/profile5.jpeg"/></li>
+                        <li><img src="./css/images/profile6.jpeg"/></li>
+                        <li><img src="./css/images/plus.png"/></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="small-block-grid-11 slide">
+                        <li><img src="./css/images/profile.jpeg"/></li>
+                        <li><img src="./css/images/profile1.jpeg"/></li>
+                        <li><img src="./css/images/profile2.jpeg"/></li>
+                        <li><img src="./css/images/profile3.jpeg"/></li>
+                        <li><img src="./css/images/profile4.jpeg"/></li>
+                        <li><img src="./css/images/profile5.jpeg"/></li>
+                        <li><img src="./css/images/profile6.jpeg"/></li>
+                        <li><img src="./css/images/plus.png"/></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="small-block-grid-11 slide">
+                        <li><img src="./css/images/profile.jpeg"/></li>
+                        <li><img src="./css/images/profile1.jpeg"/></li>
+                        <li><img src="./css/images/profile2.jpeg"/></li>
+                        <li><img src="./css/images/profile3.jpeg"/></li>
+                        <li><img src="./css/images/profile4.jpeg"/></li>
+                        <li><img src="./css/images/profile5.jpeg"/></li>
+                        <li><img src="./css/images/profile6.jpeg"/></li>
+                        <li><img src="./css/images/plus.png"/></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+        <div class="row" id="pics">
+            <div id="imgs">
+                <a data-reveal-id="imageModal" data-orbit-link="image1" ><img src="./css/images/eventPic1.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image2" ><img src="./css/images/eventPic2.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image3" ><img src="./css/images/eventPic3.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image4"><img src="./css/images/eventPic4.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image5"><img src="./css/images/eventPic5.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image6"><img src="./css/images/eventPic6.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image7"><img src="./css/images/eventPic7.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image8"><img src="./css/images/eventPic8.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image9"><img src="./css/images/eventPic9.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image10"><img src="./css/images/eventPic10.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image11"><img src="./css/images/eventPic11.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image12"><img src="./css/images/eventPic12.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image13"><img src="./css/images/eventPic13.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image14"><img src="./css/images/eventPic14.jpeg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image15"><img src="./css/images/eventPic15.jpg"/></a>
+                <a data-reveal-id="imageModal" data-orbit-link="image16"><img src="./css/images/eventPic16.jpg"/></a>
+
+
+                <a data-reveal-id="upload" id="uploadButton" ><img src="./css/images/plus.png"/></a>
+            </div>
+            <div class="pagination-centered" id="pages">
+                <ul class="pagination" role="menubar" aria-label="Pagination">
+                    <li class="arrow unavailable" aria-disabled="true"><a href="">&laquo; Previous</a></li>
+                    <li class="current"><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li class="unavailable" aria-disabled="true"><a href="">&hellip;</a></li>
+                    <li><a href="">12</a></li>
+                    <li><a href="">13</a></li>
+                    <li class="arrow"><a href="">Next &raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="upload" class="reveal-modal small" data-reveal aria-labelledby="Sign Up" aria-hidden="true" role="dialog">
+    <div class="progress success">
+        <span class="meter" id="file1" style="width:0%">File Name 1</span>
+    </div>
+    <div class="progress success">
+        <span class="meter" id="file2" style="width:0%">File Name 2</span>
+    </div>
+    <div class="progress success">
+        <span class="meter" id="file3" style="width:0%">File Name 3</span>
+    </div>
+    <div class="progress success">
+        <span class="meter" id="file4" style="width:0%">File Name 4</span>
+    </div>
+    <div class="progress success">
+        <span class="meter" id="file5" style="width:0%">File Name 5</span>
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="imageModal" class="reveal-modal large" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+   <div id = "images"> 
+        <ul data-orbit>
+            <li data-orbit-slide = "image1">
+                <div class = "imageContent">
+                    <img src="./css/images/eventPic1.jpg" alt="slide 1" />
+                    <div class = "row imageInfo">
+                        <div class ="small-1 columns">
+                            <img src="./css/images/profile.jpeg"/>
+                        </div> 
+                        <div class ="small-11 columns">   
+                            <h4>Xiupeng Ma</h4>
+                            <h>Uploaded on 4/22/2015</h></br>
+                            <i class="fa fa-heart">20</i>
+                            <i class="fa fa-comment">10</i>
+                        </div>    
+                    </div> 
+                     <p>Description of the Image</p> 
+                    
+                    <div class = "comments"> 
+                        <div class = "commentbox">
+                            <div class="comment clearfix">
+                                <img src="./css/images/profile2.jpeg"/>
+                                <div class="comment-content">
+                                    <p>Comment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "commentbox">
+                            <div class="comment clearfix">
+                                <img src="./css/images/profile2.jpeg"/>
+                                <div class="comment-content">
+                                    <p>Comment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "commentbox">
+                            <div class="comment clearfix">
+                                <img src="./css/images/profile2.jpeg"/>
+                                <div class="comment-content">
+                                    <p>Comment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "commentbox">
+                            <div class="comment clearfix">
+                                <img src="./css/images/profile2.jpeg"/>
+                                <div class="comment-content">
+                                    <p>Comment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "commentbox">
+                            <div class="comment clearfix">
+                                <img src="./css/images/profile2.jpeg"/>
+                                <div class="comment-content">
+                                    <p>Comment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </li>
+            <li data-orbit-slide = "image2">
+                <div class = "imageContent">
+                    <img src="./css/images/eventPic1.jpg" alt="slide 1" />
+                    <div class = "row imageInfo">
+                        <div class ="small-1 columns">
+                            <img src="./css/images/profile.jpeg"/>
+                        </div> 
+                        <div class ="small-11 columns">   
+                            <h4>Xiupeng Ma</h4>
+                            <h>Uploaded on 4/22/2015</h></br>
+                            <i class="fa fa-heart">20</i>
+                            <i class="fa fa-comment">10</i>
+                        </div>    
+                    </div> 
+                     <p>Description of the Image</p> 
+                    <div class = "comments"> 
+                        <div class = "commentbox">
+                            <div class="comment clearfix">
+                                <img src="./css/images/profile2.jpeg"/>
+                                <div class="comment-content">
+                                    <p>Comment</p>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class = "commentbox">
+                            <div class="comment clearfix">
+                                <img src="./css/images/profile2.jpeg"/>
+                                    <div class="comment-content">
+                                        <p>Comment</p>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class = "commentbox">
+                            <div class="comment clearfix">
+                                <img src="./css/images/profile2.jpeg"/>
+                                <div class="comment-content">
+                                    <p>Comment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "commentbox">
+                            <div class="comment clearfix">
+                                <img src="./css/images/profile2.jpeg"/>
+                                <div class="comment-content">
+                                    <p>Comment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "commentbox">
+                            <div class="comment clearfix">
+                                <img src="./css/images/profile2.jpeg"/>
+                                <div class="comment-content">
+                                    <p>Comment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </li>
+            <li data-orbit-slide = "image3">
+                <img src="./css/images/eventPic3.jpg" alt="slide 3" />
+            </li>
+            <li data-orbit-slide = "image4">
+                <img src="./css/images/eventPic4.jpg" alt="slide 4" />
+            </li>
+            <li data-orbit-slide = "image5">
+                <img src="./css/images/eventPic5.jpg" alt="slide 5" />
+            </li>
+            <li data-orbit-slide = "image6">
+                <img src="./css/images/eventPic6.jpg" alt="slide 6" />
+            </li>
+            <li data-orbit-slide = "image7">
+                <img src="./css/images/eventPic7.jpg" alt="slide 7" />
+            </li>
+            <li data-orbit-slide = "image8">
+                <img src="./css/images/eventPic8.jpg" alt="slide 8" />
+            </li>
+            <li data-orbit-slide = "image9">
+                <img src="./css/images/eventPic9.jpg" alt="slide 9" />
+            </li>
+            <li data-orbit-slide = "image10">
+                <img src="./css/images/eventPic10.jpg" alt="slide 10" />
+            </li>
+            <li data-orbit-slide = "image11">
+                <img src="./css/images/eventPic11.jpg" alt="slide 11" />
+            </li>
+            <li data-orbit-slide = "image12">
+                <img src="./css/images/eventPic12.jpg" alt="slide 12" />
+            </li>
+            <li data-orbit-slide = "image13">
+                <img src="./css/images/eventPic13.jpg" alt="slide 13" />
+            </li>
+            <li data-orbit-slide = "image14">
+                <img src="./css/images/eventPic14.jpeg" alt="slide 14" />
+            </li>
+            <li data-orbit-slide = "image15">
+                <img src="./css/images/eventPic15.jpg" alt="slide 15" />
+            </li>
+            <li data-orbit-slide = "image16">
+                <img src="./css/images/eventPic16.jpg" alt="slide 16" />
+            </li>
+        </ul>                
+        <a class="close-reveal-modal">&#215;</a>
+    </div>    
+<script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

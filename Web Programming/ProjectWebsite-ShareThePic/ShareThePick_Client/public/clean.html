@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" name="table"/>
+<a>CLEAN</a>
+<script src="./lib/jquery-2.1.3.min/index.js"></script>
+<script>
+    $(document).ready(function(){
+
+        $('a').click(function(){
+            var table = $('input').val();
+            $.get('http://127.0.0.1:4000/' + table, function(data){
+                console.log(data);
+                data.data.forEach(function(val){
+                    console.log(val);
+                    $.ajax('http://127.0.0.1:4000/' + table + "/" + val._id, {method:"DELETE"},function(val){
+                        console.log(val);
+                    });
+                });
+            });
+        });
+
+    });
+</script>
+</body>
+</html>

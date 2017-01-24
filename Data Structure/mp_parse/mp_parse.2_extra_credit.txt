@@ -1,0 +1,99 @@
+Monad Autograder
+Testing mp_parse.2 at 2014-07-11 23:24:37
+
+"You look at their elbows, they actually have many good theoretical elbows." ~ Prof. Jiawei Han
+
+Setting up test environment...
+Compiling...
+================================================================
+In file included from unit_tests.cpp:452:
+In file included from include/stack.h:10:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+include/stack.h:20:7: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+class stack
+      ^
+1 error generated.
+In file included from unit_tests.cpp:452:
+In file included from include/stack.h:10:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+include/stack.h:20:7: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+class stack
+      ^
+1 error generated.
+In file included from unit_tests.cpp:452:
+In file included from include/stack.h:10:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+include/queue.h:20:7: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+class queue
+      ^
+1 error generated.
+In file included from unit_tests.cpp:452:
+In file included from include/stack.h:10:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+include/stack.h:20:7: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+class stack
+      ^
+1 error generated.
+In file included from unit_tests.cpp:452:
+In file included from include/stack.h:10:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+include/stack.h:20:7: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+class stack
+      ^
+1 error generated.
+In file included from unit_tests.cpp:452:
+In file included from include/stack.h:10:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+include/queue.h:20:7: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+class queue
+      ^
+1 error generated.
+
+
+Running tests...
+================================================================
+ast_terminal  . . . . . . . . [4 pts]  - passed
+ast_unary_minus . . . . . . . [5 pts]  - passed
+ast_unary_plus  . . . . . . . [2 pts]  - passed
+ast_divide  . . . . . . . . . [5 pts]  - passed
+ast_exponent  . . . . . . . . [5 pts]  - passed
+ast_binary_minus  . . . . . . [5 pts]  - passed
+ast_binary_plus . . . . . . . [5 pts]  - passed
+ast_times . . . . . . . . . . [5 pts]  - passed
+ast_complex (asan)  . . . . . [10 pts] - passed
+queue_push_amortized_constant [10 pts] - passed
+queue_push_move . . . . . . . [3 pts]  - passed
+queue_front_const . . . . . . [2 pts]  - passed
+queue_push_and_pop  . . . . . [5 pts]  - passed
+queue_push_front  . . . . . . [2 pts]  - passed
+queue_empty . . . . . . . . . [2 pts]  - passed
+stack_push_amortized_constant [10 pts] - passed
+stack_push_move . . . . . . . [3 pts]  - passed
+stack_top_const . . . . . . . [2 pts]  - passed
+stack_push_and_pop  . . . . . [5 pts]  - passed
+stack_push_top  . . . . . . . [2 pts]  - passed
+stack_empty . . . . . . . . . [2 pts]  - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 94
+

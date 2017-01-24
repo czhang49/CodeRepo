@@ -1,0 +1,41 @@
+czhang49 total : 0/35
+Testing python_exercise	0/5	ValueError running code:['Traceback (most recent call last):', '  File "/Users/serifx/fa15-cs461/_class/_private/mp1_autograder/mp1/grade_1.1.2.py", line 25, in <module>', '    if(int(data) == integer_answer):', "ValueError: invalid literal for int() with base 10: ''", '']
+
+Testing substitution_cipher	0/5	
+
+*Failed*
+
+student's submission : 
+expected plaintext   : THESELARGEGREENBANANARELATIVESAREUSUALLYAVAILABLEINHISPANICMARKETSASPLATANOS
+
+
+Testing decrypt_aes	0/5	
+
+*Failed*
+
+student's submission : 
+expected plaintext   : BORNMARGARETHOOKHAMSHEWASNAMEDDAMECOMMANDEROFTHEORDEROFTHEBRITISHEMPIREIN1956
+
+
+Testing weak_aes	0/5	ValueError running code:['Traceback (most recent call last):', '  File "/Users/serifx/fa15-cs461/_class/_private/mp1_autograder/mp1/grade_1.2.3.py", line 35, in <module>', '    if(data == weak_aes_key_hex or int(data,16) == int(weak_aes_key_hex,16)):', "ValueError: invalid literal for int() with base 16: ''", '']
+
+Testing decrypt_rsa	0/5	
+
+*Failed*
+
+student's submission : -1
+expected plaintext   : 3041
+
+
+Testing avalanche_effect	0/5	ValueError running code:['Traceback (most recent call last):', '  File "/Users/serifx/fa15-cs461/_class/_private/mp1_autograder/mp1/grade_1.3.1.py", line 44, in <module>', '    if(int(data, 16) == count ):', "ValueError: invalid literal for int() with base 16: ''", '']
+
+Testing weak_hashing_algorithm	0/5	
+
+*Failed*
+
+Given Plaintext: AT A 2007 CEREMONY AT THE NATIONAL CONSTITUTIONAL CENTER BONO RECEIVED THIS US CITYS LIBERTY MEDAL
+Expected hash  : 699204265
+Student's text : 
+Student's hash : 0
+
+

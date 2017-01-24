@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Group-Id: org.jenkins-ci.plugins
+Short-Name: test-results-analyzer
+Long-Name: Test Results Analyzer Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Test+Results+Analyzer+
+ Plugin
+Plugin-Version: 0.2.2-SNAPSHOT (private-12/08/2015 20:52-chenzhang)
+Hudson-Version: 1.594
+Jenkins-Version: 1.594
+Plugin-Dependencies: junit:1.2-beta-4
+Plugin-Developers: Varun Menon:menonvarun:mr.varun.menon@gmail.com
+Libraries: /Users/chenzhang/Documents/Courses/CS427/Banana/test-result
+ s-analyzer-plugin/trunk/target/classes
+Resource-Path: /Users/chenzhang/Documents/Courses/CS427/Banana/test-re
+ sults-analyzer-plugin/trunk/src/main/webapp
+

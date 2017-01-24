@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Jasmine Spec Runner</title>
+  <script type="text/javascript">
+    window.onerror = function(msg,url,line) {
+      if (document.head) {
+        var jserror = document.head.getAttribute('jmp_jserror') || '';
+        if (jserror) {
+          jserror += ':!:';
+        }
+        jserror += msg;
+        document.head.setAttribute('jmp_jserror',jserror);
+      }
+    };
+  </script>
+  <link rel="stylesheet" type="text/css" href="/webjars/jasmine/jasmine.css"/>
+  <script type="text/javascript" src="/webjars/jasmine/jasmine.js"></script>
+  <script type="text/javascript" src="/webjars/jasmine/jasmine-html.js"></script>
+  <script type="text/javascript" src="/classpath/lib/boot.js"></script>
+
+  <script type="text/javascript">
+    window.onload = jasmine.boot;
+  </script>
+  <script type="text/javascript" src="/src/main/webapp/jquery/js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="src/handlebars-v2.0.0.js"></script>
+  <script type="text/javascript" src="src/chart-generator.js"></script>
+  <script type="text/javascript" src="src/differentresults.js"></script>
+  <script type="text/javascript" src="src/highcharts.js"></script>
+  <script type="text/javascript" src="src/selectdiffresults.js"></script>
+  <script type="text/javascript" src="src/test-result-analyzer-template.js"></script>
+  <script type="text/javascript" src="src/testcodes.js"></script>
+  <script type="text/javascript" src="src/testresult.js"></script>
+  <script type="text/javascript" src="spec/CheckBoxSelectBuildsSpec.js"></script>
+  <script type="text/javascript" src="spec/CreateURLSpec.js"></script>
+  <script type="text/javascript" src="spec/DiffResultsSpec.js"></script>
+  <script type="text/javascript" src="spec/SelectDiffResultsSpec.js"></script>
+  <script type="text/javascript" src="spec/TestCodeSpec.js"></script>
+
+</head>
+<body>
+  <script type="text/javascript">
+    if(window.location.href.indexOf("ManualSpecRunner.html") !== -1) {
+      document.body.appendChild(document.createTextNode("Warning: Opening this HTML file directly from the file system is deprecated. You should instead try running `mvn jasmine:bdd` from the command line, and then visit `http://localhost:8234` in your browser. "))
+    }
+  </script>
+</body>
+</html>

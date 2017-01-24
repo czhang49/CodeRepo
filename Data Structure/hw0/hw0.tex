@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage{fancyhdr}
+
+\pagestyle{fancyplain}
+\begin{document}
+\lhead{hw0}
+\rhead{CS 225 Summer 2014}
+
+\thispagestyle{empty}
+
+\begin{center}
+\LARGE
+\textbf{CS 225 Summer 2014 Homework 0}\\
+\Large Due June 18, 2014, 3:00pm in lecture (and on SVN)
+\end{center}
+
+\bigskip
+\hrule
+\begin{quote}
+The purpose of this assignment is to give you a chance to refresh the math
+skills we expect you to have learned in prior classes.  These particular skills
+will be essential to mastery of CS 225, and we are unlikely to take much class
+time reminding you how to solve similar problems.
+
+Though you are not required to work independently on this assignment, we
+encourage you to do so because we think it may help you diagnose and remedy some
+things you might otherwise find difficult later on in the course.
+\end{quote}
+\hrule
+\bigskip
+
+{\Large
+    \vspace{1in}
+
+    \textbf{Display your name, netid, and section time (11am, 1pm, or 5pm)
+    on the front page of your submission.}
+
+    \vspace{1in}
+
+    \textbf{Your hw0 MUST be typewritten and submitted as a PDF file
+    (hw0.pdf)!} You will also hand in a physical, printed copy in lecture.
+}
+
+\newpage
+
+\textbf{Submission Instructions}\\
+
+To checkout your code, run the command
+
+\begin{verbatim}
+svn co https://subversion.ews.illinois.edu/svn/su14-cs225/NETID/hw0/
+\end{verbatim}
+
+This will download two hw0 files: hw0-handout.pdf (this file) and hw0.tex (an
+optional \LaTeX template). Create your answers electronically (via Word,
+\LaTeX, etc), and produce a PDF file as output. \textbf{\emph{Make sure your
+file is called hw0.pdf and the writeup is called writeup.txt}}. When you are
+ready to submit, run the following commands:
+
+\begin{verbatim}
+svn add hw0.pdf
+svn add writeup.txt
+svn ci -m "submitting hw0"
+\end{verbatim}
+
+You should verify your submission by going to the checkout link in your browser
+and making sure the file can be downloaded. You will also bring a printed,
+physical copy to lecture on the due date. If you have any further
+questions, feel free to ask on Piazza. The questions begin on the next
+page.
+
+\newpage
+
+\begin{enumerate}
+
+    \item (4 points) Write a few paragraphs (minimum 300 words) in a file called writeup.txt and commit
+    it to your hw0 directory as mentioned in the Instructions. Answer the
+    following prompts:
+
+\begin{enumerate}
+    \item Tell me what interests you about computer science, and why you are
+        fascinated by that particular thing.
+    \item Tell me what you hope to do with your particular skills in computer
+        science (\emph{e.g.} graphics, databases, natural language processing,
+        security)
+\end{enumerate}
+
+\item (4 points) Post a short synopsis of your favorite
+    movie to the course piazza space under the ``HW0 tell me something!''
+    notice, so that your post is visible to everyone in the class, and tagged by
+    \#movie. Also, mention someplace interesting you have traveled in a
+    private post to course staff, also with the tag \#travel. Finally, please
+    record the two post numbers corresponding to your posts.
+
+\begin{enumerate}
+    \item Favorite Movie Post (Public) number:
+    \item Summer Travel Post (Private)  number:
+\end{enumerate}
+
+\item (18 points) Simplify the following expressions as much as possible, Do not
+    approximate. Express all rational numbers as improper fractions.
+    \textbf{Show your work.}
+
+\begin{enumerate}
+
+\item $\prod_{k=2}^n (1-\frac{1}{k^2})$
+
+\item $3^{1000} \bmod 7$
+
+\item $\sum_{r=1}^\infty(\frac{1}{2})^r$
+
+\item $\frac{\log_7 81}{\log_7 9}$
+
+\item $\log_2 4^{2n}$
+
+\item $\log_{17} 221 - \log_{17} 13$
+
+\end{enumerate}
+
+\item (15 points) Find the formula for $1+$ $\displaystyle\sum_{j=1}^n j!j $, and
+    show work proving the formula is correct using induction.
+
+\item (12 points) Indicate for each of the following pairs of expressions
+    $(f(n),g(n))$, whether $f(n)$ is  $O, \Omega,$ or $\Theta$ of $g(n)$.  Prove
+    your answers to the first two items, but just GIVE an answer to the last
+    two.
+
+\begin{enumerate}
+
+\item $f(n)=4^{\log_{4} n}$ and $g(n)=2n+1$
+
+\item $f(n)= n^2$ and $g(n)=(\sqrt{2})^{\log_2 n}$
+
+\item $f(n) =\log_2 n!$ and $g(n) =n \log_2 n$
+
+\item $f(n) = n^k$ and $g( n)=c^n$ where $k,c$ are constants and $c$ is $>$1
+
+\end{enumerate}
+
+\newpage
+
+\item (15 points) Solve the following recurrence relations for integer $n$. If no
+    solution exists, please explain the result.
+
+\begin{enumerate}
+
+\item $T(n)=T(\frac{n}{2}) + 5$, $T(1) = 1$, assume $n$ is a power of 2.
+
+\item $T(n)= T(n-1) + \frac{1}{n}$, $T(0) = 0$.
+
+\item Prove that your answer to part (a) is correct using induction.
+
+\end{enumerate}
+
+\item (16 points) Suppose function call parameter passing costs constant time,
+    independent of the size of the structure being passed.
+
+\begin{enumerate}
+
+\item Give a recurrence for worst case running time of the recursive Binary
+    Search function in terms of $n$, the size of the search array. Assume $n$ is
+    a power of 2. Solve the recurrence, explicitly noting the recurrence
+    formlua, base case, and recurrence solution.
+
+\item Give a recurrence for worst case running time of the recursive Merge Sort
+    function in terms of $n$, the size of the array being sorted. Solve the
+    recurrence, explicitly noting the recurrence formlua, base case, and
+    recurrence solution.
+
+\end{enumerate}
+
+\item (16 points) Consider the pseudocode function below.
+
+\begin{verbatim}
+darp( x, n )
+     if( n == 0 )
+         return 1;
+     if( n % 2 == 0 )
+         return darp( x * x, n/2 );
+     return x * darp( x * x, (n - 1) / 2);
+\end{verbatim}
+
+\begin{enumerate}
+
+\item What is the output when passed the following parameters: $x=2$, $n=12$.
+    Show your work (activation diagram or similar).
+
+\item Briefly describe what this function is doing.
+
+\item Write a recurrence that models the running time of this function.  Assume
+    checks, returns, and arithmetic are constant time, but be sure to evaluate
+    all function calls. [Hint: what is the \emph{most} $n$ could be at each
+    level of the recurrence?]
+
+\item Solve the above recurrence for the running time of this function.
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

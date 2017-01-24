@@ -1,0 +1,30 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+1. In the same test report that jenkins has, display a link to the newly passed or newly failed tests.
+   Task 1: To retrieve the history of all the tests. This one may already exit in the test results analyzer.
+   Task 2: Find the newly passed and newly failed results and display in the same page as jekins display test results. 
+
+2. the user can click on some tests, and go to another page which displays more detailed information about that test.(See 5)(This one is basically a link)
+
+3. The user can input a build number to compare the test results with. 
+
+4. Some statistical analysis on if a test results vibrate too much or failed too much, based on this, do some volatility analysis(this part not determined yet).
+   Task1 : some function for the statistical analysis to determine if a test result vibrates to much or failed too much. 
+   Task2 : do the volatility analysis
+
+5. Each test should have a detailed page to display the test results.
+   Task1 : E.g The error message of that failed test. 
+   Task2 : The past X test results (failed or passed). 
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='test-results-analyzer' version='0.2.2-SNAPSHOT'><l:dependency name='Test Results Analyzer Plugin' groupId='org.jenkins-ci.plugins' artifactId='test-results-analyzer' version='0.2.2-SNAPSHOT' url='http://wiki.jenkins-ci.org/display/JENKINS/Test+Results+Analyzer+Plugin'><l:description/><l:license name='Apache 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.html'/></l:dependency></l:dependencies>

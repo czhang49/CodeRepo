@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.jenkinsci.plugins.testresultsanalyzer.JsTreeUtilTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.896 sec - in org.jenkinsci.plugins.testresultsanalyzer.JsTreeUtilTest

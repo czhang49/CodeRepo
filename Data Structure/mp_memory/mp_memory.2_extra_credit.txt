@@ -1,0 +1,34 @@
+Monad Autograder
+Testing mp_memory.2 at 2014-06-29 01:31:54
+
+"It is practically impossible to teach good programming to students that have had a prior exposure to BASIC: as potential programmers they are mentally mutilated beyond hope of regeneration." ~ Edsger Dijkstra
+
+Setting up test environment...
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_memory/include/collage.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_memory/src/collage.cpp': No such file or directory
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+array_empty (asan) . . . . . . [5 pts]  - passed
+array_sized (asan) . . . . . . [5 pts]  - passed
+array_sized_class_type (asan)  [5 pts]  - passed
+array_const_subscript  . . . . [5 pts]  - passed
+array_const_at . . . . . . . . [5 pts]  - passed
+array_copy_construction (asan) [10 pts] - passed
+array_move_construction (asan) [10 pts] - passed
+array_copy_assignment (asan) . [10 pts] - passed
+array_move_assignment (asan) . [10 pts] - passed
+array_clear (asan) . . . . . . [5 pts]  - passed
+array_swap (asan)  . . . . . . [5 pts]  - passed
+array_resize_smaller (asan)  . [10 pts] - passed
+array_resize_larger (asan) . . [10 pts] - passed
+array_resize_zero (asan) . . . [5 pts]  - FAILED
+
+
+Total score...
+================================================================
+TOTAL SCORE: 95
+

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>ShareThePic</title>
+    	<meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+<!-- 
+Flex Template 
+http://www.templatemo.com/preview/templatemo_406_flex 
+-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/templatemo_misc.css">
+        <link rel="stylesheet" href="css/templatemo_style.css">
+        <!--<link rel="stylesheet" href="./foundation/css/foundation.css">-->
+
+        <script src="https://apis.google.com/js/client:platform.js" async defer></script>
+        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+
+
+        <div class="site-main" id="sTop">
+
+                <div class="main-header">
+                    <div class="container">
+                        <div id="menu-wrapper">
+                            <div class="row">
+                                <div class="logo-wrapper col-md-4 col-sm-2 col-xs-8">
+                                    <h1>
+                                        <a href="#">ShareThePik</a>
+                                    </h1>
+                                </div> <!-- /.logo-wrapper -->
+                                <div class="col-md-8 col-sm-10 col-xs-4 main-menu text-right">
+                                    <ul class="menu-first hidden-sm hidden-xs">
+                                        <li class="active"><a href="#">Home</a></li>
+                                        <li><a href="#About">About</a></li>
+                                    </ul>
+                                    <a href="#" class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></a>
+                                </div> <!-- /.main-menu -->
+                            </div> <!-- /.row -->
+                        </div> <!-- /#menu-wrapper -->
+                       <div class="menu-responsive hidden-md hidden-lg">
+                            <ul>
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#services">Services</a></li>
+                                <li><a href="#portfolio">Portfolio</a></li>
+                                <li><a href="#our-team">Team</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </div> <!-- /.menu-responsive -->
+                    </div> <!-- /.container -->
+                </div> <!-- /.main-header -->
+            </div> <!-- /.site-header -->
+
+
+
+            <div class="site-slider">
+                <div class="slider">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <div class="overlay"></div>
+                                <img src="images/frauenlauf.jpg" alt="">
+                                <div class="slider-caption visible-md visible-lg">
+                                    <div class="login">
+                                       <form ng-submit="login()">
+                                            <input type="email" placeholder="email" name="email" ng-model="user.email"><br>
+                                            <input type="password" placeholder="password" name="password" ng-model = "user.password"><br>
+                                            <input type="button" value="Login">
+                                            <p>Not a member? <a href="#" data-toggle="modal" data-target="#myModal">Sign up now</a>
+                                            <p>OR</p>
+                                            <!--<span id="signinButton">
+                                                <span
+                                                    class="g-signin"
+                                                    data-callback="signinCallback"
+                                                    data-clientid="CLIENT_ID"
+                                                    data-cookiepolicy="single_host_origin"
+                                                    data-requestvisibleactions="http://schema.org/AddAction"
+                                                    data-scope="https://www.googleapis.com/auth/plus.login">
+                                                </span>
+                                            </span>-->
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div> <!-- /.flexslider -->
+                </div> <!-- /.slider -->
+            </div> <!-- /.site-slider -->
+        </div> <!-- /.site-main -->
+
+        <div class="row">
+            <div class="heading-section col-md-12 text-center">
+                <h2>About</h2>
+                <p>ShareThePic allows users to create events, invite other users to those events where
+
+                    everyone has the ownership of the event and can upload and share pictures to that event. In
+
+                    addition they can comment on the uploaded images.
+
+                    ShareThePic is focused on providing a platform for event based image
+
+                    sharing where multiple users assume the ownership of the uploaded event specific images.</p>
+            </div> <!-- /.heading-section -->
+        </div> <!-- /.row -->
+            
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-xs-12 text-left">
+                        Copyright © 2084 Company Name
+                    </div> <!-- /.text-center -->
+
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /#footer -->
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                            <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <fieldset>
+
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="email" class="input-medium" required=""><br>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="password" class="input-medium"><br>
+                                        </div>
+                                    </div>
+                                        <span id="signinButton">
+                                            <span
+                                                    class="g-signin"
+                                                    data-callback="signinCallback"
+                                                    data-clientid="CLIENT_ID"
+                                                    data-cookiepolicy="single_host_origin"
+                                                    data-requestvisibleactions="http://schema.org/AddAction"
+                                                    data-scope="https://www.googleapis.com/auth/plus.login">
+                                            </span>
+                                        </span>
+                                </fieldset>
+                            </form>
+                        </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Sign-up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="js/vendor/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+
+        <!-- Google Map -->
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="js/vendor/jquery.gmap3.min.js"></script>
+        
+        <!-- Google Map Init-->
+        <script type="text/javascript">
+            jQuery(function($){
+                $('#map_canvas').gmap3({
+                    marker:{
+                        address: '16.8496189,96.1288854' 
+                    },
+                        map:{
+                        options:{
+                        zoom: 15,
+                        scrollwheel: false,
+                        streetViewControl : true
+                        }
+                    }
+                });
+            });
+        </script>
+        <!-- templatemo 406 flex -->
+    </body>
+</html>

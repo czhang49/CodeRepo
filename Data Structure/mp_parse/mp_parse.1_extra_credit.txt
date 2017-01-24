@@ -1,0 +1,59 @@
+Monad Autograder
+Testing mp_parse.1 at 2014-07-10 13:12:03
+
+"I did respond to your email, but I might have forgotten to hit send." ~ Cinda Heeren
+
+Setting up test environment...
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/include/node.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/include/divide.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/include/exponent.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/include/minus.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/include/plus.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/include/terminal.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/include/times.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/include/uminus.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/include/uplus.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/include/binary_op.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/include/unary_op.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/src/divide.cpp': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/src/exponent.cpp': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/src/minus.cpp': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/src/plus.cpp': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/src/terminal.cpp': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/src/times.cpp': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/src/uminus.cpp': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/src/uplus.cpp': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/src/binary_op.cpp': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_parse/src/unary_op.cpp': No such file or directory
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+circ_empty  . . . . . . [3 pts] - passed
+circ_sized  . . . . . . [3 pts] - passed
+circ_copy_ctor (asan) . [5 pts] - passed
+circ_move_ctor (asan) . [5 pts] - passed
+circ_copy_assign (asan) [5 pts] - passed
+circ_move_assign (asan) [5 pts] - passed
+circ_swap . . . . . . . [5 pts] - passed
+circ_const_subscript  . [5 pts] - passed
+circ_const_at . . . . . [5 pts] - passed
+circ_push_front . . . . [5 pts] - FAILED
+circ_push_front_many  . [5 pts] - FAILED
+circ_push_back  . . . . [5 pts] - FAILED
+circ_push_back_many . . [5 pts] - FAILED
+circ_push_front_move  . [5 pts] - FAILED
+circ_push_back_move . . [5 pts] - FAILED
+circ_pop_front  . . . . [5 pts] - passed
+circ_pop_back . . . . . [5 pts] - passed
+circ_erase_1  . . . . . [8 pts] - passed
+circ_erase_2  . . . . . [8 pts] - FAILED
+circ_weird_copy_ctor  . [3 pts] - FAILED
+
+
+Total score...
+================================================================
+TOTAL SCORE: 59
+

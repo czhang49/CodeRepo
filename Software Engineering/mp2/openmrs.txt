@@ -1,0 +1,5 @@
+1. test-output.txt in SVN
+2. 25
+3. /tmp/openmrs.jpg on VM
+4. 14
+5. 4

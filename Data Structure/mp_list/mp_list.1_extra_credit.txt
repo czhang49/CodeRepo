@@ -1,0 +1,92 @@
+Monad Autograder
+Testing mp_list.1 at 2014-07-06 11:08:20
+
+"I would build pyramids, if I were Pharoah." ~ Kyle Johnson
+
+Setting up test environment...
+Compiling...
+================================================================
+In file included from unit_tests.cpp:15:
+In file included from include/dl_list.h:263:
+include/dl_list.tcc:227:8: warning: unused variable 'i' [-Wunused-variable]
+                        int i=0;
+                            ^
+include/dl_list.tcc:343:30: warning: unused parameter 'start' [-Wunused-parameter]
+auto dl_list<T>::split(node* start, unsigned split_point)
+                             ^
+include/dl_list.tcc:364:46: warning: unused parameter 'first' [-Wunused-parameter]
+auto dl_list<T>::merge(std::unique_ptr<node> first,
+                                             ^
+include/dl_list.tcc:365:46: warning: unused parameter 'second' [-Wunused-parameter]
+                       std::unique_ptr<node> second) -> std::unique_ptr<node>
+                                             ^
+include/dl_list.tcc:382:50: warning: unused parameter 'start' [-Wunused-parameter]
+auto dl_list<T>::mergesort(std::unique_ptr<node> start, uint64_t length)
+                                                 ^
+include/dl_list.tcc:382:66: warning: unused parameter 'length' [-Wunused-parameter]
+auto dl_list<T>::mergesort(std::unique_ptr<node> start, uint64_t length)
+                                                                 ^
+6 warnings generated.
+In file included from unit_tests.cpp:15:
+In file included from include/dl_list.h:263:
+include/dl_list.tcc:227:8: warning: unused variable 'i' [-Wunused-variable]
+                        int i=0;
+                            ^
+include/dl_list.tcc:343:30: warning: unused parameter 'start' [-Wunused-parameter]
+auto dl_list<T>::split(node* start, unsigned split_point)
+                             ^
+include/dl_list.tcc:364:46: warning: unused parameter 'first' [-Wunused-parameter]
+auto dl_list<T>::merge(std::unique_ptr<node> first,
+                                             ^
+include/dl_list.tcc:365:46: warning: unused parameter 'second' [-Wunused-parameter]
+                       std::unique_ptr<node> second) -> std::unique_ptr<node>
+                                             ^
+include/dl_list.tcc:382:50: warning: unused parameter 'start' [-Wunused-parameter]
+auto dl_list<T>::mergesort(std::unique_ptr<node> start, uint64_t length)
+                                                 ^
+include/dl_list.tcc:382:66: warning: unused parameter 'length' [-Wunused-parameter]
+auto dl_list<T>::mergesort(std::unique_ptr<node> start, uint64_t length)
+                                                                 ^
+6 warnings generated.
+
+
+Running tests...
+================================================================
+test_push_front . . . . . . . . . . [2 pts] - passed
+test_push_back  . . . . . . . . . . [2 pts] - passed
+test_dtor_10 (asan) . . . . . . . . [5 pts] - passed
+test_dtor_37 (asan) . . . . . . . . [5 pts] - passed
+test_reverse_20_size  . . . . . . . [1 pts] - passed
+test_reverse_20_forward . . . . . . [3 pts] - passed
+test_reverse_20_backward  . . . . . [4 pts] - passed
+test_reverse_37_size  . . . . . . . [1 pts] - passed
+test_reverse_37_forward . . . . . . [2 pts] - passed
+test_reverse_37_backward  . . . . . [2 pts] - passed
+test_reverse_empty (asan) . . . . . [5 pts] - passed
+test_reverse_20_memory (asan) . . . [3 pts] - passed
+test_reverse_nth_20_2_size  . . . . [1 pts] - passed
+test_reverse_nth_20_2_forward . . . [3 pts] - passed
+test_reverse_nth_20_2_backward  . . [4 pts] - passed
+test_reverse_nth_37_4_size  . . . . [1 pts] - passed
+test_reverse_nth_37_4_forward . . . [5 pts] - passed
+test_reverse_nth_37_4_backward  . . [6 pts] - passed
+test_reverse_nth_37_37  . . . . . . [3 pts] - passed
+test_reverse_nth_37_4_memory (asan) [3 pts] - passed
+test_reverse_nth_empty (asan) . . . [5 pts] - FAILED
+test_waterfall_4_size . . . . . . . [1 pts] - passed
+test_waterfall_4_forward  . . . . . [3 pts] - FAILED
+test_waterfall_4_backward . . . . . [4 pts] - FAILED
+test_waterfall_7_size . . . . . . . [1 pts] - passed
+test_waterfall_7_forward  . . . . . [3 pts] - FAILED
+test_waterfall_7_backward . . . . . [4 pts] - FAILED
+testWaterfall12_size  . . . . . . . [1 pts] - passed
+testWaterfall12_forward . . . . . . [3 pts] - FAILED
+testWaterfall12_backward  . . . . . [4 pts] - FAILED
+test_waterfall_7_memory (asan)  . . [5 pts] - FAILED
+test_waterfall_empty (asan) . . . . [5 pts] - FAILED
+
+
+Total score...
+================================================================
+TOTAL SCORE: 64
+

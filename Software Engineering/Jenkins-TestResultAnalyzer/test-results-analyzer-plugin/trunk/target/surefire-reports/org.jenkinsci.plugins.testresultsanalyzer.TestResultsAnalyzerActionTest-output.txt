@@ -1,0 +1,115 @@
+Dec 08, 2015 8:52:46 PM org.jvnet.hudson.test.JenkinsRule createWebServer
+INFO: Running on http://localhost:57824/jenkins/
+Dec 08, 2015 8:52:46 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Dec 08, 2015 8:52:46 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Dec 08, 2015 8:52:46 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Dec 08, 2015 8:52:46 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Dec 08, 2015 8:52:46 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Dec 08, 2015 8:52:46 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Dec 08, 2015 8:52:47 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Dec 08, 2015 8:52:47 PM hudson.UDPBroadcastThread run
+WARNING: UDP handling problem
+java.net.SocketException: Can't assign requested address
+	at java.net.PlainDatagramSocketImpl.join(Native Method)
+	at java.net.AbstractPlainDatagramSocketImpl.join(AbstractPlainDatagramSocketImpl.java:179)
+	at java.net.MulticastSocket.joinGroup(MulticastSocket.java:323)
+	at hudson.UDPBroadcastThread.run(UDPBroadcastThread.java:76)
+
+=== Starting testGetTreeResult1(org.jenkinsci.plugins.testresultsanalyzer.TestResultsAnalyzerActionTest)
+Dec 08, 2015 8:52:48 PM hudson.model.Run execute
+INFO: test0 #1 main build action completed: SUCCESS
+Dec 08, 2015 8:52:49 PM hudson.model.Run execute
+INFO: test0 #2 main build action completed: SUCCESS
+{"builds":["2","1"],"results":[]}
+Dec 08, 2015 8:52:49 PM org.jvnet.hudson.test.JenkinsRule createWebServer
+INFO: Running on http://localhost:57827/jenkins/
+Dec 08, 2015 8:52:49 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Dec 08, 2015 8:52:49 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Dec 08, 2015 8:52:49 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Dec 08, 2015 8:52:49 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Dec 08, 2015 8:52:49 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Dec 08, 2015 8:52:49 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Dec 08, 2015 8:52:50 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Dec 08, 2015 8:52:50 PM hudson.UDPBroadcastThread run
+WARNING: UDP handling problem
+java.net.SocketException: Can't assign requested address
+	at java.net.PlainDatagramSocketImpl.join(Native Method)
+	at java.net.AbstractPlainDatagramSocketImpl.join(AbstractPlainDatagramSocketImpl.java:179)
+	at java.net.MulticastSocket.joinGroup(MulticastSocket.java:323)
+	at hudson.UDPBroadcastThread.run(UDPBroadcastThread.java:76)
+
+=== Starting testGetTreeResult2(org.jenkinsci.plugins.testresultsanalyzer.TestResultsAnalyzerActionTest)
+Dec 08, 2015 8:52:50 PM hudson.model.Run execute
+INFO: test0 #1 main build action completed: SUCCESS
+Dec 08, 2015 8:52:51 PM hudson.model.Run execute
+INFO: test0 #2 main build action completed: SUCCESS
+Dec 08, 2015 8:52:52 PM hudson.model.Run execute
+INFO: test0 #3 main build action completed: SUCCESS
+Dec 08, 2015 8:52:53 PM hudson.model.Run execute
+INFO: test0 #4 main build action completed: SUCCESS
+Dec 08, 2015 8:52:53 PM org.jvnet.hudson.test.JenkinsRule createWebServer
+INFO: Running on http://localhost:57830/jenkins/
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Dec 08, 2015 8:52:53 PM hudson.UDPBroadcastThread run
+WARNING: UDP handling problem
+java.net.SocketException: Can't assign requested address
+	at java.net.PlainDatagramSocketImpl.join(Native Method)
+	at java.net.AbstractPlainDatagramSocketImpl.join(AbstractPlainDatagramSocketImpl.java:179)
+	at java.net.MulticastSocket.joinGroup(MulticastSocket.java:323)
+	at hudson.UDPBroadcastThread.run(UDPBroadcastThread.java:76)
+
+=== Starting testGetLastTwoBuilds(org.jenkinsci.plugins.testresultsanalyzer.TestResultsAnalyzerActionTest)
+Last two builds: 
+
+Dec 08, 2015 8:52:53 PM org.jvnet.hudson.test.JenkinsRule createWebServer
+INFO: Running on http://localhost:57832/jenkins/
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Dec 08, 2015 8:52:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Dec 08, 2015 8:52:54 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Dec 08, 2015 8:52:54 PM hudson.UDPBroadcastThread run
+WARNING: UDP handling problem
+java.net.SocketException: Can't assign requested address
+	at java.net.PlainDatagramSocketImpl.join(Native Method)
+	at java.net.AbstractPlainDatagramSocketImpl.join(AbstractPlainDatagramSocketImpl.java:179)
+	at java.net.MulticastSocket.joinGroup(MulticastSocket.java:323)
+	at hudson.UDPBroadcastThread.run(UDPBroadcastThread.java:76)
+
+=== Starting testGetModuleList(org.jenkinsci.plugins.testresultsanalyzer.TestResultsAnalyzerActionTest)

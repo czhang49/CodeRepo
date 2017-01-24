@@ -1,0 +1,19 @@
+<html>
+  <body>
+      <h1 id="h1">CS461</h1>
+      <span> This is just same random message. </span>
+
+      <script>
+      var indicator=0;
+      document.getElementById("h1").onclick = foo;
+      //var color=0;
+      function foo() {
+        if (indicator==0)
+        { document.getElementById("h1").style.color = "white";}
+        if (indicator ==1)
+        {document.getElementById("h1").style.color = "black";}
+        indicator=!indicator;
+      }
+      </script>
+  </body>
+</html>

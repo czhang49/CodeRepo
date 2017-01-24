@@ -1,0 +1,48 @@
+\input{cs598cxz.tex}
+
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+\topmargin -0.5in
+\textheight 9.0in
+\usepackage{amsmath}
+
+
+\begin{document}
+
+\solution{chen zhang, NetId: czhang49}{\today}{3}{Fall 2016}
+% Fill in the above, for example, as follows:
+% \solution{Joe Smith}{\today}{1}{Fall 2012}
+
+\pagestyle{myheadings}  % Leave this command alone
+
+\section{Classic Probabilistic Retrieval Model}
+\subsection{(a)}
+For document generation, using multinomial model, the score can be written as:
+\begin{align*}
+score(Q,D)&= \dfrac{P(D|Q,R=1)}{P(D|Q,R=0)}\\
+&=\dfrac{\prod_{j=1} ^{|V|}{P(w_j|Q,R=1)}^{c(w_j|Q,R=1)}}{\prod_{j=1} ^{|V|}{P(w_j|Q,R=0)}^{c(w_j|Q,R=0)}} \\
+&=
+-\sum_{x\in\Omega}P(x)\log_2 P(x)
+\end{align*}
+And then we have 
+\begin{align*}
+score(Q,D)&\propto \log{\dfrac{P(D|Q,R=1)}{P(D|Q,R=0)}} \\
+&\propto \log{\dfrac{\prod_{j=1} ^{|V|}{P(w_j|Q,R=1)}^{c(w_j|Q,R=1)}}{\prod_{j=1} ^{|V|}{P(w_j|Q,R=0)}^{c(w_j|Q,R=0)}}}
+\end{align*}
+Since the occurrence of a word in the document is independent of the query, we have
+\begin{equation*}
+c(w_j|Q,R=0)=c(w_j|Q,R=1)=c(w_j,D)
+\end{equation*}
+Then we have 
+\begin{align*}
+score(Q,D) &\propto c(w_j,D)\log{\dfrac{\prod_{j=1} ^{|V|}{P(w_j|Q,R=1)}}{\prod_{j=1} ^{|V|}{P(w_j|Q,R=0)}}}\\
+&\propto c(w_j,D)\log{\prod_{j=1} ^{|V|}\dfrac{{P(w_j|Q,R=1)}}{{P(w_j|Q,R=0)}}}\\
+&\propto \sum_{w\in V}c(w,D)\log{\dfrac{{P(w|Q,R=1)}}{{P(w|Q,R=0)}}}
+\end{align*}
+
+There's too many equations for this HW, I will write the answers very clearly starting from 1.(b).
+I apologize for that. 
+
+\end{document}
+

@@ -1,0 +1,216 @@
+@import url("http://fonts.googleapis.com/css?family=Bree+Serif|Merriweather");
+@import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
+/* line 5, ../../sass/_base.scss */
+h1 {
+  font-size: 2.2rem;
+  color: #ef7e60; }
+
+/* line 10, ../../sass/_base.scss */
+.test {
+  font-size: 1.2rem;
+  color: #2176C7; }
+
+/* line 15, ../../sass/_base.scss */
+.box {
+  border: 1px solid #e95745;
+  box-shadow: 0 0 2px 0 #e95745; }
+
+/* line 20, ../../sass/_base.scss */
+.inline {
+  display: inline; }
+
+/* line 23, ../../sass/_base.scss */
+.noPadding {
+  padding: 0; }
+
+/* line 27, ../../sass/_base.scss */
+.blank {
+  clear: both; }
+
+/* line 6, ../../sass/event.scss */
+nav {
+  position: fixed; }
+
+/* line 10, ../../sass/event.scss */
+#titleSec {
+  margin-top: 40px;
+  margin-bottom: 20px; }
+  /* line 13, ../../sass/event.scss */
+  #titleSec #eventProfile {
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #e0e0e0; }
+  /* line 20, ../../sass/event.scss */
+  #titleSec #eventTitle {
+    float: left;
+    margin-left: 10px; }
+    /* line 23, ../../sass/event.scss */
+    #titleSec #eventTitle h4 {
+      margin-top: -2px;
+      margin-bottom: 0; }
+    /* line 27, ../../sass/event.scss */
+    #titleSec #eventTitle #author {
+      color: #999;
+      font-size: 12px; }
+
+/* line 36, ../../sass/event.scss */
+#detailSec #leftColumn #eventDescription {
+  font-size: 12px;
+  height: 62px;
+  margin-bottom: 10px; }
+/* line 41, ../../sass/event.scss */
+#detailSec #leftColumn #map-canvas {
+  margin-bottom: 30px;
+  height: 228px; }
+/* line 46, ../../sass/event.scss */
+#detailSec #rightColumn {
+  padding-left: 40px; }
+  /* line 48, ../../sass/event.scss */
+  #detailSec #rightColumn #people {
+    margin-top: -10px;
+    border-bottom: 1px solid #e95745; }
+    /* line 51, ../../sass/event.scss */
+    #detailSec #rightColumn #people ul.slide {
+      margin: 0 auto;
+      width: 90%; }
+      /* line 54, ../../sass/event.scss */
+      #detailSec #rightColumn #people ul.slide li {
+        position: relative;
+        padding-top: 10px;
+        padding-bottom: 10px; }
+        /* line 58, ../../sass/event.scss */
+        #detailSec #rightColumn #people ul.slide li img {
+          border: 2px solid #e95745;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px; }
+        /* line 64, ../../sass/event.scss */
+        #detailSec #rightColumn #people ul.slide li .deleteIcon {
+          display: none;
+          position: absolute;
+          left: 100%;
+          margin-left: -15px;
+          top: 5px;
+          z-index: 10;
+          width: 15px;
+          height: 15px; }
+          /* line 73, ../../sass/event.scss */
+          #detailSec #rightColumn #people ul.slide li .deleteIcon img {
+            width: 15px;
+            height: 15px;
+            border: 0;
+            margin: 0;
+            cursor: pointer; }
+  /* line 84, ../../sass/event.scss */
+  #detailSec #rightColumn #pics {
+    border-top: 10px;
+    padding-top: 7px; }
+    /* line 87, ../../sass/event.scss */
+    #detailSec #rightColumn #pics #imgs {
+      margin: 0 auto; }
+      /* line 89, ../../sass/event.scss */
+      #detailSec #rightColumn #pics #imgs a {
+        position: relative;
+        display: inline-block; }
+      /* line 93, ../../sass/event.scss */
+      #detailSec #rightColumn #pics #imgs img {
+        width: 80px;
+        height: 80px;
+        border: 2px solid #e95745;
+        margin: 3px 5px; }
+      /* line 99, ../../sass/event.scss */
+      #detailSec #rightColumn #pics #imgs .deleteIcon {
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        margin-left: -20px;
+        z-index: 10;
+        width: 15px;
+        height: 15px; }
+        /* line 108, ../../sass/event.scss */
+        #detailSec #rightColumn #pics #imgs .deleteIcon img {
+          width: 15px;
+          height: 15px;
+          border: 0;
+          margin: 0; }
+    /* line 117, ../../sass/event.scss */
+    #detailSec #rightColumn #pics #pages ul {
+      margin-bottom: 0; }
+    /* line 120, ../../sass/event.scss */
+    #detailSec #rightColumn #pics #pages li {
+      margin-left: 0; }
+    /* line 123, ../../sass/event.scss */
+    #detailSec #rightColumn #pics #pages a {
+      font-size: 10px; }
+
+/* line 133, ../../sass/event.scss */
+#uploadModal .progress {
+  height: 30px;
+  text-align: center; }
+  /* line 136, ../../sass/event.scss */
+  #uploadModal .progress span.meter {
+    overflow: hidden; }
+
+/* line 143, ../../sass/event.scss */
+#images .orbit-container {
+  min-height: 375px; }
+
+/* line 149, ../../sass/event.scss */
+#imageModal .reveal-modal {
+  width: auto; }
+
+/* line 154, ../../sass/event.scss */
+.imageInfo img {
+  float: left;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #e95745;
+  border-radius: 10px; }
+
+/* line 163, ../../sass/event.scss */
+.comments {
+  max-height: 150px;
+  overflow-y: scroll; }
+
+/* line 168, ../../sass/event.scss */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ".";
+  clear: both;
+  height: 0; }
+
+/* line 177, ../../sass/event.scss */
+.clearfix {
+  display: inline-block; }
+
+/* line 180, ../../sass/event.scss */
+* html .clearfix {
+  height: 1%; }
+
+/* line 183, ../../sass/event.scss */
+.comment img {
+  float: left;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #e95745;
+  border-radius: 10px; }
+
+/* line 191, ../../sass/event.scss */
+.comment-content {
+  position: relative;
+  float: left;
+  margin-left: 12px;
+  width: 400px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); }
+
+/* line 202, ../../sass/event.scss */
+.comment {
+  margin-top: 20px; }

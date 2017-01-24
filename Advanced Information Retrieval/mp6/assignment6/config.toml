@@ -1,0 +1,3 @@
+[embeddings]
+prefix = "apnews-embeddings-50d"
+mode = "target"

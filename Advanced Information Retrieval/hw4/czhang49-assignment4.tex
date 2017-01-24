@@ -1,0 +1,163 @@
+\input{cs598cxz.tex}
+
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+\topmargin -0.5in
+\textheight 9.0in
+\usepackage{amsmath}
+
+
+\begin{document}
+
+\solution{chen zhang, NetId: czhang49}{\today}{4}{Fall 2016}
+% Fill in the above, for example, as follows:
+% \solution{Joe Smith}{\today}{1}{Fall 2012}
+
+\pagestyle{myheadings}  % Leave this command alone
+
+\section{KL-Divergence Retrieval Function}
+In KL-Divergence, $score(D,Q) = -D(q||d)$, and we have the following equations:
+\begin{align*}
+-D(q||d) 
+& = \sum_{w\in V} -p(w|\theta_q) \log{(\dfrac{ p(w|\theta_q)}{ p(w|\theta_d)})} \\
+& \propto  \sum_{w\in V}p(w|\theta_q) \log{p(w|\theta_d)} 
+\end{align*}
+As a special case, if $p(w|\theta_q) = \dfrac{c(w,Q)}{|Q|}$, then we have :
+\begin{align*}
+-D(q||d) 
+& \propto \sum_{w\in V} \dfrac{c(w,Q)}{|Q|} \log{p(w|\theta_d)}  \\
+& \propto \sum_{w\in V} c(w,Q) \log{p(w|\theta_d)}  \\
+& \propto \log{\prod _{w\in V}  p(w|\theta_d)}^{ c(w,Q)} 
+\end{align*}
+which is exactly the query likelihood retrieval function in the logarithmic form.
+
+\section{Language Models for Boolean Queries}
+\subsection*{(a)}
+In the basic multinomial query likelihood retrieval model, the semantic structure is Conjunctive. Since in the likelihood equation : 
+\begin{equation*}
+p(q=q_1,q_2\dots q_m) = \prod_{j=1}^{m}p(q_j|d),
+\end{equation*}
+we use multiplication for the probability of the query words, so if one query word is missing then the whole probability is zero, which is the property of conjunctive relation.
+
+\subsection*{(b)}
+Now that with the basic multinomial query likelihood model, we have a conjunctive relation, we can modify that to include the disjunctive part. For $Q=Q_1 \quad AND \quad Q_2 \dots AND \quad Q_k$
+\begin{equation*}
+p(Q) = \prod_{i=1}^{m}p(Q_i),
+\end{equation*}
+where in each of the $Q_i$ where $Q_i = w_{i,1}\dots OR\quad w_{i,n_i}$, we can have the following relation:
+\begin{equation*}
+p(Q_i) = \sum_{j=1}^{|Q_i|=n_i} p(w_{i,j}|d).
+\end{equation*}
+So the final form of the relation is :
+\begin{equation*}
+p(Q) = \prod_{i=1}^{m} [\sum_{j=1}^{|Q_i|=n_i} p(w_{i,j}|d)]
+\end{equation*}
+
+\section{Mixture Models}
+\subsection*{(a)}
+The general formula for a word to appear is as follows:
+\begin{equation*}
+p(w) = \lambda p(w|H)+(1-\lambda)p(w|T), \quad \lambda=0.8.
+\end{equation*}
+For the word `the' to appear as the first word, plug in the values we have:
+\begin{equation*}
+p('the') = 0.8*0.3+(1-0.8)*0.3=0.24+0.06=0.3.
+\end{equation*}
+
+\subsection*{(b)}
+Because of the independence, the probability of observing `the' in the first or second word is the same.
+\begin{align*}
+p('the'=2nd)=p('the'=1st)=0.3
+\end{align*}
+
+\subsection*{(c)}
+We can write the following formula for determination of whether a given word is from H:
+\begin{align*}
+p(H|w) 
+&= \dfrac{p(H,w)}{p(w)}  \\
+&= \dfrac{p(w|H)p(H)}{p(w,H)+p(w,T)} \\
+&= \dfrac{p(w|H)p(H)}{p(w|H)p(H)+p(w|T)p(T)},
+\end{align*}
+where $p(H)=\lambda=0.8$ and $p(T)=1-\lambda=0.2$. Plug in the values we have
+\begin{align*}
+p(H|'data') 
+&= \dfrac{\lambda p('data'|H)}{\lambda p('data'|H)+(1-\lambda)p('data'|T)} \\
+& = \dfrac{0.8*0.1}{0.8*0.1+0.2*0.1} \\
+& = 0.8
+\end{align*}
+
+\subsection*{(d)}
+The least-frequently-occurred word should have the smallest $p(w)$, which can be calculated as:
+\begin{align*}
+& p(w) = \lambda p(w|H)+(1-\lambda)p(w|T), \quad \lambda=0.8. \\
+& p(w) = 0.8*p(w|H)+0.2*p(w|T).
+\end{align*}
+Plug in all the five words, we have the following results:
+\begin{align*}
+& p('the') = 0.8*0.3 + 0.2*0.3 = 0.3\\
+& p('computer') = 0.8*0.1 + 0.2*0.2 =0.12\\
+& p('data') = 0.8*0.1 + 0.2*0.1=0.1\\
+& p('baseball') = 0.8*0.2 + 0.2*0.1 = 0.18\\
+& p('game') = 0.8*0.2 + 0.2*0.1 =0.18\\
+\end{align*}
+The smallest is $p('data') = 0.1$, so the least-frequently-occurred word should be `data'.
+
+\subsection*{(e)}
+The maximum likelihood estimator is:
+\begin{equation*}
+p(w|H) = \dfrac{c(w,D)}{|D|}, 
+\end{equation*}
+where $c(w,D)$ is the count of a word in document $D$, and $|D|$ is the length of document $D$. With this, we can have the following estimator as:
+\begin{align*}
+&p('computer'|H) = \dfrac{3}{10} = 0.3  \\ 
+&p('game'|H) = \dfrac{2}{10} = 0.2
+\end{align*}
+
+
+\section{EM Algorithm}
+\subsection*{(a)}
+\begin{equation*}
+p(w_i|\theta_2) = p(w_i|\lambda) = \lambda p(w_i|\theta_1) + (1-\lambda)p(w_i|C)
+\end{equation*}
+
+\subsection*{(b)}
+\begin{equation*}
+\log{p(\theta_2)} = \sum_{i=1}^N \log{p(w_i|\theta_2)} = \sum_{i=1}^N \log{ [\lambda p(w_i|\theta_1) + (1-\lambda)p(w_i|C)]},
+\end{equation*}
+where $N$ is the length of document $D_2$.
+
+\subsection*{(c)}
+There are N binary hidden variables in total do we need for computing this maximum likelihood estimate using the EM algorithm, with N being the length of document $D_2$. Because for every one of the words, we need a variable to denote whether this word comes from document $D_1$ or the background collection $C$. 
+
+\subsection*{(d)}
+In order to better represent the Lagrange Multiplier, let's denote $\beta = 1 - \lambda$,  with the constraint that $\beta+\lambda = 1$. $z_i = 0 $ denotes a word $w_i$ comes from document $D_1$, and $z_i = 1$ denotes that a word $w_i$ comes from background collection $C$.\\
+The E step in the EM algorithm:
+\begin{align*}
+p(z_i=0|\lambda,\beta)= \dfrac{\lambda p(w_i|\theta_1)}{\lambda p(w_i|\theta_1) + \beta p(w_i|C)}
+\end{align*}
+\\
+The M step in the EM algorithm:
+First let's rewrite the objective function with the introduction of Lagrange Multiplier $\xi$:
+\begin{align*}
+\log{p(\theta_2)} = \sum_{i=1}^N \log{p(w_i|\theta_2)} = \sum_{i=1}^N \log{ [\lambda p(w_i|\theta_1) + \beta p(w_i|C)]} + \xi(\lambda+\beta-1)
+\end{align*}
+Taking derivative w.r.t. $\lambda$ and $\beta$, and set to zero we have:
+\begin{align*}
+& \dfrac{\partial \log{p(\theta_2)}}{\partial \lambda} = \sum_{i=1}^N \dfrac{p(w_i|\theta_1)}{\lambda p(w_i|\theta_1) + \beta p(w_i|C)} + \xi = 0 \\
+& \dfrac{\partial \log{p(\theta_2)}}{\partial \beta} = \sum_{i=1}^N \dfrac{p(w_i|C)}{\lambda p(w_i|\theta_1) + \beta p(w_i|C)} + \xi = 0 
+\end{align*}
+Multiply the two equation with $\lambda$ and $\beta$ and sum the resulting two equations, we have $\xi = -N$. Plug this result back into the first equation and multiply by $\lambda$, we have 
+\begin{align*}
+\sum_{i=1}^N \dfrac{\lambda p(w_i|\theta_1)}{\lambda p(w_i|\theta_1) + \beta p(w_i|C)}  - N\lambda = 0 \\
+\end{align*}
+Then we have 
+\begin{align*}
+\lambda ^n
+&= \dfrac{1}{N}\sum_{i=1}^N \dfrac{\lambda^{(n-1)} p(w_i|\theta_1)}{\lambda^{(n-1)} p(w_i|\theta_1) + \beta^{(n-1)} p(w_i|C)}\\
+& = \dfrac{1}{N} \sum_{i=1}^Np(z_i=0|\lambda^{(n-1)},\beta^{(n-1)}),
+\end{align*}
+which is the update.
+
+\end{document}
+

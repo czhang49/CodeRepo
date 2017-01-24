@@ -1,0 +1,192 @@
+Monad Autograder
+Testing mp_parse at 2014-07-14 23:28:29
+
+"I just don't trust easily, and for good reasons... which are my own." ~ Carth Onasi
+
+Setting up test environment...
+Compiling...
+================================================================
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+unit_tests.cpp:119:21: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+    circ_array<int> copy{arr};
+                    ^
+1 error generated.
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+unit_tests.cpp:119:21: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+    circ_array<int> copy{arr};
+                    ^
+1 error generated.
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+unit_tests.cpp:167:12: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+    copy = arr;
+           ^
+1 error generated.
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+unit_tests.cpp:439:21: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+    circ_array<int> copy{arr};
+                    ^
+1 error generated.
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+include/stack.h:20:7: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+class stack
+      ^
+1 error generated.
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+include/queue.h:20:7: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+class queue
+      ^
+1 error generated.
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+unit_tests.cpp:119:21: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+    circ_array<int> copy{arr};
+                    ^
+1 error generated.
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+unit_tests.cpp:119:21: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+    circ_array<int> copy{arr};
+                    ^
+1 error generated.
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+unit_tests.cpp:167:12: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+    copy = arr;
+           ^
+1 error generated.
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+unit_tests.cpp:439:21: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+    circ_array<int> copy{arr};
+                    ^
+1 error generated.
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+include/stack.h:20:7: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+class stack
+      ^
+1 error generated.
+In file included from unit_tests.cpp:62:
+In file included from include/circ_array.h:187:
+include/circ_array.tcc:81:8: error: no member named 'at' in 'std::__1::unique_ptr<int [], std::__1::default_delete<int []> >'
+                arr_.at(i)=other.arr_.at(i);   
+                ~~~~ ^
+include/queue.h:20:7: note: in instantiation of member function 'cs225::circ_array<int>::circ_array' requested here
+class queue
+      ^
+1 error generated.
+
+
+Running tests...
+================================================================
+parser_plus . . . . . . . . . [1 pts] - passed
+parser_extra_ops  . . . . . . [3 pts] - passed
+parser_extra_numbers  . . . . [3 pts] - passed
+parser_unbalanced_parens  . . [3 pts] - passed
+parser_no_numbers . . . . . . [3 pts] - passed
+parser_unary  . . . . . . . . [3 pts] - passed
+parser_parens . . . . . . . . [3 pts] - passed
+parser_operator_precedence  . [3 pts] - passed
+parser_operator_associativity [3 pts] - passed
+parser_unary_binary . . . . . [3 pts] - passed
+parser_complex  . . . . . . . [8 pts] - passed
+ast_terminal  . . . . . . . . [1 pts] - passed
+ast_unary_minus . . . . . . . [1 pts] - passed
+ast_unary_plus  . . . . . . . [1 pts] - passed
+ast_divide  . . . . . . . . . [1 pts] - passed
+ast_exponent  . . . . . . . . [1 pts] - passed
+ast_binary_minus  . . . . . . [1 pts] - passed
+ast_binary_plus . . . . . . . [1 pts] - passed
+ast_times . . . . . . . . . . [1 pts] - passed
+ast_complex (asan)  . . . . . [3 pts] - passed
+queue_push_amortized_constant [1 pts] - passed
+queue_push_move . . . . . . . [1 pts] - passed
+queue_front_const . . . . . . [1 pts] - passed
+queue_push_and_pop  . . . . . [1 pts] - passed
+queue_push_front  . . . . . . [1 pts] - passed
+queue_empty . . . . . . . . . [1 pts] - passed
+stack_push_amortized_constant [1 pts] - passed
+stack_push_move . . . . . . . [1 pts] - passed
+stack_top_const . . . . . . . [1 pts] - passed
+stack_push_and_pop  . . . . . [1 pts] - passed
+stack_push_top  . . . . . . . [1 pts] - passed
+stack_empty . . . . . . . . . [1 pts] - passed
+circ_erase_2  . . . . . . . . [3 pts] - FAILED: unit_tests.cpp:425: Assertion (arr[2] == 4) failed
+circ_erase_1  . . . . . . . . [3 pts] - passed
+circ_pop_back . . . . . . . . [2 pts] - passed
+circ_pop_front  . . . . . . . [2 pts] - passed
+circ_push_back_move . . . . . [2 pts] - passed
+circ_push_front_move  . . . . [2 pts] - passed
+circ_push_back_many . . . . . [2 pts] - passed
+circ_push_back  . . . . . . . [2 pts] - passed
+circ_push_front_many  . . . . [2 pts] - passed
+circ_push_front . . . . . . . [2 pts] - passed
+circ_const_at . . . . . . . . [2 pts] - passed
+circ_const_subscript  . . . . [2 pts] - passed
+circ_swap . . . . . . . . . . [2 pts] - passed
+circ_move_assign (asan) . . . [2 pts] - passed
+circ_move_ctor (asan) . . . . [2 pts] - passed
+circ_sized  . . . . . . . . . [1 pts] - passed
+circ_empty  . . . . . . . . . [1 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 90
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+circ_erase_2 [3 points]
+Result: FAILED: unit_tests.cpp:425: Assertion (arr[2] == 4) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 90
+

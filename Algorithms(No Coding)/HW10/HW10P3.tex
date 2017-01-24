@@ -1,0 +1,58 @@
+% ---------
+%  Compile with "pdflatex hw0".
+% --------
+%!TEX TS-program = pdflatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt]{article}
+\usepackage{jeffe,handout,graphicx}
+\usepackage[utf8]{inputenc}		% Allow some non-ASCII Unicode in source
+\usepackage{amsmath}
+%  Redefine suits
+\usepackage{pifont}
+\def\Spade{\text{\ding{171}}}
+\def\Heart{\text{\textcolor{Red}{\ding{170}}}}
+\def\Diamond{\text{\textcolor{Red}{\ding{169}}}}
+\def\Club{\text{\ding{168}}}
+
+% =========================================================
+%   Define common stuff for solution headers
+% =========================================================
+\Class{New CS 473}
+\Semester{Spring 2015}
+%\Section{}
+
+% =========================================================
+\begin{document}
+
+% ---------------------------------------------------------
+% Change authors for all future solutions
+\AuthorOne{Arash Khatibi}{khatibi2}
+\AuthorTwo{Liang Tao}{ltao3}
+\AuthorThree{Chen Zhang}{czhang49}
+\HomeworkHeader{10}{3}
+
+\noindent Define:\newline
+\noindent $X_1,X_2,X_3$: The variables in the 3-SAT problem\newline
+\noindent The idea is reduce a NP-hard problem to a integer program. We can do this with a 3-SAT problem. \newline
+
+\vspace{10mm}
+
+\noindent Firstly we need to put a constraint to the variables: 
+\begin{equation}
+X_1,X_2,X_3 \geq 0
+\end{equation}
+Secondly we need to transform the clause into a linear equation constraint. Suppose we have a clause as 
+\[
+(X_1 \vee X_2 \vee \bar{X}_3)
+\]
+This can be transformed into a linear equation as 
+\begin{equation}
+X_1+X_2+(1-X_3)\geq 1
+\end{equation}
+It is straightforward to see that this transformation can be done in linear time. Thus we can do this transformation on all the clauses, so that we will have a list of linear equation constraints.  So to solve the original 3-SAT problem, is equivalent to deciding whether there is integer feasible solution given the list of linear equation constraints (Eqn. 2) and the list of constraint on the variables (Eqn. 1).  Now that the 3-SAT problem is successfully reduced to a integer programming problem within linear time. So the integer linear programming problem is NP-hard.\newline
+\noindent Note that the example is given with a 3-SAT problem of 3 variables. It can be readily extended to a 3-SAT problem with any number of variables. 
+
+
+
+\end{document}

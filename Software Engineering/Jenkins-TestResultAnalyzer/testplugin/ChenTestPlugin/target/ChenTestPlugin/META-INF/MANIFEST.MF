@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Built-By: chenzhang
+Created-By: Apache Maven
+Build-Jdk: 1.8.0_45
+Extension-Name: ChenTestPlugin
+Specification-Title: TODO
+Implementation-Title: ChenTestPlugin
+Implementation-Version: 1.0-SNAPSHOT
+Group-Id: TestPlugin
+Short-Name: ChenTestPlugin
+Long-Name: TODO Plugin
+Url: https://wiki.jenkins-ci.org/display/JENKINS/TODO+Plugin
+Plugin-Version: 1.0-SNAPSHOT (private-10/31/2015 12:20-chenzhang)
+Hudson-Version: 1.580.1
+Jenkins-Version: 1.580.1
+Plugin-Developers: 
+

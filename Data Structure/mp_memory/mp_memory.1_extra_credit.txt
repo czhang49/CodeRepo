@@ -1,0 +1,38 @@
+Monad Autograder
+Testing mp_memory.1 at 2014-06-27 02:07:50
+
+"I'm not saying he's evil incarnate based on that fact alone; I've always known it." ~ REDACTED
+
+Setting up test environment...
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_memory/include/scoped_array.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_memory/include/scoped_array.tcc': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_memory/include/collage.h': No such file or directory
+cp: cannot stat `/dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_memory/src/collage.cpp': No such file or directory
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+ptr_empty (valgrind) . . . . . . [5 pts]  - passed
+ptr_full (valgrind)  . . . . . . [5 pts]  - passed
+ptr_clear (valgrind) . . . . . . [5 pts]  - FAILED
+ptr_deref_assign . . . . . . . . [5 pts]  - passed
+ptr_const_deref_signature  . . . [5 pts]  - passed
+ptr_no_copy_construction . . . . [5 pts]  - passed
+ptr_no_copy_assignment . . . . . [5 pts]  - passed
+ptr_move_construction (valgrind) [10 pts] - passed
+ptr_move_assignment (valgrind) . [10 pts] - passed
+ptr_get (valgrind) . . . . . . . [5 pts]  - passed
+ptr_no_copies (valgrind) . . . . [15 pts] - passed
+ptr_const_deref  . . . . . . . . [5 pts]  - passed
+ptr_const_get  . . . . . . . . . [5 pts]  - passed
+ptr_member_access  . . . . . . . [5 pts]  - passed
+ptr_const_member_access  . . . . [5 pts]  - passed
+ptr_swap (valgrind)  . . . . . . [5 pts]  - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 95
+

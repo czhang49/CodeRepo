@@ -1,0 +1,197 @@
+Monad Autograder
+Testing lab_hash at 2014-07-27 04:06:53
+
+"If debugging is the process of removing bugs, then programming must be the process of putting them in." ~ Edsger W. Dijkstra
+
+Setting up test environment...
+Compiling...
+================================================================
+In file included from unit_tests.cpp:7:
+In file included from include/lp_hash_table.h:248:
+include/lp_hash_table.tcc:70:36: warning: unused parameter 'key' [-Wunused-parameter]
+void lp_hash_table<K, V>::insert(K key, V value)
+                                   ^
+include/lp_hash_table.tcc:70:43: warning: unused parameter 'value' [-Wunused-parameter]
+void lp_hash_table<K, V>::insert(K key, V value)
+                                          ^
+In file included from unit_tests.cpp:8:
+In file included from include/sc_hash_table.h:220:
+include/sc_hash_table.tcc:71:43: warning: unused parameter 'key' [-Wunused-parameter]
+void sc_hash_table<K, V>::remove(K const& key)
+                                          ^
+In file included from unit_tests.cpp:9:
+In file included from include/word_counter.h:55:
+include/word_counter.tcc:26:54: warning: unused parameter 'threshold' [-Wunused-parameter]
+vector<pair<string, int>> WordFreq<HT>::getWords(int threshold) const
+                                                     ^
+In file included from unit_tests.cpp:10:
+In file included from include/anagram_finder.h:91:
+include/anagram_finder.tcc:49:49: warning: unused parameter 'word' [-Wunused-parameter]
+bool AnagramFinder<HT>::checkWord(const string& word, const string& test)
+                                                ^
+include/anagram_finder.tcc:49:69: warning: unused parameter 'test' [-Wunused-parameter]
+bool AnagramFinder<HT>::checkWord(const string& word, const string& test)
+                                                                    ^
+In file included from unit_tests.cpp:253:
+./src/logfile_parser.cpp:86:46: warning: unused parameter 'customer' [-Wunused-parameter]
+bool LogfileParser::hasVisited(const string& customer, const string& url) const
+                                             ^
+./src/logfile_parser.cpp:86:70: warning: unused parameter 'url' [-Wunused-parameter]
+bool LogfileParser::hasVisited(const string& customer, const string& url) const
+                                                                     ^
+./src/logfile_parser.cpp:104:49: warning: unused parameter 'customer' [-Wunused-parameter]
+time_t LogfileParser::dateVisited(const string& customer,
+                                                ^
+./src/logfile_parser.cpp:105:49: warning: unused parameter 'url' [-Wunused-parameter]
+                                  const string& url) const
+                                                ^
+10 warnings generated.
+In file included from unit_tests.cpp:7:
+In file included from include/lp_hash_table.h:248:
+include/lp_hash_table.tcc:70:36: warning: unused parameter 'key' [-Wunused-parameter]
+void lp_hash_table<K, V>::insert(K key, V value)
+                                   ^
+include/lp_hash_table.tcc:70:43: warning: unused parameter 'value' [-Wunused-parameter]
+void lp_hash_table<K, V>::insert(K key, V value)
+                                          ^
+In file included from unit_tests.cpp:8:
+In file included from include/sc_hash_table.h:220:
+include/sc_hash_table.tcc:71:43: warning: unused parameter 'key' [-Wunused-parameter]
+void sc_hash_table<K, V>::remove(K const& key)
+                                          ^
+In file included from unit_tests.cpp:9:
+In file included from include/word_counter.h:55:
+include/word_counter.tcc:26:54: warning: unused parameter 'threshold' [-Wunused-parameter]
+vector<pair<string, int>> WordFreq<HT>::getWords(int threshold) const
+                                                     ^
+In file included from unit_tests.cpp:10:
+In file included from include/anagram_finder.h:91:
+include/anagram_finder.tcc:49:49: warning: unused parameter 'word' [-Wunused-parameter]
+bool AnagramFinder<HT>::checkWord(const string& word, const string& test)
+                                                ^
+include/anagram_finder.tcc:49:69: warning: unused parameter 'test' [-Wunused-parameter]
+bool AnagramFinder<HT>::checkWord(const string& word, const string& test)
+                                                                    ^
+In file included from unit_tests.cpp:253:
+./src/logfile_parser.cpp:86:46: warning: unused parameter 'customer' [-Wunused-parameter]
+bool LogfileParser::hasVisited(const string& customer, const string& url) const
+                                             ^
+./src/logfile_parser.cpp:86:70: warning: unused parameter 'url' [-Wunused-parameter]
+bool LogfileParser::hasVisited(const string& customer, const string& url) const
+                                                                     ^
+./src/logfile_parser.cpp:104:49: warning: unused parameter 'customer' [-Wunused-parameter]
+time_t LogfileParser::dateVisited(const string& customer,
+                                                ^
+./src/logfile_parser.cpp:105:49: warning: unused parameter 'url' [-Wunused-parameter]
+                                  const string& url) const
+                                                ^
+10 warnings generated.
+
+
+Running tests...
+================================================================
+testRemoveEASY . [6 pts]  - FAILED: unit_tests.cpp:31: Did not remove key: 'john'
+testRemoveHard . [10 pts] - FAILED: unit_tests.cpp:50: Did not remove key on update
+testResizeOnce . [7 pts]  - FAILED: unit_tests.cpp:80: Assertion (hashTable.table_size() >= val / 0.7) failed
+testResizeAll  . [11 pts] - FAILED: unit_tests.cpp:106: Assertion (hashTable.table_size() >= strings.size() / 0.7) failed
+testInsertEasy . [6 pts]  - FAILED: unit_tests.cpp:130: Did not insert key: 'john'
+testInsertHard . [10 pts] - FAILED: unit_tests.cpp:156: Did not insert properly key: 'shells'
+testAnagramsSC . [8 pts]  - FAILED: unit_tests.cpp:179: Found too many anagrams
+testAnagramsLP . [8 pts]  - FAILED: unit_tests.cpp:179: Found too many anagrams
+testWordCountSC  [8 pts]  - FAILED: unit_tests.cpp:216: Did not find all words
+testWordCountLP  [8 pts]  - FAILED: unit_tests.cpp:216: Did not find all words
+testLogfileParse [18 pts] - FAILED: unit_tests.cpp:262: Did not find enough URLs
+
+
+Total score...
+================================================================
+TOTAL SCORE: 0
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+testRemoveEASY [6 points]
+Result: FAILED: unit_tests.cpp:31: Did not remove key: 'john'
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testRemoveHard [10 points]
+Result: FAILED: unit_tests.cpp:50: Did not remove key on update
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testResizeOnce [7 points]
+Result: FAILED: unit_tests.cpp:80: Assertion (hashTable.table_size() >= val / 0.7) failed
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testResizeAll [11 points]
+Result: FAILED: unit_tests.cpp:106: Assertion (hashTable.table_size() >= strings.size() / 0.7) failed
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+26
+
+----------------------------------------------------------------
+testInsertEasy [6 points]
+Result: FAILED: unit_tests.cpp:130: Did not insert key: 'john'
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testInsertHard [10 points]
+Result: FAILED: unit_tests.cpp:156: Did not insert properly key: 'shells'
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testAnagramsSC [8 points]
+Result: FAILED: unit_tests.cpp:179: Found too many anagrams
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testAnagramsLP [8 points]
+Result: FAILED: unit_tests.cpp:179: Found too many anagrams
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testWordCountSC [8 points]
+Result: FAILED: unit_tests.cpp:216: Did not find all words
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testWordCountLP [8 points]
+Result: FAILED: unit_tests.cpp:216: Did not find all words
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+testLogfileParse [18 points]
+Result: FAILED: unit_tests.cpp:262: Did not find enough URLs
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 0
+

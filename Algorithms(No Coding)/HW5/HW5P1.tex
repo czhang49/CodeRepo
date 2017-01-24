@@ -1,0 +1,80 @@
+% ---------
+%  Compile with "pdflatex hw0".
+% --------
+%!TEX TS-program = pdflatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt]{article}
+\usepackage{jeffe,handout,graphicx}
+\usepackage[utf8]{inputenc}		% Allow some non-ASCII Unicode in source
+\usepackage{amsmath}
+%  Redefine suits
+\usepackage{pifont}
+\def\Spade{\text{\ding{171}}}
+\def\Heart{\text{\textcolor{Red}{\ding{170}}}}
+\def\Diamond{\text{\textcolor{Red}{\ding{169}}}}
+\def\Club{\text{\ding{168}}}
+
+% =========================================================
+%   Define common stuff for solution headers
+% =========================================================
+\Class{New CS 473}
+\Semester{Spring 2015}
+%\Section{}
+
+% =========================================================
+\begin{document}
+
+% ---------------------------------------------------------
+% Change authors for all future solutions
+\AuthorOne{Arash Khatibi}{khatibi2}
+\AuthorTwo{Liang Tao}{ltao3}
+\AuthorThree{Chen Zhang}{czhang49}
+\HomeworkHeader{5}{1}
+
+
+\section{Part A}
+Define the following variables:
+
+\noindent K: an integer from $0,1,\ldots,\infty$
+
+\noindent $E(Rosen)$: The expected number of flips of Rosencrantz.
+
+\noindent In Rosencrantz's tern, if he wants 2 flips, he has to have H T. If he wants 3 flips, then he has to have H H T. Meaning that the only situation Rosencrantz has K flips is that he needs to have (K-1) consecutive Hs and then a T. Thus the expectation can be expressed as :
+\[
+E(Rosen)=\sum\limits_{K=1}^{\infty}K{(\dfrac{1}{2})}^K=2
+\]
+
+\section{Part B}
+Define the following variables:
+
+\noindent K: an integer from $0,1,\ldots,\infty$
+
+\noindent $E(Guild)$: The expected number of flips of Guildenstern.
+
+\noindent In Guildenstern's term, the expectation follows the following logic: If his first flip is a T, then the number of the rest of the flips is exactly the expectation plus 1, the possibility of this situation is $\dfrac{1}{2}$. If his first two flips are H and T, then the number of the rest of the flips is exactly the expectation plus 2, the possibility of this situation is $\dfrac{1}{4}$.  If his first three flips are H and H and T, then the number of the rest of the flips is exactly the expectation plus 3, the possibility of this situation is $\dfrac{1}{8}$. If his first four flips are H and H and H and T, then the number of the rest of the flips is exactly the expectation plus 4, the possibility of this situation is $\dfrac{1}{16}$. .......... If his first K flips are H and H and H ...... and H and T, then the number of the rest of the flips is exactly the expectation plus 4, the possibility of this situation is ${(\dfrac{1}{2})}^K$. If his first K flips are H and H and H ...... and H and H, then he's done and the possibility of this situation is ${(\dfrac{1}{2})}^K$.  This analysis includes all the cases that needs to be considered in the calculation of expectation.
+
+Thus the expectation can be calculated as 
+\begin{align*}
+& E(Guild)={(\dfrac{1}{2})}^{K}*K + \sum\limits_{n=1}^{K} {(\dfrac{1}{2})}^{n}*(n+E(Guild)) \\
+& E(Guild)=2^K*(2-\dfrac{1}{2^{K-1}})
+\end{align*}
+
+\section{Part C}
+The calculation of the total expected number has the following logic: If Rosencrantz has K flips of heads in a row, there is a probability of this situation associated with the value of K, at the same time the expected number of flips from Guildenstern is also associated with K, thus the expectation can be calculated. 
+\begin{align*}
+E(total) 
+& = \sum\limits_{K=0}^{\infty} (K+1+2^K*(2-\dfrac{1}{2^{K-1}}))*\dfrac{1}{2^K} \\
+& = \sum\limits_{K=0}^{\infty} (K+1)*\dfrac{1}{2^K} +2-\dfrac{1}{2^{K-1}} \\
+& = \infty
+\end{align*}
+
+Thus the expected number of total flips from Rosencrantz and Guildenstern is $\infty$.
+
+
+
+
+
+
+
+\end{document}

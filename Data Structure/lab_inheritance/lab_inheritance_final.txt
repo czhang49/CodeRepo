@@ -1,0 +1,26 @@
+Monad Autograder
+Testing lab_inheritance at 2014-07-07 04:07:47
+
+"Honestly, if you don't fit in, then you're probably doing the right thing." ~ LIGHTS
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+test_virtual_perim  . . . . . . [5 pts]  - passed
+test_virtual_area . . . . . . . [5 pts]  - passed
+test_destructor (asan)  . . . . [20 pts] - passed
+test_constructor  . . . . . . . [20 pts] - passed
+test_drawable_destructor (asan) [10 pts] - passed
+test_truck_draw . . . . . . . . [10 pts] - passed
+test_slicing  . . . . . . . . . [20 pts] - passed
+test_flower_destructor (asan) . [10 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 100
+

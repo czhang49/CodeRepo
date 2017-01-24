@@ -1,0 +1,3 @@
+Below is the key of column for a SQL query.
+
+21

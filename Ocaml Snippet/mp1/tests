@@ -1,0 +1,22 @@
+(**************************************************************************
+ * You can add new test cases by adding new elements to the following lists
+ * Format is:
+ * TEST<X>ARG(<weight>, <function_name>, <arg1>, <arg2>, ..., <argX>)
+ *
+ * <X> is the number of argument that the function being tested takes.
+ **************************************************************************)
+
+(* This list is for regular problems *)
+let rubric =
+[
+     TEST0ARG(1, random) ;
+     TEST0ARG(1, pi) ;
+     TEST1ARG(1, myFirstFun, 17) ;
+     TEST1ARG(1, circumference, 1.0) ; 
+     TEST1ARG(1, double, 0) ;
+     TEST1ARG(1, make_bigger, 12.0)
+]
+(* Note: the last entry should not be followed by a semicolon. *)
+
+(* This is the list for extra credit problems *)
+let extra_rubric = [ ]

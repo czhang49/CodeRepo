@@ -1,0 +1,466 @@
+Monad Autograder
+Testing mp_qtree at 2014-07-20 23:25:15
+
+"Microsoft has a new version out, Windows XP, which according to everybody is the 'most reliable Windows ever.' To me, this is like saying that asparagus is 'the most articulate vegetable ever.'" ~ Dave Barry
+
+Setting up test environment...
+Compiling...
+================================================================
+unit_tests.cpp:55:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(small, 16);
+             ^     ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:62:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(small, 8);
+             ^     ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:70:11: error: no member named 'build_tree' in 'cs225::quadtree'
+    first.build_tree(small, 16);
+    ~~~~~ ^
+unit_tests.cpp:78:11: error: no member named 'build_tree' in 'cs225::quadtree'
+    first.build_tree(small, 8);
+    ~~~~~ ^
+unit_tests.cpp:86:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(monochrome, 16);
+             ^     ~~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:94:14: error: call to implicitly-deleted copy constructor of 'cs225::quadtree'
+    quadtree second(first);
+             ^      ~~~~~
+include/quadtree.h:47:27: note: copy constructor of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy constructor
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:101:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(pixel, 1);
+             ^     ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:109:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(large, 16);
+             ^     ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:118:27: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree* first = new quadtree(large, 16);
+                          ^        ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:119:28: error: call to implicitly-deleted copy constructor of 'cs225::quadtree'
+    quadtree* second = new quadtree(*first);
+                           ^        ~~~~~~
+include/quadtree.h:47:27: note: copy constructor of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy constructor
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:122:17: error: no matching constructor for initialization of 'cs225::quadtree'
+    first = new quadtree(monochrome, 16);
+                ^        ~~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:132:12: error: object of type 'cs225::quadtree' cannot be assigned because its copy assignment operator is implicitly deleted
+    second = first;
+           ^
+include/quadtree.h:47:27: note: copy assignment operator of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy assignment operator
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy assignment operator is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:140:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(pixel, 1);
+             ^     ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:150:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(large, 16);
+             ^     ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:151:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree second(monochrome, 8);
+             ^      ~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:161:27: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree* first = new quadtree(large, 16);
+                          ^        ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:162:28: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree* second = new quadtree(small, 8);
+                           ^        ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:163:13: error: object of type 'cs225::quadtree' cannot be assigned because its copy assignment operator is implicitly deleted
+    *second = *first;
+            ^
+include/quadtree.h:47:27: note: copy assignment operator of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy assignment operator
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy assignment operator is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:166:17: error: no matching constructor for initialization of 'cs225::quadtree'
+    first = new quadtree(monochrome, 16);
+                ^        ~~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+unit_tests.cpp:55:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(small, 16);
+             ^     ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:62:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(small, 8);
+             ^     ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:70:11: error: no member named 'build_tree' in 'cs225::quadtree'
+    first.build_tree(small, 16);
+    ~~~~~ ^
+unit_tests.cpp:78:11: error: no member named 'build_tree' in 'cs225::quadtree'
+    first.build_tree(small, 8);
+    ~~~~~ ^
+unit_tests.cpp:86:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(monochrome, 16);
+             ^     ~~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:94:14: error: call to implicitly-deleted copy constructor of 'cs225::quadtree'
+    quadtree second(first);
+             ^      ~~~~~
+include/quadtree.h:47:27: note: copy constructor of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy constructor
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:101:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(pixel, 1);
+             ^     ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:109:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(large, 16);
+             ^     ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:118:27: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree* first = new quadtree(large, 16);
+                          ^        ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:119:28: error: call to implicitly-deleted copy constructor of 'cs225::quadtree'
+    quadtree* second = new quadtree(*first);
+                           ^        ~~~~~~
+include/quadtree.h:47:27: note: copy constructor of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy constructor
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:122:17: error: no matching constructor for initialization of 'cs225::quadtree'
+    first = new quadtree(monochrome, 16);
+                ^        ~~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:132:12: error: object of type 'cs225::quadtree' cannot be assigned because its copy assignment operator is implicitly deleted
+    second = first;
+           ^
+include/quadtree.h:47:27: note: copy assignment operator of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy assignment operator
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy assignment operator is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:140:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(pixel, 1);
+             ^     ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:150:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(large, 16);
+             ^     ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:151:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree second(monochrome, 8);
+             ^      ~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:161:27: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree* first = new quadtree(large, 16);
+                          ^        ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:162:28: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree* second = new quadtree(small, 8);
+                           ^        ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:163:13: error: object of type 'cs225::quadtree' cannot be assigned because its copy assignment operator is implicitly deleted
+    *second = *first;
+            ^
+include/quadtree.h:47:27: note: copy assignment operator of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy assignment operator
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy assignment operator is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:166:17: error: no matching constructor for initialization of 'cs225::quadtree'
+    first = new quadtree(monochrome, 16);
+                ^        ~~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+unit_tests.cpp:55:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(small, 16);
+             ^     ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:62:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(small, 8);
+             ^     ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:70:11: error: no member named 'build_tree' in 'cs225::quadtree'
+    first.build_tree(small, 16);
+    ~~~~~ ^
+unit_tests.cpp:78:11: error: no member named 'build_tree' in 'cs225::quadtree'
+    first.build_tree(small, 8);
+    ~~~~~ ^
+unit_tests.cpp:86:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(monochrome, 16);
+             ^     ~~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:94:14: error: call to implicitly-deleted copy constructor of 'cs225::quadtree'
+    quadtree second(first);
+             ^      ~~~~~
+include/quadtree.h:47:27: note: copy constructor of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy constructor
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:101:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(pixel, 1);
+             ^     ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:109:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(large, 16);
+             ^     ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:118:27: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree* first = new quadtree(large, 16);
+                          ^        ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:119:28: error: call to implicitly-deleted copy constructor of 'cs225::quadtree'
+    quadtree* second = new quadtree(*first);
+                           ^        ~~~~~~
+include/quadtree.h:47:27: note: copy constructor of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy constructor
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:122:17: error: no matching constructor for initialization of 'cs225::quadtree'
+    first = new quadtree(monochrome, 16);
+                ^        ~~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:132:12: error: object of type 'cs225::quadtree' cannot be assigned because its copy assignment operator is implicitly deleted
+    second = first;
+           ^
+include/quadtree.h:47:27: note: copy assignment operator of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy assignment operator
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy assignment operator is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:140:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(pixel, 1);
+             ^     ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:150:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree first(large, 16);
+             ^     ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:151:14: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree second(monochrome, 8);
+             ^      ~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:161:27: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree* first = new quadtree(large, 16);
+                          ^        ~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:162:28: error: no matching constructor for initialization of 'cs225::quadtree'
+    quadtree* second = new quadtree(small, 8);
+                           ^        ~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+unit_tests.cpp:163:13: error: object of type 'cs225::quadtree' cannot be assigned because its copy assignment operator is implicitly deleted
+    *second = *first;
+            ^
+include/quadtree.h:47:27: note: copy assignment operator of 'quadtree' is implicitly deleted because field 'root_' has a deleted copy assignment operator
+    std::unique_ptr<node> root_; // the root of the tree
+                          ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy assignment operator is implicitly deleted because 'unique_ptr<cs225::quadtree::node, std::__1::default_delete<cs225::quadtree::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+unit_tests.cpp:166:17: error: no matching constructor for initialization of 'cs225::quadtree'
+    first = new quadtree(monochrome, 16);
+                ^        ~~~~~~~~~~~~~~
+include/quadtree.h:20:7: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 2 were provided
+class quadtree
+      ^
+include/quadtree.h:20:7: note: candidate constructor (the implicit default constructor) not viable: requires 0 arguments, but 2 were provided
+include/quadtree.h:20:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 2 were provided
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+ld: no input files
+clang-3.4: error: no such file or directory: 'unit_tests.o'
+make: *** [proxy] Error 1
+
+
+Running tests...
+================================================================
+Could not execute test cases
+
+
+Total score...
+================================================================
+TOTAL SCORE: 0
+

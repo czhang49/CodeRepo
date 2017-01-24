@@ -1,0 +1,5 @@
+Name:proj2_xtra_cr3dit
+Version:5.5.44-0ubuntu0.14.04.1
+Tables: SECRETTABLE,foo,inject3_users
+Secret Message: hunter2
+

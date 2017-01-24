@@ -1,0 +1,57 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:l="/lib/layout">
+<l:layout title="Test Result Graph">
+<st:include it="${it.project}" page="sidepanel.jelly" />
+<st:bind var="remoteAction" value="${it}"/> 
+<l:main-panel>
+<link href="${resURL}/plugin/TestResultsAnalyzer/css/table-style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="${resURL}/plugin/TestResultsAnalyzer/jquery/js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="${resURL}/plugin/TestResultsAnalyzer/js/testresult.js"></script>
+<j:set var="temp" value="${it.jsonLoadData}"/>
+<j:set var="builds" value="${it.builds}"/>
+<div>
+Select
+<select id="noofbuilds">
+  <option value="all">All</option>
+  <option value="10">10</option>
+  <option value="20">20</option>
+  <option value="30">30</option>
+</select>
+Last builds and show
+
+<select id="teststatus">
+  <option value="all">All</option>
+  <option value="FAILED">FAILED</option>  
+  <option value="PASSED">PASSED</option>  
+  <option value="SKIPPED">SKIPPED</option>  
+</select>
+ tests
+<button id="getbuildreport">Get Build Report</button>
+<div class="extrabuttons"> 
+	<button id="expandall">Expand All</button>
+	<button id="collapseall">Collapse All</button>
+</div>
+</div>
+<div id="tree">
+
+</div>
+<div id="builddetail">
+
+</div>
+
+<script>
+	$("#getbuildreport").click(function () {
+		populate();
+	});
+	
+	$("#expandall").click(function () {
+		expandAll();
+	});
+	
+	$("#collapseall").click(function () {
+		collapseAll();
+	});
+</script>
+  </l:main-panel>
+  </l:layout>
+</j:jelly>

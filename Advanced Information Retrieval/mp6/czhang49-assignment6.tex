@@ -1,0 +1,116 @@
+\input{cs598cxz.tex}
+
+\oddsidemargin 0in
+\evensidemargin 0in
+\textwidth 6.5in
+\topmargin -0.5in
+\textheight 9.0in
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+
+\begin{document}
+
+\solution{chen zhang, NetId: czhang49}{\today}{6}{Fall 2016}
+% Fill in the above, for example, as follows:
+% \solution{Joe Smith}{\today}{1}{Fall 2012}
+
+\pagestyle{myheadings}  % Leave this command alone
+
+\section{Word Embeddings via Singular Value Decomposition}
+\subsection{a}
+As attached code file.
+\subsection{b}
+\subsubsection{i}
+We can use the following equation:
+\begin{align*}
+& \vec{q} = \vec{e}_{x} - \vec{e}_{y} + \vec{e}_{z} \\
+&\hat{q} = \dfrac{\vec{q}}{||q||}
+\end{align*}
+The scoring factor is then 
+\begin{align*}
+\text{score} = \vec{v}\cdot \hat{q}
+\end{align*}
+in which $\vec{v}$ is the vector of words and $\vec{v}\in W$
+
+\subsubsection{ii}
+What I got is : \\
+king (0.991194367409) \\
+husband (0.991003453732)\\
+mother (0.990785479546)\\
+father (0.990462422371)\\
+miss (0.990008413792)\\
+daughter (0.990000665188)\\
+brother (0.989433646202)\\
+club (0.989403545856)\\
+friends (0.989162325859) \\
+hall (0.988909602165) \\
+\\
+These are the top 10 words I got, and queen is not among them. This may have to do with insufficient word pair of (woman, queen).
+\\
+Analogy  : student to school is as teacher to XX \\
+teacher (0.988462507725)\\
+college (0.988054871559)\\
+brown (0.98684155941)\\
+miss (0.986574411392)\\
+parents (0.986404180527)\\
+child (0.985893189907)\\
+couple (0.985881924629)\\
+mary (0.985849678516)\\
+martin (0.985593140125)\\
+dr (0.985047757626)\\
+\\ 
+Qualitatively the results is acceptable, it falls in the range of words that make sense.
+
+\section{Evaluating Word Embeddings via an Analogy Task}
+\subsection{a}
+MRR considers the rank first relevant document.  Accuracy has the expression of $\dfrac{\text{true positive}+\text{true negative}}{\text{positive + negative}}$. \\ \\
+If we want one good response and that response needs to be on top of the rank, we prefer MRR. In the scenario where the user would want one good response which appears on top of the rank, MRR is a good measure. \\
+If we want several response and we are willing to look over all the response, we can use accuracy. In the scenario where the user would want several response and would want to browse through, accuracy is a good measure.
+
+\subsection{b}
+The modified code is as in the attachment.
+
+\subsection{c}
+\subsubsection{i}
+SVD p=1.0:  4.9e-40\\ 
+SVD p=0.5:  3.2e-39 \\
+SVD p=0.0:  5.3e-41\\ 
+GloVe:     3.58e-41\\
+\\
+We see that as p decrease, the MRR has a trend to first increase and then decrease. Maybe this is due to effect of the position and value of the singular values. 
+\subsubsection{ii}
+In order to run the t-test, the process needs to be done again and calculate the p value. \\
+SVD p=1.0:  4.72e-40\\ 
+SVD p=0.5:   5.65e-39\\
+SVD p=0.0:  4.8e-41 \\ 
+GloVe:     7.24e-40\\
+\\
+The p value calculated is 0.0544, which is considered to be almost statistically significant.
+
+\section{Evaluating Word Embeddings via a Similarity Task}
+\subsection{a}
+SVD p=1.0: 0.396551724138 \\ 
+SVD p=0.5: 0.379310344828 \\
+SVD p=0.0: 0.5	\\ 
+GloVe:     0.362068965517 \\
+\\
+From the results it turns out that when $p=0$, it gives the best result. This is sort of expected because we are giving 0 weights to the singular values.
+
+\subsection{b}
+In order to do the t-test, the simulator needs to be run again, so the result for the second time is :\\
+SVD p=1.0: 0.392625469443 \\ 
+SVD p=0.5: 0.385455786958 \\
+SVD p=0.0: 0.50495	\\ 
+GloVe:     0.35848412427 \\
+\\
+The p value calculated is 0.0009, which is considered to be extremely statistically significant. 
+
+\subsection{c}
+yes I meet this problem. I suggest allowing the user to input more than one answer, so that we can get this information.
+
+\subsection{d}
+yes I meet this problem. I suggest putting another choice : None of the above. So that we can capture this information.
+
+\end{document}
+

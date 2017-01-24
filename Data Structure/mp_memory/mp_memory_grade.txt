@@ -1,0 +1,7 @@
+Monad Autograder
+Testing mp_memory at 2014-07-01 12:55:27
+
+"Chicken is basically a vegetable, I mean, if you compare it to steak." ~ Sean Massung
+
+Setting up test environment...
+Error: /dev/shm/geigle1/su14/monad/su14-cs225/czhang49/mp_memory/include/collage.h does not exist.

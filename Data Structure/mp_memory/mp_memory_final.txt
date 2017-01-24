@@ -1,0 +1,542 @@
+Monad Autograder
+Testing mp_memory at 2014-07-01 23:29:02
+
+"At least for a while, in your heart of hearts you'll be confident only that the university will soon enough discover its error in awarding you the PhD, and at some point will brand you (in public no doubt) the fraud you know you are. This too will pass as you come to realize that students are extremely gullible and many of your colleagues are even greater frauds than you." ~ Berkeley PhD Advice
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+ptr_empty (asan)  . . . . . . . . [1 pts] - passed
+ptr_full (asan) . . . . . . . . . [1 pts] - passed
+ptr_clear (asan)  . . . . . . . . [1 pts] - passed
+ptr_deref_assign  . . . . . . . . [1 pts] - passed
+ptr_const_deref_signature . . . . [1 pts] - passed
+ptr_no_copy_construction  . . . . [1 pts] - passed
+ptr_no_copy_assignment  . . . . . [1 pts] - passed
+ptr_move_construction (asan)  . . [1 pts] - passed
+ptr_move_assignment (asan)  . . . [1 pts] - passed
+ptr_get (asan)  . . . . . . . . . [1 pts] - passed
+ptr_no_copies (asan)  . . . . . . [1 pts] - passed
+ptr_const_deref . . . . . . . . . [1 pts] - passed
+ptr_const_get . . . . . . . . . . [1 pts] - passed
+ptr_member_access . . . . . . . . [1 pts] - passed
+ptr_const_member_access . . . . . [1 pts] - passed
+ptr_swap (asan) . . . . . . . . . [1 pts] - passed
+array_empty (asan)  . . . . . . . [1 pts] - passed
+array_sized (asan)  . . . . . . . [1 pts] - passed
+array_sized_class_type (asan) . . [1 pts] - passed
+array_const_subscript . . . . . . [1 pts] - passed
+array_const_at  . . . . . . . . . [1 pts] - passed
+array_copy_construction (asan)  . [1 pts] - passed
+array_move_construction (asan)  . [1 pts] - passed
+array_copy_assignment (asan)  . . [1 pts] - passed
+array_move_assignment (asan)  . . [1 pts] - passed
+array_clear (asan)  . . . . . . . [1 pts] - passed
+array_swap (asan) . . . . . . . . [1 pts] - passed
+array_resize_smaller (asan) . . . [2 pts] - passed
+array_resize_larger (asan)  . . . [2 pts] - passed
+array_resize_zero (asan)  . . . . [2 pts] - passed
+collage_emplace_valid . . . . . . [2 pts] - passed
+collage_emplace_invalid . . . . . [1 pts] - passed
+collage_at_assign . . . . . . . . [2 pts] - passed
+collage_at_empty  . . . . . . . . [2 pts] - FAILED: unit_tests.cpp:591: Assertion (c.at(0) == nullptr) failed
+collage_at_invalid  . . . . . . . [2 pts] - passed
+collage_const_at  . . . . . . . . [1 pts] - FAILED: unit_tests.cpp:614: Assertion (c.at(1) == nullptr) failed
+collage_set_layers_larger (asan)  [3 pts] - FAILED: Memory errors detected by ASAN
+collage_set_layers_smaller (asan) [3 pts] - FAILED:     #8 0x484ce5 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x484ce5)
+    #9 0x47ced8 in proxy::RunTe
+collage_copy_constructor  . . . . [2 pts] - passed
+collage_copy_constructor_deep . . [2 pts] - passed
+collage_move_ctor_1 . . . . . . . [2 pts] - FAILED: Aborted
+collage_move_ctor_2 (asan)  . . . [3 pts] - passed
+collage_copy_assign . . . . . . . [2 pts] - passed
+collage_copy_assign_deep  . . . . [2 pts] - passed
+collage_move_assign_1 . . . . . . [2 pts] - passed
+collage_move_assign_2 . . . . . . [2 pts] - FAILED: Aborted
+collage_swap  . . . . . . . . . . [2 pts] - passed
+collage_change_layer  . . . . . . [2 pts] - passed
+collage_change_layer_invalid  . . [1 pts] - passed
+collage_draw_1  . . . . . . . . . [2 pts] - passed
+collage_draw_2  . . . . . . . . . [2 pts] - FAILED: unit_tests.cpp:843: Assertion (c.draw() == soln) failed
+collage_draw_3  . . . . . . . . . [2 pts] - passed
+collage_draw_4  . . . . . . . . . [2 pts] - passed
+collage_draw_change_layer . . . . [2 pts] - passed
+collage_draw_erase_picture  . . . [2 pts] - passed
+collage_draw_position_1 . . . . . [2 pts] - passed
+collage_draw_position_2 . . . . . [2 pts] - passed
+collage_position_invalid_1  . . . [2 pts] - passed
+collage_position_invalid_2  . . . [2 pts] - FAILED: unit_tests.cpp:541: exception (std::invalid_argument) was not thrown when expected!
+collage_erase_invalid . . . . . . [2 pts] - passed
+collage_memory_safety_1 (asan)  . [3 pts] - passed
+collage_memory_safety_2 (asan)  . [4 pts] - FAILED: Memory errors detected by ASAN
+
+
+Total score...
+================================================================
+TOTAL SCORE: 79
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+collage_at_empty [2 points]
+Result: FAILED: unit_tests.cpp:591: Assertion (c.at(0) == nullptr) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+The = operator in scoped_array is called
+At the collage destructor layers is 2Filled is 2
+At the collage destructor Line:72png number is :0
+At the collage destructor Line:72png number is :1
+ at the final line of collage destructor
+
+----------------------------------------------------------------
+collage_const_at [1 points]
+Result: FAILED: unit_tests.cpp:614: Assertion (c.at(1) == nullptr) failed
+Took 0ms (2000ms timeout)
+Output:
+----------------------------------------------------------------
+The = operator in scoped_array is called
+At the collage destructor layers is 2Filled is 2
+At the collage destructor Line:72png number is :0
+At the collage destructor Line:72png number is :1
+ at the final line of collage destructor
+
+----------------------------------------------------------------
+collage_set_layers_larger (run under asan) [3 points]
+Result: FAILED: Memory errors detected by ASAN
+Took unknown time (2000ms timeout)
+Output:
+----------------------------------------------------------------
+Running collage_set_layers_larger [worth 3 points, output below]
+The = operator in scoped_array is called
+=================================================================
+==24366==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000efa0 at pc 0x6faab3 bp 0x7fffd634f970 sp 0x7fffd634f968
+READ of size 8 at 0x60200000efa0 thread T0
+    #0 0x6faab2 in cs225::collage::layers(unsigned long) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6faab2)
+    #1 0x6985cd in proxy_test::collage_set_layers_larger(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6985cd)
+    #2 0x4b899b in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x4b899b)
+    #3 0x49bf39 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x49bf39)
+    #4 0x48afab in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x48afab)
+    #5 0x484ce5 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x484ce5)
+    #6 0x47ced8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47ced8)
+    #7 0x47bf51 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47bf51)
+    #8 0x477b4c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x477b4c)
+    #9 0x47576a in main (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47576a)
+    #10 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+    #11 0x46cca8 in _start (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x46cca8)
+
+0x60200000efa0 is located 0 bytes to the right of 16-byte region [0x60200000ef90,0x60200000efa0)
+allocated by thread T0 here:
+    #0 0x45735e in operator new[](unsigned long) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:54
+    #1 0x6f65cb in cs225::collage::collage(unsigned long) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6f65cb)
+    #2 0x697aeb in proxy_test::collage_set_layers_larger(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x697aeb)
+    #3 0x4b899b in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x4b899b)
+    #4 0x49bf39 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x49bf39)
+    #5 0x48afab in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x48afab)
+    #6 0x484ce5 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x484ce5)
+    #7 0x47ced8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47ced8)
+    #8 0x47bf51 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47bf51)
+    #9 0x477b4c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x477b4c)
+    #10 0x47576a in main (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47576a)
+    #11 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow ??:0 cs225::collage::layers(unsigned long)
+Shadow bytes around the buggy address:
+  0x0c047fff9da0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9db0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9dc0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9dd0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9de0: fa fa fa fa fa fa fd fa fa fa 04 fa fa fa 00 00
+=>0x0c047fff9df0: fa fa 00 00[fa]fa fd fd fa fa fd fd fa fa fd fa
+  0x0c047fff9e00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9e10: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9e20: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9e30: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9e40: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:     fa
+  Heap right redzone:    fb
+  Freed heap region:     fd
+  Stack left redzone:    f1
+  Stack mid redzone:     f2
+  Stack right redzone:   f3
+  Stack partial redzone: f4
+  Stack after return:    f5
+  Stack use after scope: f8
+  Global redzone:        f9
+  Global init order:     f6
+  Poisoned by user:      f7
+  ASan internal:         fe
+==24366==ABORTING
+Result: FAILED:
+Memory Errors Detected by ASAN
+
+----------------------------------------------------------------
+collage_set_layers_smaller (run under asan) [3 points]
+Result: FAILED:     #8 0x484ce5 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x484ce5)
+    #9 0x47ced8 in proxy::RunTe
+Took unknown time (2000ms timeout)
+Output:
+----------------------------------------------------------------
+Running collage_set_layers_smaller [worth 3 points, output below]
+The = operator in scoped_array is called
+At the collage destructor layers is 2Filled is 2
+At the collage destructor Line:72png number is :0
+At the collage destructor Line:72png number is :1
+ at the final line of collage destructor
+
+=================================================================
+==24371==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 72 byte(s) in 3 object(s) allocated from:
+    #0 0x45729e in operator new(unsigned long) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:52
+    #1 0x6f68f9 in cs225::collage::collage(unsigned long) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6f68f9)
+    #2 0x69a9c0 in proxy_test::collage_set_layers_smaller(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x69a9c0)
+    #3 0x4b899b in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x4b899b)
+    #4 0x49bf39 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x49bf39)
+    #5 0x48afab in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x48afab)
+    #6 0x484ce5 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x484ce5)
+    #7 0x47ced8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47ced8)
+    #8 0x47bf51 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47bf51)
+    #9 0x477b4c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x477b4c)
+    #10 0x47576a in main (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47576a)
+    #11 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+
+Direct leak of 40 byte(s) in 1 object(s) allocated from:
+    #0 0x45735e in operator new[](unsigned long) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:54
+    #1 0x6f6681 in cs225::collage::collage(unsigned long) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6f6681)
+    #2 0x69a9c0 in proxy_test::collage_set_layers_smaller(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x69a9c0)
+    #3 0x4b899b in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x4b899b)
+    #4 0x49bf39 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x49bf39)
+    #5 0x48afab in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x48afab)
+    #6 0x484ce5 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x484ce5)
+    #7 0x47ced8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47ced8)
+    #8 0x47bf51 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47bf51)
+    #9 0x477b4c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x477b4c)
+    #10 0x47576a in main (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47576a)
+    #11 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+
+Direct leak of 40 byte(s) in 1 object(s) allocated from:
+    #0 0x45735e in operator new[](unsigned long) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:54
+    #1 0x6f65cb in cs225::collage::collage(unsigned long) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6f65cb)
+    #2 0x69a9c0 in proxy_test::collage_set_layers_smaller(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x69a9c0)
+    #3 0x4b899b in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x4b899b)
+    #4 0x49bf39 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x49bf39)
+    #5 0x48afab in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x48afab)
+    #6 0x484ce5 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x484ce5)
+    #7 0x47ced8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47ced8)
+    #8 0x47bf51 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47bf51)
+    #9 0x477b4c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x477b4c)
+    #10 0x47576a in main (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47576a)
+    #11 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+
+Indirect leak of 400 byte(s) in 1 object(s) allocated from:
+    #0 0x45735e in operator new[](unsigned long) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:54
+    #1 0x70849c in epng::png::load(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x70849c)
+    #2 0x6fbe95 in cs225::collage::emplace_picture(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long, unsigned long, unsigned long) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6fbe95)
+    #3 0x69b506 in proxy_test::collage_set_layers_smaller(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x69b506)
+    #4 0x4b899b in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x4b899b)
+    #5 0x49bf39 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x49bf39)
+    #6 0x48afab in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x48afab)
+    #7 0x484ce5 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x484ce5)
+    #8 0x47ced8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47ced8)
+    #9 0x47bf51 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47bf51)
+    #10 0x477b4c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x477b4c)
+    #11 0x47576a in main (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47576a)
+    #12 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+
+Indirect leak of 8 byte(s) in 2 object(s) allocated from:
+    #0 0x45735e in operator new[](unsigned long) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:54
+    #1 0x7051bd in epng::png::init() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x7051bd)
+    #2 0x705561 in epng::png::png() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x705561)
+    #3 0x6f6917 in cs225::collage::collage(unsigned long) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6f6917)
+    #4 0x69a9c0 in proxy_test::collage_set_layers_smaller(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x69a9c0)
+    #5 0x4b899b in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x4b899b)
+    #6 0x49bf39 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x49bf39)
+    #7 0x48afab in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x48afab)
+    #8 0x484ce5 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x484ce5)
+    #9 0x47ced8 in proxy::RunTes
+
+----------------------------------------------------------------
+collage_move_ctor_1 [2 points]
+Result: FAILED: Aborted
+Took 0ms (2000ms timeout)
+Output:
+----------------------------------------------------------------
+The = operator in scoped_array is called
+Copy constructor used
+At the collage destructor layers is 2Filled is 2
+At the collage destructor Line:72png number is :0
+At the collage destructor Line:72png number is :1
+ at the final line of collage destructor
+At the collage destructor layers is 0Filled is 0
+*** glibc detected *** ./proxy: free(): invalid pointer: 0x00007f45899a04c8 ***
+======= Backtrace: =========
+/lib64/libc.so.6[0x3a26a76166]
+./proxy[0x463740]
+./proxy[0x454f89]
+./proxy[0x41413d]
+./proxy[0x410239]
+./proxy[0x40df47]
+./proxy[0x413f12]
+./proxy[0x40f711]
+./proxy[0x40c505]
+./proxy[0x40bcfb]
+./proxy[0x40b4d9]
+./proxy[0x40afba]
+/lib64/libc.so.6(__libc_start_main+0xfd)[0x3a26a1ed1d]
+./proxy[0x409bf9]
+======= Memory map: ========
+00400000-004bc000 r-xp 00000000 00:10 207952222                          /dev/shm/geigle1/su14/monad/mp_memory_grade/proxy
+006bc000-006be000 rw-p 000bc000 00:10 207952222                          /dev/shm/geigle1/su14/monad/mp_memory_grade/proxy
+01772000-01793000 rw-p 00000000 00:00 0                                  [heap]
+3a26200000-3a26220000 r-xp 00000000 fd:00 394848                         /lib64/ld-2.12.so
+3a2641f000-3a26420000 r--p 0001f000 fd:00 394848                         /lib64/ld-2.12.so
+3a26420000-3a26421000 rw-p 00020000 fd:00 394848                         /lib64/ld-2.12.so
+3a26421000-3a26422000 rw-p 00000000 00:00 0 
+3a26600000-3a26683000 r-xp 00000000 fd:00 394865                         /lib64/libm-2.12.so
+3a26683000-3a26882000 ---p 00083000 fd:00 394865                         /lib64/libm-2.12.so
+3a26882000-3a26883000 r--p 00082000 fd:00 394865                         /lib64/libm-2.12.so
+3a26883000-3a26884000 rw-p 00083000 fd:00 394865                         /lib64/libm-2.12.so
+3a26a00000-3a26b8b000 r-xp 00000000 fd:00 395093                         /lib64/libc-2.12.so
+3a26b8b000-3a26d8a000 ---p 0018b000 fd:00 395093                         /lib64/libc-2.12.so
+3a26d8a000-3a26d8e000 r--p 0018a000 fd:00 395093                         /lib64/libc-2.12.so
+3a26d8e000-3a26d8f000 rw-p 0018e000 fd:00 395093                         /lib64/libc-2.12.so
+3a26d8f000-3a26d94000 rw-p 00000000 00:00 0 
+3a26e00000-3a26e17000 r-xp 00000000 fd:00 395094                         /lib64/libpthread-2.12.so
+3a26e17000-3a27017000 ---p 00017000 fd:00 395094                         /lib64/libpthread-2.12.so
+3a27017000-3a27018000 r--p 00017000 fd:00 395094                         /lib64/libpthread-2.12.so
+3a27018000-3a27019000 rw-p 00018000 fd:00 395094                         /lib64/libpthread-2.12.so
+3a27019000-3a2701d000 rw-p 00000000 00:00 0 
+3a27200000-3a27202000 r-xp 00000000 fd:00 395096                         /lib64/libdl-2.12.so
+3a27202000-3a27402000 ---p 00002000 fd:00 395096                         /lib64/libdl-2.12.so
+3a27402000-3a27403000 r--p 00002000 fd:00 395096                         /lib64/libdl-2.12.so
+3a27403000-3a27404000 rw-p 00003000 fd:00 395096                         /lib64/libdl-2.12.so
+3a27600000-3a27615000 r-xp 00000000 fd:00 395095                         /lib64/libz.so.1.2.3
+3a27615000-3a27814000 ---p 00015000 fd:00 395095                         /lib64/libz.so.1.2.3
+3a27814000-3a27815000 r--p 00014000 fd:00 395095                         /lib64/libz.so.1.2.3
+3a27815000-3a27816000 rw-p 00015000 fd:00 395095                         /lib64/libz.so.1.2.3
+3a27a00000-3a27a07000 r-xp 00000000 fd:00 395097                         /lib64/librt-2.12.so
+3a27a07000-3a27c06000 ---p 00007000 fd:00 395097                         /lib64/librt-2.12.so
+3a27c06000-3a27c07000 r--p 00006000 fd:00 395097                         /lib64/librt-2.12.so
+3a27c07000-3a27c08000 rw-p 00007000 fd:00 395097                         /lib64/librt-2.12.so
+3a2ae00000-3a2ae25000 r-xp 00000000 fd:00 801232                         /usr/lib64/libpng12.so.0.49.0
+3a2ae25000-3a2b025000 ---p 00025000 fd:00 801232                         /usr/lib64/libpng12.so.0.49.0
+3a2b025000-3a2b026000 rw-p 00025000 fd:00 801232                         /usr/lib64/libpng12.so.0.49.0
+3a2ce00000-3a2ce16000 r-xp 00000000 fd:00 395099                         /lib64/libgcc_s-4.4.7-20120601.so.1
+3a2ce16000-3a2d015000 ---p 00016000 fd:00 395099                         /lib64/libgcc_s-4.4.7-20120601.so.1
+3a2d015000-3a2d016000 rw-p 00015000 fd:00 395099                         /lib64/libgcc_s-4.4.7-20120601.so.1
+7f458999c000-7f45899a1000 rw-p 00000000 00:00 0 
+7f45899a1000-7f4589aa2000 r-xp 00000000 00:27 20845127                   /class/cs225/llvm/lib/libc++.so.1.0
+7f4589aa2000-7f4589ca1000 ---p 00101000 00:27 20845127                   /class/cs225/llvm/lib/libc++.so.1.0
+7f4589ca1000-7f4589ca8000 rw-p 00100000 00:27 20845127                   /class/cs225/llvm/lib/libc++.so.1.0
+7f4589ca8000-7f4589cac000 rw-p 00000000 00:00 0 
+7f4589cd0000-7f4589cd1000 rw-p 00000000 00:00 0 
+7f4589cd1000-7f4589cd3000 rw-p 00000000 00:00 0 
+7fff62f37000-7fff62f4c000 rw-p 00000000 00:00 0                          [stack]
+7fff62fff000-7fff63000000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+----------------------------------------------------------------
+collage_move_assign_2 [2 points]
+Result: FAILED: Aborted
+Took 0ms (2000ms timeout)
+Output:
+----------------------------------------------------------------
+The = operator in scoped_array is called
+The = operator in scoped_array is called
+Copy constructor used
+At the collage destructor layers is 1Filled is 1
+At the collage destructor Line:72png number is :0
+ at the final line of collage destructor
+At the collage destructor layers is 2Filled is 2
+At the collage destructor Line:72png number is :0
+At the collage destructor Line:72png number is :1
+ at the final line of collage destructor
+At the collage destructor layers is 0Filled is 0
+*** glibc detected *** ./proxy: free(): invalid pointer: 0x00007fff62f49418 ***
+======= Backtrace: =========
+/lib64/libc.so.6[0x3a26a76166]
+./proxy[0x463740]
+./proxy[0x456ff7]
+./proxy[0x41413d]
+./proxy[0x410239]
+./proxy[0x40df47]
+./proxy[0x413f12]
+./proxy[0x40f711]
+./proxy[0x40c505]
+./proxy[0x40bcfb]
+./proxy[0x40b4d9]
+./proxy[0x40afba]
+/lib64/libc.so.6(__libc_start_main+0xfd)[0x3a26a1ed1d]
+./proxy[0x409bf9]
+======= Memory map: ========
+00400000-004bc000 r-xp 00000000 00:10 207952222                          /dev/shm/geigle1/su14/monad/mp_memory_grade/proxy
+006bc000-006be000 rw-p 000bc000 00:10 207952222                          /dev/shm/geigle1/su14/monad/mp_memory_grade/proxy
+01772000-01793000 rw-p 00000000 00:00 0                                  [heap]
+3a26200000-3a26220000 r-xp 00000000 fd:00 394848                         /lib64/ld-2.12.so
+3a2641f000-3a26420000 r--p 0001f000 fd:00 394848                         /lib64/ld-2.12.so
+3a26420000-3a26421000 rw-p 00020000 fd:00 394848                         /lib64/ld-2.12.so
+3a26421000-3a26422000 rw-p 00000000 00:00 0 
+3a26600000-3a26683000 r-xp 00000000 fd:00 394865                         /lib64/libm-2.12.so
+3a26683000-3a26882000 ---p 00083000 fd:00 394865                         /lib64/libm-2.12.so
+3a26882000-3a26883000 r--p 00082000 fd:00 394865                         /lib64/libm-2.12.so
+3a26883000-3a26884000 rw-p 00083000 fd:00 394865                         /lib64/libm-2.12.so
+3a26a00000-3a26b8b000 r-xp 00000000 fd:00 395093                         /lib64/libc-2.12.so
+3a26b8b000-3a26d8a000 ---p 0018b000 fd:00 395093                         /lib64/libc-2.12.so
+3a26d8a000-3a26d8e000 r--p 0018a000 fd:00 395093                         /lib64/libc-2.12.so
+3a26d8e000-3a26d8f000 rw-p 0018e000 fd:00 395093                         /lib64/libc-2.12.so
+3a26d8f000-3a26d94000 rw-p 00000000 00:00 0 
+3a26e00000-3a26e17000 r-xp 00000000 fd:00 395094                         /lib64/libpthread-2.12.so
+3a26e17000-3a27017000 ---p 00017000 fd:00 395094                         /lib64/libpthread-2.12.so
+3a27017000-3a27018000 r--p 00017000 fd:00 395094                         /lib64/libpthread-2.12.so
+3a27018000-3a27019000 rw-p 00018000 fd:00 395094                         /lib64/libpthread-2.12.so
+3a27019000-3a2701d000 rw-p 00000000 00:00 0 
+3a27200000-3a27202000 r-xp 00000000 fd:00 395096                         /lib64/libdl-2.12.so
+3a27202000-3a27402000 ---p 00002000 fd:00 395096                         /lib64/libdl-2.12.so
+3a27402000-3a27403000 r--p 00002000 fd:00 395096                         /lib64/libdl-2.12.so
+3a27403000-3a27404000 rw-p 00003000 fd:00 395096                         /lib64/libdl-2.12.so
+3a27600000-3a27615000 r-xp 00000000 fd:00 395095                         /lib64/libz.so.1.2.3
+3a27615000-3a27814000 ---p 00015000 fd:00 395095                         /lib64/libz.so.1.2.3
+3a27814000-3a27815000 r--p 00014000 fd:00 395095                         /lib64/libz.so.1.2.3
+3a27815000-3a27816000 rw-p 00015000 fd:00 395095                         /lib64/libz.so.1.2.3
+3a27a00000-3a27a07000 r-xp 00000000 fd:00 395097                         /lib64/librt-2.12.so
+3a27a07000-3a27c06000 ---p 00007000 fd:00 395097                         /lib64/librt-2.12.so
+3a27c06000-3a27c07000 r--p 00006000 fd:00 395097                         /lib64/librt-2.12.so
+3a27c07000-3a27c08000 rw-p 00007000 fd:00 395097                         /lib64/librt-2.12.so
+3a2ae00000-3a2ae25000 r-xp 00000000 fd:00 801232                         /usr/lib64/libpng12.so.0.49.0
+3a2ae25000-3a2b025000 ---p 00025000 fd:00 801232                         /usr/lib64/libpng12.so.0.49.0
+3a2b025000-3a2b026000 rw-p 00025000 fd:00 801232                         /usr/lib64/libpng12.so.0.49.0
+3a2ce00000-3a2ce16000 r-xp 00000000 fd:00 395099                         /lib64/libgcc_s-4.4.7-20120601.so.1
+3a2ce16000-3a2d015000 ---p 00016000 fd:00 395099                         /lib64/libgcc_s-4.4.7-20120601.so.1
+3a2d015000-3a2d016000 rw-p 00015000 fd:00 395099                         /lib64/libgcc_s-4.4.7-20120601.so.1
+7f458999c000-7f45899a1000 rw-p 00000000 00:00 0 
+7f45899a1000-7f4589aa2000 r-xp 00000000 00:27 20845127                   /class/cs225/llvm/lib/libc++.so.1.0
+7f4589aa2000-7f4589ca1000 ---p 00101000 00:27 20845127                   /class/cs225/llvm/lib/libc++.so.1.0
+7f4589ca1000-7f4589ca8000 rw-p 00100000 00:27 20845127                   /class/cs225/llvm/lib/libc++.so.1.0
+7f4589ca8000-7f4589cac000 rw-p 00000000 00:00 0 
+7f4589cd0000-7f4589cd1000 rw-p 00000000 00:00 0 
+7f4589cd1000-7f4589cd3000 rw-p 00000000 00:00 0 
+7fff62f37000-7fff62f4c000 rw-p 00000000 00:00 0                          [stack]
+7fff62fff000-7fff63000000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+----------------------------------------------------------------
+collage_draw_2 [2 points]
+Result: FAILED: unit_tests.cpp:843: Assertion (c.draw() == soln) failed
+Took 3ms (2000ms timeout)
+Output:
+----------------------------------------------------------------
+The = operator in scoped_array is called
+At the collage destructor layers is 11Filled is 11
+At the collage destructor Line:72png number is :0
+At the collage destructor Line:72png number is :1
+At the collage destructor Line:72png number is :2
+At the collage destructor Line:72png number is :3
+At the collage destructor Line:72png number is :4
+At the collage destructor Line:72png number is :5
+At the collage destructor Line:72png number is :6
+At the collage destructor Line:72png number is :7
+At the collage destructor Line:72png number is :8
+At the collage destructor Line:72png number is :9
+At the collage destructor Line:72png number is :10
+ at the final line of collage destructor
+
+----------------------------------------------------------------
+collage_position_invalid_2 [2 points]
+Result: FAILED: unit_tests.cpp:541: exception (std::invalid_argument) was not thrown when expected!
+Took 0ms (2000ms timeout)
+Output:
+----------------------------------------------------------------
+The = operator in scoped_array is called
+At the collage destructor layers is 2Filled is 2
+At the collage destructor Line:72png number is :0
+At the collage destructor Line:72png number is :1
+ at the final line of collage destructor
+
+----------------------------------------------------------------
+collage_memory_safety_2 (run under asan) [4 points]
+Result: FAILED: Memory errors detected by ASAN
+Took unknown time (10000ms timeout)
+Output:
+----------------------------------------------------------------
+Running collage_memory_safety_2 [worth 4 points, output below]
+The = operator in scoped_array is called
+=================================================================
+==24410==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000efa0 at pc 0x6faab3 bp 0x7fff359cf6b0 sp 0x7fff359cf6a8
+READ of size 8 at 0x60200000efa0 thread T0
+    #0 0x6faab2 in cs225::collage::layers(unsigned long) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6faab2)
+    #1 0x6d9a5e in proxy_test::collage_memory_safety_2(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6d9a5e)
+    #2 0x4b899b in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x4b899b)
+    #3 0x49bf39 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x49bf39)
+    #4 0x48afab in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x48afab)
+    #5 0x484ce5 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x484ce5)
+    #6 0x47ced8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47ced8)
+    #7 0x47bf51 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47bf51)
+    #8 0x477b4c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x477b4c)
+    #9 0x47576a in main (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47576a)
+    #10 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+    #11 0x46cca8 in _start (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x46cca8)
+
+0x60200000efa0 is located 0 bytes to the right of 16-byte region [0x60200000ef90,0x60200000efa0)
+allocated by thread T0 here:
+    #0 0x45735e in operator new[](unsigned long) /class/cs225/llvm/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:54
+    #1 0x6f65cb in cs225::collage::collage(unsigned long) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6f65cb)
+    #2 0x6d9595 in proxy_test::collage_memory_safety_2(util::sizedpipestream<512ul>&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x6d9595)
+    #3 0x4b899b in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x4b899b)
+    #4 0x49bf39 in proxy::test_execution::child_test() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x49bf39)
+    #5 0x48afab in proxy::test_execution::child() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x48afab)
+    #6 0x484ce5 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x484ce5)
+    #7 0x47ced8 in proxy::RunTests::run_single_test(char const*) (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47ced8)
+    #8 0x47bf51 in proxy::RunTests::execute_by_mode() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47bf51)
+    #9 0x477b4c in proxy::RunTests::execute() (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x477b4c)
+    #10 0x47576a in main (/dev/shm/geigle1/su14/monad/mp_memory_grade/proxy-asan+0x47576a)
+    #11 0x3a26a1ed1c in __libc_start_main (/lib64/libc.so.6+0x3a26a1ed1c)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow ??:0 cs225::collage::layers(unsigned long)
+Shadow bytes around the buggy address:
+  0x0c047fff9da0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9db0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9dc0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9dd0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9de0: fa fa fa fa fa fa fd fa fa fa fd fa fa fa 00 00
+=>0x0c047fff9df0: fa fa 00 00[fa]fa fd fd fa fa fd fd fa fa fd fa
+  0x0c047fff9e00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9e10: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9e20: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9e30: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff9e40: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:     fa
+  Heap right redzone:    fb
+  Freed heap region:     fd
+  Stack left redzone:    f1
+  Stack mid redzone:     f2
+  Stack right redzone:   f3
+  Stack partial redzone: f4
+  Stack after return:    f5
+  Stack use after scope: f8
+  Global redzone:        f9
+  Global init order:     f6
+  Poisoned by user:      f7
+  ASan internal:         fe
+==24410==ABORTING
+Result: FAILED:
+Memory Errors Detected by ASAN
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 79
+

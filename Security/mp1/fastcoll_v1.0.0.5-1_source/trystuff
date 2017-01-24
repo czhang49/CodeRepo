@@ -1,0 +1,4 @@
+b="""ddd"""
+
+if b == "ddd":
+  print b

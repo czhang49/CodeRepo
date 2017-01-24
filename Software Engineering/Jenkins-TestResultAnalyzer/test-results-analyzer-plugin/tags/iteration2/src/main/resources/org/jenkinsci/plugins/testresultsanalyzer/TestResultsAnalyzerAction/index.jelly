@@ -1,0 +1,149 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:l="/lib/layout">
+<l:layout title="Test Result Graph">
+<st:include it="${it.project}" page="sidepanel.jelly" />
+<st:bind var="remoteAction" value="${it}"/>
+<l:main-panel>
+<link href="${resURL}/plugin/test-results-analyzer/css/table-style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="${resURL}/plugin/test-results-analyzer/jquery/js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="${resURL}/plugin/test-results-analyzer/js/handlebars-v2.0.0.js"></script>
+<script type="text/javascript" src="${resURL}/plugin/test-results-analyzer/js/highcharts.js"></script>
+
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript" src="${resURL}/plugin/test-results-analyzer/js/differentresults.js"></script>
+<script type="text/javascript" src="${resURL}/plugin/test-results-analyzer/js/testresult.js"></script>
+<script type="text/javascript" src="${resURL}/plugin/test-results-analyzer/js/chart-generator.js"></script>
+<script type="text/javascript" src="${resURL}/plugin/test-results-analyzer/js/test-result-analyzer-template.js"></script>
+<script>
+
+var $j = jQuery.noConflict();
+</script>
+<j:set var="temp" value="${it.jsonLoadData}"/>
+<j:set var="builds" value="${it.builds}"/>
+<!--
+<div>
+Select
+<select id="noofbuilds">
+  <option value="all">All</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+  <option value="24">24</option>
+  <option value="25">25</option>
+  <option value="26">26</option>
+  <option value="27">27</option>
+  <option value="28">28</option>
+  <option value="29">29</option>
+  <option value="30">30</option>
+</select>
+Last builds and show
+
+<select id="teststatus">
+  <option value="all">All</option>
+  <option value="FAILED">FAILED</option>
+  <option value="PASSED">PASSED</option>
+  <option value="SKIPPED">SKIPPED</option>
+</select>
+ tests.
+Display duration: <input type="checkbox" id="show-durations" name="show-durations" value="durations"/>
+
+<button id="getbuildreport">Get Build Report</button>
+<div class="extrabuttons">
+	<button id="expandall">Expand All</button>
+	<button id="collapseall">Collapse All</button>
+</div>
+</div>
+<div class="chartbuttons">
+Select chart type:
+
+ <select id="reporttype">
+   <option value="all">All</option>
+   <option value="line">Line</option>
+   <option value="bar">Bar</option>
+   <option value="pie">Pie</option>
+ </select>
+
+<button class = "charts" id="generatechart">Generate Charts</button>
+<button class = "charts" id="hidecharts">Hide Charts</button>
+</div>
+-->
+<br/>
+<br/>
+
+<div id="diffList">
+</div>
+
+<div id="charts">
+   <div id="linechart">
+
+   </div>
+   <br/>
+
+   <div id="piechart">
+
+   </div>
+<br/>
+
+   <div id="barchart">
+
+   </div>
+
+</div>
+
+<br/>
+<div id="tree">
+   <div class="table">
+
+   </div>
+</div>
+<div id="builddetail">
+
+</div>
+
+<script>
+
+  window.onload = populateTemplate2(displayValues);
+
+	$j("#getbuildreport").click(function () {
+		populateTemplate(displayValues);
+    console.log(${it.lastTwoBuilds});
+	});
+
+	$j("#expandall").click(function () {
+		expandAll();
+	});
+
+	$j("#collapseall").click(function () {
+		collapseAll();
+	});
+	$j("#generatechart").click(function () {
+	        var chartType = $j('#reporttype').val();
+    		generateChart(chartType);
+    });
+    $j("#hidecharts").click(function () {
+    		resetCharts();
+    });
+</script>
+  </l:main-panel>
+  </l:layout>
+</j:jelly>

@@ -1,0 +1,96 @@
+Exploding /Users/chenzhang/.m2/repository/org/jenkins-ci/main/jenkins-war/1.580.1/jenkins-war-1.580.1-war-for-test.jar into /Users/chenzhang/Documents/Courses/CS427/Banana/testplugin/ChenTestPlugin/./target/jenkins-for-test
+Oct 31, 2015 12:20:42 PM org.mortbay.log.Slf4jLog info
+INFO: Logging to org.slf4j.impl.JDK14LoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+Oct 31, 2015 12:20:42 PM org.mortbay.log.Slf4jLog info
+INFO: jetty-6.1.26
+Oct 31, 2015 12:20:42 PM org.mortbay.log.Slf4jLog info
+INFO: NO JSP Support for , did not find org.apache.jasper.servlet.JspServlet
+Oct 31, 2015 12:20:42 PM org.mortbay.log.Slf4jLog info
+INFO: Started SocketConnector@0.0.0.0:60354
+Oct 31, 2015 12:20:43 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Oct 31, 2015 12:20:48 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Oct 31, 2015 12:20:48 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Oct 31, 2015 12:20:48 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Oct 31, 2015 12:20:48 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Oct 31, 2015 12:20:48 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Oct 31, 2015 12:20:51 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Oct 31, 2015 12:20:51 PM hudson.UDPBroadcastThread run
+WARNING: UDP handling problem
+java.net.SocketException: Can't assign requested address
+	at java.net.PlainDatagramSocketImpl.join(Native Method)
+	at java.net.AbstractPlainDatagramSocketImpl.join(AbstractPlainDatagramSocketImpl.java:179)
+	at java.net.MulticastSocket.joinGroup(MulticastSocket.java:323)
+	at hudson.UDPBroadcastThread.run(UDPBroadcastThread.java:76)
+
+Oct 31, 2015 12:20:51 PM org.mortbay.log.Slf4jLog info
+INFO: jetty-6.1.26
+Oct 31, 2015 12:20:51 PM org.mortbay.log.Slf4jLog info
+INFO: Started SocketConnector@0.0.0.0:60356
+Oct 31, 2015 12:20:53 PM org.mortbay.log.Slf4jLog info
+INFO: Stopped SocketConnector@0.0.0.0:60354
+Oct 31, 2015 12:20:53 PM org.mortbay.log.Slf4jLog info
+INFO: jetty-6.1.26
+Oct 31, 2015 12:20:53 PM org.mortbay.log.Slf4jLog info
+INFO: NO JSP Support for , did not find org.apache.jasper.servlet.JspServlet
+Oct 31, 2015 12:20:53 PM org.mortbay.log.Slf4jLog info
+INFO: Started SocketConnector@0.0.0.0:60358
+Oct 31, 2015 12:20:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Oct 31, 2015 12:20:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Oct 31, 2015 12:20:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Oct 31, 2015 12:20:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Oct 31, 2015 12:20:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Oct 31, 2015 12:20:53 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Oct 31, 2015 12:20:54 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Oct 31, 2015 12:20:54 PM hudson.UDPBroadcastThread run
+WARNING: UDP handling problem
+java.net.SocketException: Can't assign requested address
+	at java.net.PlainDatagramSocketImpl.join(Native Method)
+	at java.net.AbstractPlainDatagramSocketImpl.join(AbstractPlainDatagramSocketImpl.java:179)
+	at java.net.MulticastSocket.joinGroup(MulticastSocket.java:323)
+	at hudson.UDPBroadcastThread.run(UDPBroadcastThread.java:76)
+
+=== Starting CliSanityTest.testCliSanity
+Oct 31, 2015 12:20:54 PM org.mortbay.log.Slf4jLog info
+INFO: Stopped SocketConnector@0.0.0.0:60358
+Oct 31, 2015 12:20:54 PM hudson.TcpSlaveAgentListener shutdown
+WARNING: Failed to close down TCP port
+java.io.IOException: No such file or directory
+	at sun.nio.ch.NativeThread.signal(Native Method)
+	at sun.nio.ch.ServerSocketChannelImpl.implCloseSelectableChannel(ServerSocketChannelImpl.java:292)
+	at java.nio.channels.spi.AbstractSelectableChannel.implCloseChannel(AbstractSelectableChannel.java:234)
+	at java.nio.channels.spi.AbstractInterruptibleChannel.close(AbstractInterruptibleChannel.java:115)
+	at hudson.TcpSlaveAgentListener.shutdown(TcpSlaveAgentListener.java:119)
+	at jenkins.model.Jenkins.cleanUp(Jenkins.java:2794)
+	at org.jvnet.hudson.test.HudsonTestCase.tearDown(HudsonTestCase.java:413)
+	at junit.framework.TestCase.runBare(TestCase.java:146)
+	at org.jvnet.hudson.test.HudsonTestCase.runBare(HudsonTestCase.java:293)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:264)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:124)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+

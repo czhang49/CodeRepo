@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/sp16-cs431/!svn/ver/143/czhang49/Labs%20431/Lab03Part1
+END
+crc16.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/crc16.c
+END
+pc_crc16.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/pc_crc16.c
+END
+crc16.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/crc16.h
+END
+lab03.hex
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/lab03.hex
+END
+pc_crc16.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/pc_crc16.h
+END
+lab03.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/lab03.h
+END
+lab03_server
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/sp16-cs431/!svn/ver/143/czhang49/Labs%20431/Lab03Part1/lab03_server
+END
+serialdebug.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/serialdebug.c
+END
+lab03_server.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/lab03_server.c
+END
+lab03.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/lab03.pdf
+END
+lab03_serverDemo
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/lab03_serverDemo
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/Makefile
+END
+lab03_troll
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sp16-cs431/!svn/ver/142/czhang49/Labs%20431/Lab03Part1/lab03_troll
+END

@@ -1,0 +1,47 @@
+@import "variables";
+@import "mixins";
+@import "base";
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,800");
+
+@mixin placeholder($color){
+  input::-webkit-input-placeholder {
+    color: $color;
+  }
+  input:-moz-placeholder { /* Firefox 18- */
+    color: $color;
+  }
+  input::-moz-placeholder {  /* Firefox 19+ */
+    color: $color;
+  }
+  input:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+body{
+  background: url("./images/bg.jpg");
+  background-size: 100% 100%;
+  #title{
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size:50px;
+    font-weight: 800;
+    color:#f04124;
+    margin-top:20px;
+  }
+  #login{
+    margin-top:40px;
+    input{
+      background: transparent;
+      border:none;
+      outline: none;
+      -webkit-box-shadow:rgba(0, 0, 0, 0.0980392) 0px 0px 0px 0px inset;
+      border-bottom: 1px solid black;
+      color:black;
+      font-size: 17px;
+    }
+    input:focus{
+      outline:0;
+    }
+    @include placeholder(#707070);
+  }
+}

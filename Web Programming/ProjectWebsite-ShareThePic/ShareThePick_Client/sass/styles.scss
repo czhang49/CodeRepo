@@ -1,0 +1,265 @@
+@import "compass";
+@import "compass/reset";
+
+@import "variables";
+@import "mixins";
+@import "base";
+
+#header{
+  background: url("./images/cover1.jpg");
+  background-size: 100% 100%;
+  border-bottom: 4px solid #9e9e9e;
+  margin:45px 0 10px 0;
+  padding: 0px;
+  height:300px;
+  #profilePic {
+    position: absolute;
+    top:40%;
+    left:50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    width:100px;
+    background: url("./images/profile.jpeg") no-repeat 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid rgba(200, 200, 200, 0.5);
+  }
+
+  #nameIntro{
+    position:absolute;
+    top:40%;
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+    #userName{
+      font-family: Arial;
+      color: #ffffff;
+      font-size:1.5em;
+      text-shadow: 1px 1px rgba(0,0,0,0.5);
+    }
+    #introduction{
+      font-family: Arial;
+      color: #ffffff;
+      font-size:1.0em;
+      text-shadow: 1px 1px rgba(0,0,0,0.5);
+    }
+  }
+}
+
+#subNav{
+  border: 1px solid #b0b0b0;
+  border-top:0;
+  margin-bottom: 10px;
+  li{
+    height:45px;
+    line-height:45px;
+    cursor: pointer;
+    a{
+      display: inline-block;
+      width:100%;
+      height:45px;
+    }
+    a.selected, a:hover{
+      border-bottom: 4px solid dodgerblue;
+    }
+  }
+
+}
+
+
+
+#leftColumn{
+  margin-top: 10px;
+  #statistic{
+    div{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      .num{
+        font-size:1.2em;
+      }
+      .category{
+        color:#888888;
+      }
+    }
+    #middle{
+      border-left:1px solid $borderColor;
+      border-right:1px solid $borderColor;
+    }
+  }
+  #personalInfo{
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 0.9em;
+    color:#888888;
+    ul{
+      margin-bottom: 0;
+      margin-left: 0;
+      li{
+        margin-top:5px;
+        margin-bottom: 5px;
+      }
+      .icon{
+        display: inline-block;
+        width:30px;
+        padding-right: 10px;
+        float:left;
+      }
+      .content{
+        width:85%;
+        float:left;
+        color:#303030;
+      }
+    }
+  }
+
+
+  #relatedPeople{
+    margin-top: 10px;
+    img{
+      width:56px;
+      height:56px;
+      border:2px solid rgba(200, 200, 200, 0.9);
+      border-radius: 50%;
+    }
+  }
+}
+
+#leftColumn.fixed{
+  position: fixed;
+  top:45px;
+}
+
+#rightColumn{
+  margin: 10px 0 0 0;
+  #addEvent{
+    border: 1px solid $borderColor;
+    padding-top: 0;
+    padding-bottom:0;
+    margin-top: -12px;
+    margin-bottom: 10px;
+    textarea{
+      resize: none;
+    }
+    div#acContainer{
+      position:relative;
+    }
+  }
+
+  #timeLine{
+    #eventFilter{
+      padding-left: 2px;
+    }
+    .year{
+      margin-top: 10px;
+      font-size: 1.7em;
+      .timeSpot{
+        float:left;
+        width: 14%;
+        font-weight: 700;
+        text-align: right;
+      }
+      .line{
+        float:left;
+        width: 82%;
+        margin-left:2%;
+        height:23px;
+        border-bottom:2px dashed #000000;
+      }
+    }
+    .month{
+      font-size: 1.3em;
+      .timeSpot{
+        width: 14%;
+        height: 100%;
+        float:left;
+        text-align: right;
+        margin-bottom: 5px;
+        padding-right: 5px;
+        font-family: Arial;
+        font-weight: 700;
+      }
+      .events{
+        width:85%;
+        float:left;
+        border-left:5px solid $borderColor;
+        padding-left: 1%;
+        margin-bottom: 10px;
+        .event{
+          width:95%;
+          position: relative;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          .leftTriangle{
+            position: absolute;
+            top:30px;
+            .outerTriangle{
+              z-index: 0;
+              width:0;
+              height:0;
+              border-top: 12px solid transparent;
+              border-bottom: 12px solid transparent;
+              border-right: 16px solid $borderColor;
+            }
+            .innerTriangle{
+              z-index: 1;
+              position: absolute;
+              left:2px;
+              top:0;
+              width:0;
+              height:0;
+              border-top: 12px solid transparent;
+              border-bottom: 12px solid transparent;
+              border-right: 16px solid #ffffff;
+            }
+          }
+          .content{
+            border: 1px solid $borderColor;
+            position:relative;
+            left:16px;
+            z-index: 0;
+            padding:10px 20px;
+            ul{
+              margin-left: 0;
+              li{
+                padding: 10px 0;
+                border-bottom: 1px solid $borderColor;
+              }
+              .eventPics{
+                border-bottom: 0;
+                .eventPic{
+                  width:100px;
+                  height:100px;
+                  margin:5px 6px;
+                  border: 2px solid #e0e0e0;
+                }
+              }
+              .eventName{
+                font-size: 1.5em;
+                font-weight: 400;
+              }
+              .location{
+                font-size: 1.0em;
+                font-style: italic;
+              }
+              .userProfile{
+                width:50px;
+                height:50px;
+                border-radius: 50%;
+                margin: 5px;
+              }
+
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+
+#changePersonalInfo{
+  textarea{
+    resize: none;
+  }
+}
+

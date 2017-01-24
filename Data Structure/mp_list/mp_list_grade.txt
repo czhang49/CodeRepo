@@ -1,0 +1,94 @@
+Monad Autograder
+Testing mp_list at 2014-07-06 23:31:16
+
+"Microsoft has a new version out, Windows XP, which according to everybody is the 'most reliable Windows ever.' To me, this is like saying that asparagus is 'the most articulate vegetable ever.'" ~ Dave Barry
+
+Setting up test environment...
+Compiling...
+================================================================
+In file included from unit_tests.cpp:15:
+In file included from include/dl_list.h:263:
+include/dl_list.tcc:609:30: error: call to implicitly-deleted copy constructor of 'std::unique_ptr<node>'
+                merge1=std::move(mergesort(start,length));
+                                           ^~~~~
+include/dl_list.tcc:589:13: note: in instantiation of member function 'cs225::dl_list<int>::mergesort' requested here
+    head_ = mergesort(std::move(head_), size_);
+            ^
+unit_tests.cpp:555:10: note: in instantiation of member function 'cs225::dl_list<int>::sort' requested here
+    list.sort();
+         ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::dl_list<int>::node, std::__1::default_delete<cs225::dl_list<int>::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+include/dl_list.h:232:59: note: passing argument to parameter 'start' here
+    std::unique_ptr<node> mergesort(std::unique_ptr<node> start,
+                                                          ^
+In file included from unit_tests.cpp:15:
+In file included from include/dl_list.h:263:
+include/dl_list.tcc:610:30: error: call to implicitly-deleted copy constructor of 'std::unique_ptr<node>'
+                merge2=std::move(mergesort(temp,(length-length/2)));
+                                           ^~~~
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::dl_list<int>::node, std::__1::default_delete<cs225::dl_list<int>::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+include/dl_list.h:232:59: note: passing argument to parameter 'start' here
+    std::unique_ptr<node> mergesort(std::unique_ptr<node> start,
+                                                          ^
+In file included from unit_tests.cpp:15:
+In file included from include/dl_list.h:263:
+include/dl_list.tcc:614:15: error: call to implicitly-deleted copy constructor of 'std::unique_ptr<node>'
+        return merge(merge1,merge2);
+                     ^~~~~~
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::dl_list<int>::node, std::__1::default_delete<cs225::dl_list<int>::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+include/dl_list.h:214:55: note: passing argument to parameter 'first' here
+    std::unique_ptr<node> merge(std::unique_ptr<node> first,
+                                                      ^
+3 errors generated.
+In file included from unit_tests.cpp:15:
+In file included from include/dl_list.h:263:
+include/dl_list.tcc:609:30: error: call to implicitly-deleted copy constructor of 'std::unique_ptr<node>'
+                merge1=std::move(mergesort(start,length));
+                                           ^~~~~
+include/dl_list.tcc:589:13: note: in instantiation of member function 'cs225::dl_list<int>::mergesort' requested here
+    head_ = mergesort(std::move(head_), size_);
+            ^
+unit_tests.cpp:555:10: note: in instantiation of member function 'cs225::dl_list<int>::sort' requested here
+    list.sort();
+         ^
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::dl_list<int>::node, std::__1::default_delete<cs225::dl_list<int>::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+include/dl_list.h:232:59: note: passing argument to parameter 'start' here
+    std::unique_ptr<node> mergesort(std::unique_ptr<node> start,
+                                                          ^
+In file included from unit_tests.cpp:15:
+In file included from include/dl_list.h:263:
+include/dl_list.tcc:610:30: error: call to implicitly-deleted copy constructor of 'std::unique_ptr<node>'
+                merge2=std::move(mergesort(temp,(length-length/2)));
+                                           ^~~~
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::dl_list<int>::node, std::__1::default_delete<cs225::dl_list<int>::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+include/dl_list.h:232:59: note: passing argument to parameter 'start' here
+    std::unique_ptr<node> mergesort(std::unique_ptr<node> start,
+                                                          ^
+In file included from unit_tests.cpp:15:
+In file included from include/dl_list.h:263:
+include/dl_list.tcc:614:15: error: call to implicitly-deleted copy constructor of 'std::unique_ptr<node>'
+        return merge(merge1,merge2);
+                     ^~~~~~
+/class/cs225/llvm/include/c++/v1/memory:2515:31: note: copy constructor is implicitly deleted because 'unique_ptr<cs225::dl_list<int>::node, std::__1::default_delete<cs225::dl_list<int>::node> >' has a user-declared move constructor
+    _LIBCPP_INLINE_VISIBILITY unique_ptr(unique_ptr&& __u) _NOEXCEPT
+                              ^
+include/dl_list.h:214:55: note: passing argument to parameter 'first' here
+    std::unique_ptr<node> merge(std::unique_ptr<node> first,
+                                                      ^
+3 errors generated.
+ld: no input files
+clang-3.4: error: no such file or directory: 'unit_tests.o'
+make: *** [proxy] Error 1
+
+
+exec("./proxy", "./proxy", "--nodetailed", "./monad: line 37: 28186 Segmentation fault      "$SOURCE_DIR/pure-monad" $@

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" ng-app='settingApp'>
+<head>
+  <meta charset="UTF-8">
+  <title>Setting</title>
+    <script src="./lib/jquery-2.1.3.min/index.js"></script>
+    <script src="./foundation/js/vendor/modernizr.js"></script>
+    <script src="./foundation/js/foundation.min.js"></script>
+
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <script src="./lib/angular/angular.js"></script>
+    <script src="./lib/angular-route/angular-route.js"></script>
+    <script src="./js/ngAutocomplete.js"></script>
+    <script src="./lib/ng-file-upload/ng-file-upload-shim.js"></script>
+    <script src="./lib/ng-file-upload/ng-file-upload.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.js"></script>
+
+    <script src="./js/setting/app.js"></script>
+    <script src="./js/dataService.js"></script>
+    <script src="./js/utils.js"></script>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./foundation/css/foundation.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/angular-mass-autocomplete/massautocomplete.theme.css"/>
+    <link rel="stylesheet" href="./lib/angularjs-datepicker/src/css/angular-datepicker.css"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+<div class="fixed" ng-controller="nav">
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name">
+                <h1><a href="#">ShareThePik</a></h1>
+            </li>
+            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li ><a ng-href="/user.html?id={{me._id}}">HomePage</a></li>
+                <li ><a ng-href="/setting.html?id={{me._id}}">Setting</a></li>
+                <li ><a ng-click="logout()">Logout</a></li>
+            </ul>
+        </section>
+    </nav>
+</div>
+<section class="row">
+    <div class="columns small-12" id="header" ng-controller="header">
+        <img ng-src="{{profileImage}}" id="profilePic"/>
+
+        <div id="nameIntro">
+            <div id="userName">{{userData.name}}</div>
+            <div id="introduction">{{userData.description}}</div>
+        </div>
+    </div>
+</section>
+
+<section class="row">
+    <div class="columns small-12 medium-6" ng-controller="changePwd">
+        <fieldset class="box" id="changePasswd">
+            <legend>Change Password</legend>
+            <label>Old Password:
+                <input type="password" ng-model="old">
+            </label>
+            <label>New Password:
+                <input type="password" ng-model="new">
+            </label>
+            <label>Repeat New Password:
+                <input type="password" ng-model="repeat">
+            </label>
+            <ul class="button-group even-2 columns small-12 medium-6 right" style="padding-right:0px;">
+                <li><a class="button tiny alert" ng-click="changePwd()">Change</a></li>
+                <li><a class="button tiny alert" ng-click="cancel()">Cancel</a></li>
+            </ul>
+        </fieldset>
+    </div>
+
+
+    <div class="columns small-12 medium-6" ng-controller="changeInfo">
+        <fieldset class="box" id="changePersonalInfo">
+            <legend>Change Personal Information</legend>
+            <label><b>Name:</b> {{data.name}}</label>
+            <label><b>Email:</b> {{data.email}}</label>
+            <label>Description:
+                <textarea name="" id="" cols="30" rows="3" ng-model="data.description"></textarea>
+            </label>
+            <a class="button tiny alert" ngf-select ngf-multiple="false" ng-model="pic">Update Profile Pic</a>
+            <ul class="button-group even-2 columns small-12 medium-6 right" style="padding-right:0px;">
+                <li><a class="button tiny alert" ng-click="update()">Change</a></li>
+                <li><a class="button tiny alert" ng-click="cancel()">Cancel</a></li>
+            </ul>
+        </fieldset>
+    </div>
+</section>
+
+<footer>
+    123
+</footer>
+
+<script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>
