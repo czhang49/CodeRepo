@@ -1,0 +1,143 @@
+
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy
+
+MinX=-2;
+MaxX=3;
+MinT=0;
+MaxT=1.2;
+h=1/40.0;
+Lamuda=0.8;
+Yipusilo=0.15
+
+k=Lamuda*h;
+Beita=4*h/k;
+
+NumberOfPtX=(MaxX-MinX)/h+1;
+NumberOfPtT=(MaxT-MinT)/k+1;
+NumberOfPtX=round(NumberOfPtX);
+NumberOfPtT=round(NumberOfPtT);
+NumberOfPtX=int(NumberOfPtX);
+NumberOfPtT=int(NumberOfPtT);
+
+a=[[0 for x in range(int(NumberOfPtX))] for y in range(int(NumberOfPtT))]
+Exact=[[0 for x in range(int(NumberOfPtX))] for y in range(int(NumberOfPtT))]
+Error=[[0 for x in range(int(NumberOfPtX))] for y in range(int(NumberOfPtT))]
+FactorMatrix=[[0 for x in range(int(NumberOfPtX)-4)] for y in range(int(NumberOfPtX)-4)]
+Vector=[0 for y in range(int(NumberOfPtX)-4)]
+NewVector=[0 for y in range(int(NumberOfPtX)-4)]
+del x;
+del y;
+
+"""" a[y][x]  remember x is the element of y , y is larger and in front """
+"""" This is also an initilization of the matrix  """
+
+
+XrangeMin=-1.;
+XrangeMax=1.; 
+XminPoint=(XrangeMin-MinX)/h+1;
+XmaxPoint=(XrangeMax-MinX)/h+1;
+XminPoint=round(XminPoint);
+XmaxPoint=round(XmaxPoint);
+
+for i in range ((int(XminPoint)-1),int(XmaxPoint)):
+    """"can get the boundary of initial data of X Point"""
+    x=MinX+i*h;
+    a[0][i]=1-abs(x)
+
+del i;
+
+"""" Initilization of Essential BC in X  """
+
+FactorMatrix[0][0]=Beita;
+FactorMatrix[0][1]=1;
+FactorMatrix[int(NumberOfPtX)-5][int(NumberOfPtX)-6]=-1;
+FactorMatrix[int(NumberOfPtX)-5][int(NumberOfPtX)-5]=Beita+1;
+for i in range (1,int(NumberOfPtX)-5):
+    FactorMatrix[i][i-1]=-1;
+    FactorMatrix[i][i]=Beita;
+    FactorMatrix[i][i+1]=1;
+del i ;
+
+
+for i in range (1,int(NumberOfPtT)):
+
+    Vector[0]=a[i-1][1]+Beita*a[i-1][2]-a[i-1][3]
+    Vector[int(NumberOfPtX)-5]=a[i-1][int(NumberOfPtX)-5]+Beita*a[i-1][int(NumberOfPtX)-4]-a[i-1][int(NumberOfPtX)-3]
+    for j in range(1,int(NumberOfPtX)-5):
+        Vector[j]=a[i-1][j+1]+Beita*a[i-1][j+2]-a[i-1][j+3]
+    del j;
+    for j in range(0,int(NumberOfPtX)-4):
+        NewVector[j]=Beita*Yipusilo*(a[i-1][j]-4*a[i-1][j+1]+6*a[i-1][j+2]+a[i-1][j+4]-4*a[i-1][j+3])/16
+    del j;
+    for j in range(0,int(NumberOfPtX)-4):
+        Vector[j]=Vector[j]+NewVector[j]
+        
+    Interim=np.linalg.solve(FactorMatrix, Vector)
+
+    for j in range(0,int(NumberOfPtX)-4):
+        a[i][j+2]=Interim[j];
+
+    a[i][1]=a[i][0]
+    a[i][int(NumberOfPtX)-2]=a[i][int(NumberOfPtX)-3]
+    a[i][int(NumberOfPtX)-1]=a[i][int(NumberOfPtX)-2]
+del i;
+    
+"""" Calculation of the grid point using the scheme  """        
+
+
+for i in range (0,NumberOfPtT):
+    for j in range (0,NumberOfPtX):
+        t=MinT+i*k;
+        x=MinX+j*h;
+        if ((abs(x-t))<=1):
+            Exact[i][j]=1-abs(x-t);
+            Error[i][j]=Exact[i][j]-a[i][j];
+            
+"""" Calculation of the exact solution  """
+
+Xaxis=np.linspace(MinX,MaxX,NumberOfPtX)
+
+Time1=0;
+Time2=0.4;
+Time3=0.8;
+Time4=1.2;
+
+TPoint1=(Time1-MinT)/k+1;
+TPoint2=(Time2-MinT)/k+1;
+TPoint3=(Time3-MinT)/k+1;
+TPoint4=(Time4-MinT)/k+1;
+
+plt.figure(4);
+plt.subplot(221)
+p1,= plt.plot(Xaxis,a[int(TPoint1)-1]);
+p2,= plt.plot(Xaxis,Error[int(TPoint1)-1]);
+plt.legend([p1,p2],['Numerical Solution','Error'],loc='upper right')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=0s Lamuda=0.8 h=1/40');
+plt.subplot(222)
+p3,= plt.plot(Xaxis,a[int(TPoint2)-1]);
+p4,= plt.plot(Xaxis,Error[int(TPoint2)-1]);
+plt.legend([p3,p4],['Numerical Solution','Error'],loc='upper right')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=0.4s Lamuda=0.8 h=1/40');
+plt.subplot(223)
+p5,= plt.plot(Xaxis,a[int(TPoint3)-1]);
+p6,= plt.plot(Xaxis,Error[int(TPoint3)-1]);
+plt.legend([p5,p6],['Numerical Solution','Error'],loc='upper left')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=0.8s Lamuda=0.8 h=1/40');
+plt.subplot(224)
+p7,= plt.plot(Xaxis,a[int(TPoint4)-1]);
+p8,= plt.plot(Xaxis,Error[int(TPoint4)-1]);
+plt.legend([p7,p8],['Numerical Solution','Error'],loc='upper left')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=1.2s Lamuda=0.8 h=1/40');
+
+plt.show();

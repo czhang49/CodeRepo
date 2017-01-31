@@ -1,0 +1,141 @@
+
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy
+
+MinX=-2;
+MaxX=2;
+MinT=0;
+MaxT=1.2;
+h=1/20.0;
+Lamuda=1;
+
+k=Lamuda*h;
+Beita=4*h/k;
+
+NumberOfPtX=(MaxX-MinX)/h+1;
+NumberOfPtT=(MaxT-MinT)/k+1;
+NumberOfPtX=round(NumberOfPtX);
+NumberOfPtT=round(NumberOfPtT);
+NumberOfPtX=int(NumberOfPtX);
+NumberOfPtT=int(NumberOfPtT);
+
+a=[[0 for x in range(int(NumberOfPtX))] for y in range(int(NumberOfPtT))]
+Exact=[[0 for x in range(int(NumberOfPtX))] for y in range(int(NumberOfPtT))]
+Error=[[0 for x in range(int(NumberOfPtX))] for y in range(int(NumberOfPtT))]
+WP=[[0 for x in range(int(NumberOfPtX))] for y in range(int(NumberOfPtT))]
+HF=[[0 for x in range(int(NumberOfPtX))] for y in range(int(NumberOfPtT))]
+FactorMatrix=[[0 for x in range(int(NumberOfPtX)-1)] for y in range(int(NumberOfPtX)-1)]
+Vector=[0 for y in range(int(NumberOfPtX)-1)]
+del x;
+del y;
+
+"""" a[y][x]  remember x is the element of y , y is larger and in front """
+"""" This is also an initilization of the matrix  """
+
+
+XrangeMin=-1.;
+XrangeMax=1.; 
+XminPoint=(XrangeMin-MinX)/h+1;
+XmaxPoint=(XrangeMax-MinX)/h+1;
+XminPoint=round(XminPoint);
+XmaxPoint=round(XmaxPoint);
+
+for i in range ((int(XminPoint)-1),int(XmaxPoint)):
+    """"can get the boundary of initial data of X Point"""
+    x=MinX+i*h;
+    Pai=math.pi
+    a[0][i]=(math.cos(3*x*Pai))*((math.cos(Pai*x/2.0))**2)
+
+del i;
+
+"""" Initilization of Essential BC in X  """
+
+FactorMatrix[int(NumberOfPtX)-3][0]=1;
+FactorMatrix[int(NumberOfPtX)-3][int(NumberOfPtX)-3]=-1;
+FactorMatrix[int(NumberOfPtX)-3][int(NumberOfPtX)-2]=Beita;
+FactorMatrix[int(NumberOfPtX)-2][0]=Beita;
+FactorMatrix[int(NumberOfPtX)-2][1]=1;
+FactorMatrix[int(NumberOfPtX)-2][int(NumberOfPtX)-2]=-1;
+for i in range (0,int(NumberOfPtX)-3):
+    FactorMatrix[i][i]=-1;
+    FactorMatrix[i][i+1]=Beita;
+    FactorMatrix[i][i+2]=1;
+del i ;
+
+
+for i in range (1,int(NumberOfPtT)):
+    Vector[int(NumberOfPtX)-3]=a[i-1][int(NumberOfPtX)-3]+Beita*a[i-1][int(NumberOfPtX)-2]-a[i-1][0]
+    Vector[int(NumberOfPtX)-2]=a[i-1][int(NumberOfPtX)-2]+Beita*a[i-1][0]-a[i-1][1]
+    for j in range(0,int(NumberOfPtX)-3):
+        Vector[j]=a[i-1][j]+Beita*a[i-1][j+1]-a[i-1][j+2]
+    del j;
+    Interim=np.linalg.solve(FactorMatrix, Vector)
+    for j in range(0,int(NumberOfPtX)-1):
+        a[i][j]=Interim[j];
+    a[i][int(NumberOfPtX)-1]=a[i][0]
+del i;
+    
+"""" Calculation of the grid point using the scheme  """
+
+for i in range (0,NumberOfPtT):
+    for j in range (0,NumberOfPtX):
+        t=MinT+i*k;
+        x=MinX+j*h;
+        if ((abs(x-t))<=1):
+            Exact[i][j]=(math.cos(3*Pai*(x-t)))*((math.cos(0.5*Pai*(x-t)))**2);
+            Error[i][j]=Exact[i][j]-a[i][j];
+            WP[i][j]=((math.cos(0.5*Pai*(x-t)))**2);
+            HF[i][j]=(math.cos(3*Pai*(x-t)));
+            
+"""" Calculation of the exact solution  """
+
+  
+Xaxis=np.linspace(MinX,MaxX,NumberOfPtX)
+
+Time1=0;
+Time2=0.4;
+Time3=0.8;
+Time4=1.2;
+
+TPoint1=(Time1-MinT)/k+1;
+TPoint2=(Time2-MinT)/k+1;
+TPoint3=(Time3-MinT)/k+1;
+TPoint4=(Time4-MinT)/k+1;
+
+plt.figure(4);
+plt.subplot(221)
+p1,= plt.plot(Xaxis,a[int(TPoint1)-1]);
+p2,= plt.plot(Xaxis,Error[int(TPoint1)-1]);
+p11,= plt.plot(Xaxis,HF[int(TPoint1)-1]);
+plt.legend([p1,p2,p11],['Numerical Solution','Error','High Frequency Portion'],loc='upper right')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=0s Lamuda=1 h=1/20');
+plt.subplot(222)
+p3,= plt.plot(Xaxis,a[int(TPoint2)-1]);
+p4,= plt.plot(Xaxis,Error[int(TPoint2)-1]);
+p12,= plt.plot(Xaxis,HF[int(TPoint2)-1]);
+plt.legend([p3,p4,p12],['Numerical Solution','Error','High Frequency Portion'],loc='upper left')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=0.4s Lamuda=1 h=1/20');
+plt.subplot(223)
+p5,= plt.plot(Xaxis,a[int(TPoint3)-1]);
+p6,= plt.plot(Xaxis,Error[int(TPoint3)-1]);
+p13,= plt.plot(Xaxis,HF[int(TPoint3)-1]);
+plt.legend([p5,p6,p13],['Numerical Solution','Error','High Frequency Portion'],loc='upper left')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=0.8s Lamuda=1 h=1/20');
+plt.subplot(224)
+p7,= plt.plot(Xaxis,a[int(TPoint4)-1]);
+p8,= plt.plot(Xaxis,Error[int(TPoint4)-1]);
+p14,= plt.plot(Xaxis,HF[int(TPoint4)-1]);
+plt.legend([p7,p8,p14],['Numerical Solution','Error','High Frequency Portion'],loc='upper left')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=1.2s Lamuda=1 h=1/20');
+
+plt.show();

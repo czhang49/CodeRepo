@@ -1,0 +1,111 @@
+import scipy.sparse.linalg as sla
+import scipy.sparse as sparse
+import numpy as np
+import matplotlib.pyplot as plt
+import time
+from pylab import *
+from scipy import *
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+
+
+h = 1/20.
+miu = 0.8
+k = h**2*miu
+NPtX = 1/h
+NPtY = NPtX
+NPtT = 1/k
+x = np.linspace(0,1,NPtX)
+y = np.linspace(0,1,NPtY)
+t = np.linspace(0,0.8,NPtT)
+
+InitialContition = mat(zeros((NPtX,NPtY)))
+
+for i in range (0,len(x)):
+    for j in range (0,len(y)):
+        if (x[i]-0.5)**2+(y[j]-0.5)**2 >= 1/16. and (x[i]-0.5)**2+(y[j]-0.5)**2 <= 1/8.:
+            InitialContition[i,j] = 5
+del i;
+
+"""" This is also an initilization of the matrix  """
+
+
+IdentityM = np.ones((NPtX*NPtY,))
+A = sparse.spdiags(np.vstack((-miu*IdentityM,-miu*IdentityM/2,(1+3*miu)*IdentityM,-miu*IdentityM/2,-miu*IdentityM)), np.array([-NPtX,-1,0,1,NPtX]),NPtX*NPtY,NPtX*NPtY).todense()
+B = sparse.spdiags(np.vstack((miu*IdentityM,miu*IdentityM/2,(1-3*miu)*IdentityM,miu*IdentityM/2,miu*IdentityM)), np.array([-NPtX,-1,0,1,NPtX]),NPtX*NPtY,NPtX*NPtY).todense()
+
+"""" Initilization of Essential BC in X  """
+
+
+for i in range(0,len(x)):
+    A[i,i+NPtX] = A[i,i+NPtX] - miu
+    B[i,i+NPtX] = B[i,i+NPtX] + miu
+del i;
+for j in range(0,len(y)):
+    if not (j == 0):
+        A[j*NPtY,j*NPtY + 1] = A[j*NPtY,j*NPtY + 1] - miu/2
+        A[j*NPtY,j*NPtY - 1] = 0
+        B[j*NPtY,j*NPtY + 1] = B[j*NPtY,j*NPtY + 1] + miu/2
+        B[j*NPtY,j*NPtY - 1] = 0
+    else:
+        A[j*NPtY,j*NPtY + 1] = A[j*NPtY,j*NPtY + 1] - miu/2
+        B[j*NPtY,j*NPtY + 1] = B[j*NPtY,j*NPtY + 1] + miu/2
+del j;
+for i in range(0,len(x)):
+    A[(NPtY-1)*NPtX + i,(NPtY - 1)*NPtX + i] = 10**30
+    B[(NPtY-1)*NPtX + i,(NPtY - 1)*NPtX + i] = 10**30
+del i;
+for j in range(0,len(y)):
+    A[(j+1)*NPtX - 1,(j+1)*NPtX - 1] = 10**30
+    B[(j+1)*NPtX - 1,(j+1)*NPtX - 1] = 10**30
+del j;
+
+"""" Initilization of Essential BC in X  """
+
+
+
+Tempta = mat(zeros((NPtX*NPtY,NPtT)))
+Tempta[:,0] = InitialContition.reshape(NPtX*NPtY,1)
+for i in range (1,len(t)):
+    Tempta[:,i] = sparse.linalg.spsolve(A,B*Tempta[:,i-1]).reshape(NPtX*NPtY,1)
+
+"""" Calculation of the grid point using the scheme  """
+
+fig = plt.figure(1)
+axis = fig.gca(projection='3d')
+X, Y = np.meshgrid(x, y)
+surf = axis.plot_surface(X, Y, InitialContition, rstride=1, cstride=1, cmap=cm.winter,
+        linewidth=0, antialiased=False)
+plt.show()
+
+fig = plt.figure(2)
+axis = fig.gca(projection='3d')
+X, Y = np.meshgrid(x, y)
+surf = axis.plot_surface(X, Y, Tempta[:,1/k/4].reshape(NPtX,NPtY) , rstride=1, cstride=1, cmap=cm.winter, linewidth=0, antialiased=False)
+plt.show()
+
+fig = plt.figure(3)
+axis = fig.gca(projection='3d')
+X, Y = np.meshgrid(x, y)
+surf = axis.plot_surface(X, Y, Tempta[:,1/k/2].reshape(NPtX,NPtY) , rstride=1, cstride=1, cmap=cm.winter, linewidth=0, antialiased=False)
+plt.show()
+
+fig = plt.figure(4)
+axis = fig.gca(projection='3d')
+X, Y = np.meshgrid(x, y)
+surf = axis.plot_surface(X, Y, Tempta[:,3/k/4].reshape(NPtX,NPtY) , rstride=1, cstride=1, cmap=cm.winter, linewidth=0, antialiased=False)
+plt.show()
+
+fig = plt.figure(4)
+axis = fig.gca(projection='3d')
+X, Y = np.meshgrid(x, y)
+surf = axis.plot_surface(X, Y, Tempta[:,1/k-1].reshape(NPtX,NPtY) , rstride=1, cstride=1, cmap=cm.winter, linewidth=0, antialiased=False)
+plt.show()
+
+    
+
+
+
+ 
+

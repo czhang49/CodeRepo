@@ -1,0 +1,130 @@
+
+import math
+import matplotlib.pyplot as plt
+import numpy as np
+
+MinX=-1;
+MaxX=3;
+MinT=0;
+MaxT=2.4;
+h=1/40.0;
+Lamuda=0.8;
+
+k=Lamuda*h;
+
+NumberOfPtX=(MaxX-MinX)/h+1;
+NumberOfPtT=(MaxT-MinT)/k+1;
+NumberOfPtX=round(NumberOfPtX);
+NumberOfPtT=round(NumberOfPtT);
+
+a=[[0 for x in range(int(NumberOfPtX))] for y in range(int(NumberOfPtT))]
+Exact=[[0 for x in range(int(NumberOfPtX))] for y in range(int(NumberOfPtT))]
+Error=[[0 for x in range(int(NumberOfPtX))] for y in range(int(NumberOfPtT))]
+del x;
+del y;
+
+"""" a[y][x]  remember x is the element of y , y is larger and in front """
+"""" This is also an initilization of the matrix  """
+
+
+XrangeMin=-1/2.;
+XrangeMax=1/2.; 
+XminPoint=(XrangeMin-MinX)/h+1;
+XmaxPoint=(XrangeMax-MinX)/h+1;
+XminPoint=round(XminPoint);
+XmaxPoint=round(XmaxPoint);
+
+for i in range ((int(XminPoint)-1),int(XmaxPoint)):
+    """"can get the boundary of initial data of X Point"""
+    x=MinX+i*h;
+    Pai=math.pi;
+    a[0][i]=(math.cos(Pai*x))**2
+
+del i;
+
+"""" Initilization of Essential BC in X  """
+
+for i in range (0,int(NumberOfPtT)):
+    for j in range (0,int(NumberOfPtX)):
+        Tvalue=MinT+i*k;
+        Xvalue=MinX+j*h;
+        if abs(Tvalue-Xvalue)<=0.5:
+            Exact[i][j]=(math.cos(Pai*(Tvalue-Xvalue)))**2;
+del i ;
+del j ;
+del Tvalue;
+del Xvalue;
+        
+
+"""" To do the exact solution  """
+
+
+for i in range (1,int(NumberOfPtT)):
+    for j in range (1, int(NumberOfPtX)-1):
+        """" i stands for n+1 and j stands for m """
+        a[i][j]=(-Lamuda/2.)*(a[i-1][j+1]-a[i-1][j-1])+a[i-1][j];
+del i;
+del j;
+for i in range (1,int(NumberOfPtT)):
+    Last=int(NumberOfPtX)-1;
+    a[i][Last]=(-Lamuda/2.)*(a[i-1][Last]-a[i-1][Last-1])+a[i-1][Last]
+
+"""" Calculation of the grid point using the scheme  """
+
+for i in range (0,int(NumberOfPtT)):
+    for j in range (0,int(NumberOfPtX)):
+        Tvalue=MinT+i*k;
+        Xvalue=MinX+j*h;
+        Error[i][j]=Exact[i][j]-a[i][j];
+
+"""" To do the Error  """
+
+
+Xaxis=np.linspace(MinX,MaxX,NumberOfPtX)
+
+Time1=0;
+Time2=0.8;
+Time3=1.6;
+Time4=2.4;
+
+TPoint1=(Time1-MinT)/k+1;
+TPoint2=(Time2-MinT)/k+1;
+TPoint3=(Time3-MinT)/k+1;
+TPoint4=(Time4-MinT)/k+1;
+
+plt.figure(4);
+plt.subplot(221)
+p1,= plt.plot(Xaxis,a[int(TPoint1)-1]);
+p2,= plt.plot(Xaxis,Error[int(TPoint1)-1]);
+plt.legend([p1,p2],['Numerical Solution','Error'],loc='upper center')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=0s Lamuda=0.8 h=1/40');
+plt.subplot(222)
+p3,= plt.plot(Xaxis,a[int(TPoint2)-1]);
+p4,= plt.plot(Xaxis,Error[int(TPoint2)-1]);
+plt.legend([p3,p4],['Numerical Solution','Error'],loc='upper right')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=0.8s Lamuda=0.8 h=1/40');
+plt.subplot(223)
+p5,= plt.plot(Xaxis,a[int(TPoint3)-1]);
+p6,= plt.plot(Xaxis,Error[int(TPoint3)-1]);
+plt.legend([p5,p6],['Numerical Solution','Error'],loc='upper left')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=1.6s Lamuda=0.8 h=1/40');
+plt.subplot(224)
+p7,= plt.plot(Xaxis,a[int(TPoint4)-1]);
+p8,= plt.plot(Xaxis,Error[int(TPoint4)-1]);
+plt.legend([p7,p8],['Numerical Solution','Error'],loc='upper center')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=2.4s Lamuda=0.8 h=1/40');
+
+plt.show();
+
+
+
+       
+

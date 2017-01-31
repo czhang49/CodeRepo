@@ -1,0 +1,148 @@
+
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy
+import scipy.sparse as sparse
+import scipy.sparse.linalg as sla
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+
+MinX=0;
+MaxX=1;
+MinY=0;
+MaxY=1;
+MinT=0;
+MaxT=1;
+h=1/20.0;
+Lamuda=1
+k=h*Lamuda;
+DeltaX=h;
+DeltaY=h;
+Beita=2*h*h/k
+
+
+NumberOfPtX=(MaxX-MinX)/DeltaX+1;
+NumberOfPtY=(MaxX-MinX)/DeltaY+1;
+NumberOfPtT=(MaxT-MinT)/k+1;
+NumberOfPtX=int(round(NumberOfPtX));
+NumberOfPtY=int(round(NumberOfPtY));
+NumberOfPtT=int(round(NumberOfPtT));
+PtLX=NumberOfPtX;
+PtFM=(NumberOfPtX-1)*(NumberOfPtY-1)
+TotalPt=int(NumberOfPtX*NumberOfPtY);
+TotalTT=NumberOfPtT;
+
+a=np.zeros(TotalPt*TotalTT).reshape(TotalTT,TotalPt);
+FM=np.zeros(PtFM*PtFM).reshape(PtFM,PtFM);
+Vector=np.zeros(PtFM)
+
+"""" a[y][x]  remember x is the element of y , y is larger and in front """
+"""" This is also an initilization of the matrix  """
+
+for i in range (0,TotalPt):
+    x=MinX+DeltaX*(i%PtLX);
+    y=MinY+DeltaY*(i/PtLX);
+    if (((x-0.5)**2+(y-0.5)**2)<=1/8.0):
+        if (((x-0.5)**2+(y-0.5)**2)>=1/16.0):
+            a[0][i]=5;
+del x;
+del y;
+del i;
+
+"""" Initialization of the Essential Boundary Conditions """
+
+FM[0][0]=3+Beita;
+FM[0][1]=-1;
+FM[0][PtLX-1]=-2;
+
+for i in range (1,PtFM):
+    FM[i][i]=FM[i][i]+6+Beita;
+    if (i/(PtLX-1)==0):
+        FM[i][i]=FM[i][i]-2;
+    if (i%(PtLX-1)==0):
+        FM[i][i]=FM[i][i]-1;
+    for j in range (0,PtFM):
+        if ((i%(PtLX-1))==(PtLX-2)):
+            if ((i/(PtLX-1)==0)):
+                 if(j==(i-1)):
+                     FM[i][j]=FM[i][j]-1
+                 if(j==(i+PtLX-1)):
+                     FM[i][j]=FM[i][j]-2
+            else:
+                 if(j==(i-PtLX+1)):
+                     FM[i][j]=FM[i][j]-2
+                 if(j==(i-1)):
+                     FM[i][j]=FM[i][j]-1
+                 if (j ==(i+PtLX-1)):
+                     FM[i][j]=FM[i][j]-2
+        elif ((i%(PtLX-1))==0):
+            if (j==(i+1)):
+                FM[i][j]=FM[i][j]-1
+            if (j==(i+(PtLX-1))):
+                FM[i][j]=FM[i][j]-2
+            if (j==(i-(PtLX-1))):
+                FM[i][j]=FM[i][j]-2
+        elif ((i/(PtLX-1))==0 and (i!=(PtLX-2))):
+            if (j==(i-1)):
+                FM[i][j]=FM[i][j]-1
+            if (j==(i+1)):
+                FM[i][j]=FM[i][j]-1
+            if (j==(i+PtLX-1)):
+                FM[i][j]=FM[i][j]-2         
+        else:
+            if (j==(i+1)):
+                FM[i][j]=FM[i][j]-1
+            if (j==(i+PtLX-1)):
+                FM[i][j]=FM[i][j]-2
+            if (j==(i-1)):
+                FM[i][j]=FM[i][j]-1
+            if (j==(i-PtLX+1)):
+                FM[i][j]=FM[i][j]-2
+del i;
+del j;
+"""" Construction of the FactorMatrix """
+t=2;        
+for i in range (1,t):
+    Vector=np.zeros(PtFM)
+    for j in range(1,PtFM):
+        VecEntry=0;
+        correction=j/(PtLX-1)
+        VecEntry=VecEntry+(Beita-6)*a[i-1][j+correction]
+        VecEntry=VecEntry+a[i-1][j+1+correction]
+        VecEntry=VecEntry+a[i-1][j+PtLX+correction]
+        if (j/(PtLX-1)==0):
+            VecEntry=VecEntry+2*a[i-1][j]
+            VecEntry=VecEntry+a[i-1][j-1]
+        elif (j%(PtLX-1)==0):
+            VecEntry=VecEntry+a[i-1][j+correction]
+            VecEntry=VecEntry+2*a[i-1][j+correction-PtLX]
+        else :
+            VecEntry=VecEntry+a[i-1][j+correction-1];
+            VecEntry=VecEntry+2*a[i-1][j+correction-PtLX]
+        Vector[j]=VecEntry
+    del j;
+    Vector[0]=(Beita-3)*a[i-1][0]+a[i-1][1]+2*a[i-1][PtLX]
+
+    Interim=sla.spsolve(FM,Vector,permc_spec=None, use_umfpack=True)
+
+    for x in range (0,PtFM):
+        correction=x/(PtLX-1);
+        a[i][x+correction]=Interim[x];
+
+
+"""" Solve the problem """
+
+
+Xaxis=np.linspace(MinX,MaxX,NumberOfPtX)
+Yaxis=np.linspace(MinY,MaxY,NumberOfPtY)
+
+Time1=k*(t-1);
+
+TPoint1=(Time1-MinT)/k+1;
+
+fig = plt.figure(2)
+axis = fig.gca(projection='3d')
+X, Y = np.meshgrid(Xaxis, Yaxis)
+surf = axis.plot_surface(X, Y, a[TPoint1-1].reshape(NumberOfPtX,NumberOfPtY) , rstride=1, cstride=1, cmap=cm.winter, linewidth=0, antialiased=False)
+plt.show()

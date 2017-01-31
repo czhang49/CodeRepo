@@ -1,0 +1,60 @@
+  
+       
+
+"""" Calculation of the grid point using the scheme  """
+
+for i in range (0,int(NumberOfPtT)):
+    for j in range (0,int(NumberOfPtX)):
+        Tvalue=MinT+i*k;
+        Xvalue=MinX+j*h;
+        Error[i][j]=Exact[i][j]-a[i][j];
+
+"""" To do the Error  """
+
+Xaxis=np.linspace(MinX,MaxX,NumberOfPtX)
+
+Time1=0;
+Time2=0.8;
+Time3=1.6;
+Time4=2.4;
+
+TPoint1=(Time1-MinT)/k+1;
+TPoint2=(Time2-MinT)/k+1;
+TPoint3=(Time3-MinT)/k+1;
+TPoint4=(Time4-MinT)/k+1;
+
+plt.figure(4);
+plt.subplot(221)
+p1,= plt.plot(Xaxis,a[int(TPoint1)-1]);
+p2,= plt.plot(Xaxis,Error[int(TPoint1)-1]);
+plt.legend([p1,p2],['Numerical Solution','Error'],loc='upper center')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=0s Lamuda=0.8 h=1/40');
+plt.subplot(222)
+p3,= plt.plot(Xaxis,a[int(TPoint2)-1]);
+p4,= plt.plot(Xaxis,Error[int(TPoint2)-1]);
+plt.legend([p3,p4],['Numerical Solution','Error'],loc='upper left')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=0.8s Lamuda=0.8 h=1/40');
+plt.subplot(223)
+p5,= plt.plot(Xaxis,a[int(TPoint3)-1]);
+p6,= plt.plot(Xaxis,Error[int(TPoint3)-1]);
+plt.legend([p5,p6],['Numerical Solution','Error'],loc='upper left')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=1.6s Lamuda=0.8 h=1/40');
+plt.subplot(224)
+p7,= plt.plot(Xaxis,a[int(TPoint4)-1]);
+p8,= plt.plot(Xaxis,Error[int(TPoint4)-1]);
+plt.legend([p7,p8],['Numerical Solution','Error'],loc='upper center')
+plt.xlabel('x in Space')
+plt.ylabel('Solution Value')
+plt.title('T=2.4s Lamuda=0.8 h=1/40');
+
+plt.show();
+
+
+ 
+
