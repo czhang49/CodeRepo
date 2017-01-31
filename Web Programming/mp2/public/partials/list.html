@@ -1,0 +1,38 @@
+<div class="topic">
+  <h1> IMDB Top 250 Movie Directory </h1>
+</div>
+
+<div id="two_buttons">
+<a href="#/list"><button >Search</button></a>
+<a href="#/gallery"><button >Gallery</button></a>
+</div>
+
+<div id="div_search_window">
+  <input id="search_movie" height=40px size=40 ng-model="movie_search" placeholder="Put in the information of the movie" autofocus>
+</div>
+
+<div class="panel small-centered columns small-12 medium-4">
+Sort by
+<select ng-model="movie_order">
+  <option value="title">Alphabetical </option>
+  <option value="rank">Rank </option>
+</select>
+</div>
+
+<div id="two_clicks">
+<form>
+<input type="radio" name="sex" ng-click="changeSort1()" >Ascending Order
+<input type="radio" name="sex" ng-click="changeSort2()">Descending Order
+</form>
+</div>
+
+
+<ul class="movies">
+  <li ng-repeat="movie in movies | filter:movie_search | orderBy:movie_order:reverse" class="movie-listing">
+    <a href="#/details/{{movie.rank}}" class="thumb"><img ng-src="./data/images/{{movie.imdbID}}.jpg"></a>
+    <a href="#/details/{{movie.rank}}"><p>{{movie.title}}</p></a>
+    <span>{{movie.plot}}</span>
+  </li>
+</ul>
+
+

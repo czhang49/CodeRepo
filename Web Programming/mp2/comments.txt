@@ -1,0 +1,32 @@
+foundation grids
+sticky top bar
+block grids
+dropdown list
+modal window
+equalizer
+panel
+clearing light box
+flex video
+
+The topbar is responsive. When the window size is shrinked, the navigation link is condensed in the dropdown list of the menu icon. This make sense naturally.
+The block grids in the first horizontal strip is responsive. When it is large or medium, four grids per row are displayed while when it is small, only two rids per row is displayed. This make it easier to see the pics when the window size is small and the layout looks better.
+The three panels in the second horizontal strip is responsive. When the window size is medium or large, the panels are aligned vertically. When the window size is small, the panels are aligned horizontally. This makes sense since in the small window, it feels better to read things that are aligned horizontally.
+The third horizontally strip is responsive. When the window size is medium or large, four pictures are displayed in a row while at small window size, only two picture are displayed in a row. Similar to the first horizontal strip, this makes sense since with fewer picture to display in a row, the pictures are more clear to see. 
+The video is responsive. It changes size with the size of the window. This makes sense since we want to watch the full video with any window sizes. 
+
+1. The background distracts the reader. 
+2. There is not enough contrast between the text and background. The text are hard to read. 
+3. Two of the horizontal strips have the same styling, which should be different since they have different functions.
+4. Similar content are not presented in a similar style.
+5. The font style of text is very similar and too formal for a relaxed personal website.
+
+
+1. Different horizontal strips have different functionality, so all the horizontal strips have different styling. 
+2 All the pictures are clickable, there are modal windows to improve readability. 
+3. The content of second horizontal strip has similar functionality, so they use similar style as is aligned as three panels together. 
+4. Top bar area the navigation links use contrast color as to the background to give emphasis to the navigations. 
+5. In the first horizontal strip, there are white spaces which separates different pictures for different cities. 
+6. The first and second horizontal strip, the color of text is designed to have contrast with the background to improved readability. 
+7. Since this is a relaxed personal information website, the fonts are designed to be relaxing, rather than formal fonts.
+8. In the third strip, the title of this section " good time with friends" have contrast with the background, to remind reader of the theme of this section. 
+9. The font size of title and content in the second horizontal strip has variation.

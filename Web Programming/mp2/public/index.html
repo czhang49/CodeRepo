@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MP2 Starter</title>
+  <script src="./lib/angular/angular.min.js"></script>
+  <script src="./js/controllers.js"></script>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./foundation/css/foundation.css">
+
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+
+<body>
+	<div class="sticky">
+	<nav class="top-bar" data-topbar role="navigation">
+		<ul class="title-area">
+	  		<li class="name">
+	      			<h2>Chen Zhang's Page</h2>
+	    		</li>
+	     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+
+	  	</ul>
+		<section class="top-bar-section">
+	    		<ul class="right">
+	    			<li id="self_introduction_navi"><a href="#self_introduction_anchor">About Zhengyi</a></li>
+				<li id="self_photo_navi"><a href="#self_photo_anchor">My Favorites</a></li>
+				<li id="friends_photo_navi"><a href="#friends_photo_anchor">Friends Photos</a></li>
+				<li id="video_navi"><a href="#video_anchor">I like this MV</a></li>
+			</ul>
+
+	  	</section>
+	</nav>
+	</div>
+
+
+<div id="self_introduction_anchor"></div>
+<div class="self_introduction_container">
+<div class="row">
+<div class="small-4 columns">
+<p class="self_introduction_text">Hello, my name is Chen Zhang. I come from Qingdao, a beatiful city on the east coast of China. Besides my hometown, I also like Shenyang and Nanjing. Check out the different views of these three cool cities.</p>
+</div>
+
+<div class="small-8 columns">
+<ul class="small-block-grid-2 medium-block-grid-4">
+  <li><a href="#" data-reveal-id="myModal1"><img src="Qingdao1.jpg"></a></li>
+	<div id="myModal1" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Qingdao1.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+  <li><a href="#" data-reveal-id="myModal2"><img src="Qingdao2.jpg"></a></li>
+	<div id="myModal2" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Qingdao2.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+  <li><a href="#" data-reveal-id="myModal3"><img src="Qingdao3.jpg"></a></li>
+	<div id="myModal3" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Qingdao3.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+  <li><a href="#" data-reveal-id="myModal4"><img src="Qingdao4.jpg"></a></li>
+	<div id="myModal4" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Qingdao4.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+</ul>
+
+<div class="whitespace"></div>
+
+<ul class="small-block-grid-2 medium-block-grid-4">
+  <li><a href="#" data-reveal-id="myModal5"><img src="Shenyang1.jpg"></a></li>
+	<div id="myModal5" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Shenyang1.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+  <li><a href="#" data-reveal-id="myModal6"><img src="Shenyang2.jpg"></a></li>
+	<div id="myModal6" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Shenyang2.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+  <li><a href="#" data-reveal-id="myModal7"><img src="Shenyang3.jpg"></a></li>
+	<div id="myModal7" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Shenyang3.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+  <li><a href="#" data-reveal-id="myModal8"><img src="Shenyang4.jpg"></a></li>
+	<div id="myModal8" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Shenyang4.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+</ul>
+
+<div class="whitespace"></div>
+
+<ul class="small-block-grid-2 medium-block-grid-4">
+  <li><a href="#" data-reveal-id="myModal9"><img src="Nanjing1.jpg"></a></li>
+	<div id="myModal9" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Nanjing1.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+  <li><a href="#" data-reveal-id="myModal10"><img src="Nanjing2.jpg"></a></li>
+	<div id="myModal10" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Nanjing2.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+  <li><a href="#" data-reveal-id="myModal11"><img src="Nanjing3.jpg"></a></li>
+	<div id="myModal11" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Nanjing3.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+  <li><a href="#" data-reveal-id="myModal12"><img src="Nanjing4.jpg"></a></li>
+	<div id="myModal12" class="reveal-modal" data-reveal>
+  			<div id="ModalPic"><img src="Nanjing4.jpg"></div>
+  			<a class="close-reveal-modal">&#215;</a>
+	</div>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+<div id="self_photo_anchor"></div>
+<div class="equalizer_container">
+<div class="row" data-equalizer>
+  <div class="medium-4 columns" data-equalizer-watch>
+  <img src="ScentOfAWoman.jpg"  class="EqualPanelThumb"><span class="EqualPanelFontHead">My Favorite Movie</span> <p class="EqualPanelFont"> Scent of a Woman is a 1992 American drama directed and produced by Martin Brest that tells the story of a preparatory school student who takes a job as an assistant to an irascible, blind, medically retired Army officer. The film stars Al Pacino, Chris O'Donnell, James Rebhorn, Philip Seymour Hoffman, and Gabrielle Anwar. It is a remake of Dino Risi's 1974 Italian film Profumo di donna. Pacino won the Academy Award for Best Actor for his performance.</p>
+  </div>
+  <div class="medium-4 columns" data-equalizer-watch>
+  <img src="Batistuta.jpg"  class="EqualPanelThumb"><span class="EqualPanelFontHead">My Favorite Player</span> <p class="EqualPanelFont">Gabriel Omar Batistuta (Spanish pronunciation: [ɡaˈβɾjel ˈomaɾ βatisˈtuta]; born 1 February 1969), nicknamed Batigol [batiˈɣol] as well as El Ángel Gabriel [el ˌaŋxel ɣaˈβɾjel] (Spanish for Angel Gabriel), is a retired professional footballer. The prolific Argentine striker played most of his club football at Fiorentina in Italy, [1] and is the eleventh top scorer of all-time in the Italian Serie A league, with 184 goals in 318 matches.</p>
+  </div>
+  <div class="medium-4 columns" data-equalizer-watch>
+  <img src="JinYong.jpg"  class="EqualPanelThumb"><span class="EqualPanelFontHead">My Favorite Author</span> <p class="EqualPanelFont">Louis Cha Leung-yung, GBM, OBE (born 6 February 1924), better known by his pen name Jin Yong, is a Hong Kong novelist. Having co-founded the Hong Kong daily Ming Pao in 1959, he was the paper's first editor-in-chief.Cha's fiction, which is of the wuxia ("martial arts and chivalry") genre, has a widespread following in Chinese-speaking areas, including Hong Kong, China, Taiwan, Southeast Asia, and the United States. </p>
+  </div>
+</div>
+</div>
+
+<div id="friends_photo_anchor"></div>
+<div id="friends_photo">
+<p class="friends_title"> Good Time with Friends </p>
+<div class="clear_container">
+<div class="whitespace2"></div>
+<ul class="clearing-thumbs small-block-grid-2 medium-block-grid-4" data-clearing>
+  <li><a href="./Friendphoto1.jpg"><img src="./Friendphoto1.jpg"></a></li>
+  <li><a href="./Friendphoto2.jpg"><img src="./Friendphoto2.jpg"></a></li>
+  <li><a href="./Friendphoto3.jpg"><img src="./Friendphoto3.jpg"></a></li>
+  <li><a href="./Friendphoto4.jpg"><img src="./Friendphoto4.jpg"></a></li>
+  <li><a href="./Friendphoto5.jpg"><img src="./Friendphoto5.jpg"></a></li>
+  <li><a href="./Friendphoto6.jpg"><img src="./Friendphoto6.jpg"></a></li>
+  <li><a href="./Friendphoto7.jpg"><img src="./Friendphoto7.jpg"></a></li>
+  <li><a href="./FriendPhoto8.jpg"><img src="./FriendPhoto8.jpg"></a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="video_anchor"></div>
+<div class="flex-video widescreen vimeo">
+  <iframe src="//www.youtube.com/embed/ydFy77Wd4rs" width="300" height="150" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</div>
+
+
+<!-- Triggers the modals -->
+<a href="#" data-reveal-id="firstModal" class="radius button">Upload A Picture&hellip;</a>
+
+<!-- Reveal Modals begin -->
+<div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="firstModalTitle">This is Where you upload a picture.</h2>
+  <p></p>
+  <p><a href="#" data-reveal-id="secondModal" class="secondary button">Browse local</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="secondModal" class="reveal-modal" data-reveal aria-labelledby="secondModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="secondModalTitle">This is a second modal.</h2>
+  <p>See? It just slides into place after the other first modal. Very handy when you need subsequent dialogs, or when a modal option impacts or requires another decision.</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<!-- Reveal Modals end -->
+
+
+  <!---->
+  <script src="./js/script.js"></script>
+  <script src="./lib/jquery-2.1.3.min/index.js"></script>
+  <script src="./foundation/js/foundation.min.js"></script>
+  <script src="./foundation/js/vendor/jquery.js"></script>
+  <script src="./foundation/js/vendor/modernizr.js"></script>
+  <script src="./foundation/js/foundation.js"></script>
+  <script src="./foundation/js/foundation/foundation.equalizer.js"></script>
+  <script src="./foundation/js/foundation/foundation.clearing.js"></script>
+  <script src="http://localhost:35729/livereload.js"></script>
+  <script>$(document).foundation();</script>
+</body>
+</html>

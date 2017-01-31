@@ -1,0 +1,55 @@
+
+<div class="list" ng-controller='DetailUserController'>		
+	
+<div class="row">
+	<div class="small-5 columns">
+  	<h2>User Profile</h2>
+	</div>
+</div>
+
+<div class="row">
+<div class="medium-6 columns">
+<h3>{{user.name}}</h3>
+</div>
+<div class="medium-6 columns">
+<h3>{{user.email}}</h3>
+</div>
+
+<div class="row">
+<div class="medium-4 columns">
+<h4>Pending Tasks</h4>
+</div>
+</div>
+
+	<ul>
+		<li ng-repeat="task in userpendingTasks">
+		<div class="row">
+		<div class="medium-4 columns">
+		<a href="#/detailtaskview/{{task._id}}"><span>{{task.name}}</span></a>
+		</div>
+		<div class="medium-4 columns">
+	        <p>Deadline: {{task.deadline}}</p>
+		</div>
+		<div class="medium-4 columns">
+		<a class="button tiny info" ng-click="markcomplete(task._id)">Mark Complete</a>
+		</div>
+		</li>
+	</ul>
+
+<div class="text-center">
+<a class="button" ng-click="showcomplete()">Show Completed Task</a>
+</div>
+	<ul>
+		<li ng-repeat="completetask in usercompletedTasks">
+		<div class="row">
+		<div class="medium-4 columns">
+		<a href="#/detailtaskview/{{completetask._id}}"><span>{{completetask.name}}</span></a>
+		</div>
+		<div class="medium-4 columns">
+	        <p>DeadLine: {{completetask.deadline}}</p>
+		</div>
+		</div>
+
+		</li>
+	</ul>
+</div>

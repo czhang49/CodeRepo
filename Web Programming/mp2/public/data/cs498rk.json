@@ -1,0 +1,44 @@
+{  
+    "title": "Art and Science of Web Programming",  
+    "courseNumber": "CS498RK",  
+    "description": "Presents client- and server-side technologies that enable modern Web applications. Topics include the building blocks of the Web (HTML, CSS, the Document Object Model, Javascript) and data exchange (HTTP, JSON, RESTful APIs, and SQL/NoSQL databases). Programming assignments will expose students to CSS preprocessors, grid systems, and full-stack Javascript frameworks that scaffold development and testing. In addition, students will work in teams to design, implement and deploy a full-featured web application. ",  
+    "prerequisites": ["CS225"],  
+    "staff": [  
+        {  
+            "name": "Ranjitha Kumar", 
+            "position": "Instructor", 
+            "department": "CS",
+            "email": "ranjitha@illinois.edu",
+            "webpage": "http://www.ranjithakumar.net"  
+        },  
+        {  
+            "name": "Biplab Deka", 
+            "position": "TA", 
+            "department": "ECE",
+            "email": "deka2@illinois.edu", 
+            "webpage": "http://www.biplabdeka.net"  
+        },
+        {  
+            "name": "Haizi Yu", 
+            "position": "TA", 
+            "department": "CS",
+            "email": "haiziyu7@illinois.edu",
+            "webpage": "http://web.engr.illinois.edu/~haiziyu7/"   
+        },
+        {  
+            "name": "Sid Sethupathi", 
+            "position": "Staff Member", 
+            "department": "ECE",
+            "email": "sethupa2@illinois.edu",
+            "webpage": "http://sidsethupathi.com/"   
+        },
+        {  
+            "name": "Aswin Sivaraman", 
+            "position": "Staff Member", 
+            "department": "ECE",
+            "email": "sivaram2@illinois.edu",
+            "webpage": "http://www.ranjithakumar.net"   
+        }  
+
+    ]  
+} 

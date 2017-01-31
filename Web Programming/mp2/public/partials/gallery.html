@@ -1,0 +1,33 @@
+<div class="topic">
+  <h1> IMDB Top 250 Movie Directory </h1>
+</div>
+
+<div id="two_buttons">
+<a href="#/list"><button >Search</button></a>
+<a href="#/gallery"><button >Gallery</button></a>
+</div>
+
+<div id="gallery_inline">
+<ul>
+  <li><a href="" ng-click="PicCategory1()">All</a></li>
+  <li><a href="" ng-click="PicCategory2()">Crime</a></li>
+  <li><a href="" ng-click="PicCategory3()">Drama</a></li>
+  <li><a href="" ng-click="PicCategory4()">History</a></li>
+  <li><a href="" ng-click="PicCategory5()">Western</a></li>
+  <li><a href="" ng-click="PicCategory6()">Biography</a></li>
+  <li><a href="" ng-click="PicCategory7()">Romance</a></li>
+  <li><a href="" ng-click="PicCategory8()">Adventure</a></li>
+  <li><a href="" ng-click="PicCategory9()">Comedy</a></li>
+  <li><a href="" ng-click="PicCategory10()">Action</a></li>
+  <li><a href="" ng-click="PicCategory11()">Thriller</a></li>
+  <li><a href="" ng-click="PicCategory12()">Mystery</a></li>
+</ul>
+</div>
+
+<div id="gallery_photo">
+<ul>
+  <li ng-repeat="movie in gooddata">
+    <a href="#/details/{{movie.rank}}" class="thumb"><img ng-src="./data/images/{{movie.imdbID}}.jpg"></a>
+  </li>
+</ul>
+</div>

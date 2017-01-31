@@ -1,0 +1,14 @@
+@import url('http://fonts.googleapis.com/css?family=Bree+Serif|Merriweather');
+@import url('http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
+
+
+h1 {
+  font-size: 2.2rem;
+  color: lighten($orange, 25);
+}
+
+.test {
+  font-size: 1.2rem;
+  color: $blue;
+}
+

@@ -1,0 +1,28 @@
+
+
+<div class="list" ng-controller='AddUserController'>		
+  Put in the name of the user
+	<form>
+	  <div class="row">
+          <div class="small-12 columns">
+            <input ng-model="username" type="text" placeholder="name of the user">
+          </div>
+        </div>
+  Put in the email of the user
+	<form>
+	  <div class="row">
+          <div class="small-12 columns">
+            <input ng-model="useremail" type="text" placeholder="email of the user">
+          </div>
+        </div>
+
+    <div class="text-center">
+      <button ng-click="setUser(username,useremail)" class="button tiny info">Set User</button>
+    </div>
+<div class="text-center">
+    {{displayText}}
+</div>
+
+  </form>
+</div>
+

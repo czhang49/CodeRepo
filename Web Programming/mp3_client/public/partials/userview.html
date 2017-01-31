@@ -1,0 +1,31 @@
+
+<div class="list" ng-controller='UserViewController'>		
+	
+<div class="row">
+	<div class="small-5 columns">
+  	<h2>A List OF All Users</h2>
+	</div>
+	<div class="small-4 small-offset-1 columns">
+  	<a class="button" href="#/adduserview">Add User</a>
+	</div>
+</div>
+
+
+	<ul>
+		<li ng-repeat="user in users">
+
+			<div class="row">
+			<div class="medium-4 columns">
+			<a href="#/detailuserview/{{user._id}}"><span>{{user.name}}</span></a>
+			</div>
+			<div class="medium-4 columns">
+			<span>{{user.email}}</span>
+			</div>
+			<div class="medium-4 columns">
+			<a class="button tiny info" ng-click="DeleteUser(user._id)">Delete User</a>
+			</div>
+			</div>
+
+		</li>
+	</ul>
+</div>

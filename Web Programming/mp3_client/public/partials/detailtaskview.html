@@ -1,0 +1,36 @@
+
+<div class="list" ng-controller='DetailTaskController'>		
+	
+<div class="row">
+	<div class="small-5 columns">
+  	<h2>Task Information</h2>
+	</div>
+	<div class="small-5 columns">
+	<a class="button" href="#/edittaskview">Edit Task</a>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="small-4 columns">
+	<span>{{task.name}}</span>
+	</div>
+	<div class="small-4 columns">
+	<span>Deadline: {{task.deadline}}</span>
+	</div>
+	<div class="small-4 columns">
+	</div>
+</div>
+		
+<div class="row">
+	<div class="small-4 columns">
+	<h5>Completed: {{task.completed}}</h5>
+	</div>
+	<div class="small-4 columns">
+	<span>Assigned To : {{Doer}}</span>
+	</div>
+	<div class="small-4 columns">
+	</div>
+</div>
+
+

@@ -1,0 +1,37 @@
+
+<div class="list" ng-controller='TaskViewController'>		
+	
+<div class="row">
+	<div class="small-5 columns">
+  	<h2>A List OF All Tasks</h2>
+	</div>
+	<div class="small-4 small-offset-3 columns">
+  	<a class="button" href="#/addtaskview">Add Task</a>
+	</div>
+</div>
+
+<div class="text-center">
+<form>
+<input type="radio" name="sex" ng-click="showPending()" >Show Pending
+<input type="radio" name="sex" ng-click="showCompleted()">Show Completed
+<input type="radio" name="sex" ng-click="showAll()">Show All
+</form>
+</div>
+
+	<ul>
+		<li ng-repeat="task in tasks">
+			<div class="row">
+			<div class="medium-4 columns">
+			<a href="#/detailtaskview/{{task._id}}"><span>{{task.name}}</span></a>
+			</div>
+			<div class="medium-4 columns">
+			<span>DeadLine: {{task.deadline}}</span>
+			</div>
+			<div class="medium-4 columns">
+			<a class="button tiny info" ng-click="DeleteTask(task._id)">Delete Task</a>
+			</div>
+			</div>
+
+		</li>
+	</ul>
+</div>

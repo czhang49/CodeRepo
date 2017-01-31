@@ -1,0 +1,52 @@
+
+
+<div class="list" ng-controller='EditTaskController'>		
+  Put in the name of the task
+	<form>
+	  <div class="row">
+          <div class="small-12 columns">
+            <input ng-model="taskname" type="text" placeholder="name of the task">
+          </div>
+        </div>
+  Put in the description of the task
+	<form>
+	  <div class="row">
+          <div class="small-12 columns">
+            <input ng-model="taskdescription" type="text" placeholder="Description of task">
+          </div>
+        </div>
+  Pick the deadline of the task.
+	<form>
+	<input type="date" ng-model="taskDL">
+	</form>
+
+  Put in the assigned user of the task
+
+
+    <select ng-model="users" ng-options="user.name for user in users">
+      <option ng-model="chozen">-- choose user --</option>
+    </select>
+ 
+
+
+
+
+<div class="text-center">
+Completed task ?
+<form>
+<input type="radio" name="sex" ng-click="setCompleted()" >Yes
+<input type="radio" name="sex" ng-click="setPending()">No
+</form>
+</div>
+
+    <div class="text-center">
+      <button ng-click="setTask(taskname,taskdescription,taskDL)" class="button tiny info">Set Task</button>
+    </div>
+
+  <div class="text-center">
+    {{displayText}}
+</div>
+
+  </form>
+</div>
+

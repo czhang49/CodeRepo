@@ -1,0 +1,346 @@
+@import url('http://fonts.googleapis.com/css?family=Bree+Serif|Merriweather');
+@import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
+
+// Some of the variables
+$header-footer-color: #FFFAF0;
+$navigation-color:#778899;
+$section-height: 500px;
+$footer-color:#008080;
+$footer-word-size:2.0rem;
+
+$heading-font:"Comic Sans MS", cursive, sans-serif;
+$self-introduction-font:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+// This part to assign basic thing on header line and navigation bar
+header{
+  z-index:100;
+  position:fixed;
+  width: 100%;
+  margin: 0 auto;
+}
+h1 {
+  color: lighten($orange, 25);
+  text-align: center;
+  background-color: $header-footer-color;
+
+}
+#navigation{
+  width:100%;
+  background-color:$header-footer-color
+}
+#navigation ul {
+  display:block;
+  list-style: none;
+  text-align:center;
+  margin: 0 auto;
+}
+#navigation ul li {
+  display: inline-block;
+  text-align:center;
+  font-family:$heading-font;
+
+}
+#navigation ul li a{
+  color: $navigation-color;
+  font-size: 1.1em;
+  text-decoration: none;
+  line-height: 6px;
+  padding:22px 35px;
+  text-align:center;
+} 
+
+// This part to define the bigger and smaller menu bar
+header.large {
+  height:100px;
+}
+header.large h1{
+  height:60px;
+  font-size: 2.5rem;
+}
+header.large navigation{
+  height:60px;
+}
+
+header.small h1{
+  height:30px;
+  font-size: 1.5rem;
+}
+header.small navigation{
+  height:30px;
+}
+
+// This part to make the resize menu bar transition smooth
+header,nav,a,h1,li{
+  transition: all 1s;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+}
+////////////////////////////////////
+
+#self_photo_group{
+  position:relative;
+  width:100%;
+  top:75px;
+  height:$section-height;
+  background:url("http://kevinshenk.com/wp-content/uploads/2011/11/damask-background-white-ars.jpg");
+}
+#self_photo_group ul {
+  position:relative;
+  list-style: none;
+  padding: 0;
+  margin:0 ;
+
+}
+#self_photo_group ul li {
+  position:absolute;
+  left:50%;
+  margin-left:-250px;
+}
+
+@mixin animation-property($delay){
+ -webkit-animation:xfade 12s ($delay) infinite;
+ -moz-animation:xfade 12s ($delay) infinite;
+}
+#self_photo_group ul li:nth-child(4){@include animation-property(0s)};
+#self_photo_group ul li:nth-child(3){@include animation-property(3s)};
+#self_photo_group ul li:nth-child(2){@include animation-property(6s)};
+#self_photo_group ul li:nth-child(1){@include animation-property(9s)};
+
+@mixin fade-function{
+  17% {
+    opacity:1;
+  }
+  25% {
+    opacity:0;
+  }
+  92% {
+    opacity:0;
+  }
+}
+@-webkit-keyframes xfade{@include fade-function};
+@-moz-keyframes xfade{@include fade-function};
+
+/////////////////////////////////////
+#self_introduction_group {
+    height:$section-height;
+    position:relative;
+    top:75px;
+    background:url("http://www.xjlxw.com/d/file/hbdq/sdly/gk/b762102c4a9b489e7d5890d824f97d52.jpg");
+    background-attachment:fixed;
+    padding:20px 20px;
+    font-size:2.5rem;
+    font-family:$self-introduction-font;
+
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+   // -webkit-column-rule: 3px outset #ff00ff; /* Chrome, Safari, Opera */
+    //-moz-column-rule: 3px outset #ff00ff; /* Firefox */
+    //column-rule: 3px outset #ff00ff;
+}
+
+
+#Close_qingdao {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+        position:relative;
+	left:8px;
+	text-align: center;
+	top: -13px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+#Close_qingdao:hover { background: #00d9ff; }
+////////////////////////////////////
+
+@mixin highlight(){
+   background:yellow;
+}
+#self_introduction_navi.highlight{@include highlight();}
+#self_photo_navi.highlight{@include highlight();}
+#friends_photo_navi.highlight{@include highlight();}
+#video_navi.highlight{@include highlight();}
+
+///////////////////////////////////
+
+#carousel_container{
+
+  top:75px;
+  position:relative;
+  height:$section-height;
+  background: #FFFAF0;
+
+}
+#carousel_inner{
+  
+  position:relative;
+  float: left;
+  top:50%;
+  left:50%;
+  margin-left:-480px;
+  margin-top:-190px;
+  width: 960px;
+  overflow: hidden;
+  background: #144057;
+
+}
+#carousel_ul{
+  
+  position:relative;
+  top:50%;
+  left:-240px;
+  height:240px;
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  width:9999px;
+}
+#carousel_ul li{
+  float:left;
+  width:320px;
+  height:320px;
+  padding:0px;
+}
+#cousel_ul li img{
+  cursor:pointer;
+  cursor: hand;
+  border:0px;
+}
+#left_arrow{
+  position:relative;
+  top:50%;
+  left:50%;
+  margin-left:-512px;
+  z-index:100;
+}
+#right_arrow{
+  position:relative;
+  top:50%;
+  left:50%;
+  margin-top:-26px;
+  z-index:100;
+}
+#left_arrow img,#right_arrow img{
+  cursor: pointer;
+  cursor: hand;
+}
+
+
+//////////////////////////////
+#overlay {
+     visibility: hidden;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     width:100%;
+     height:100%;
+     text-align:center;
+     z-index: 1000;
+}
+
+#overlay div {
+     width:300px;
+     margin: 100px auto;
+     background-color: #fff;
+     border:1px solid #000;
+     padding:15px;
+     text-align:center;
+}
+
+//////////////////////////////////////
+.videohanwu{
+  position:relative;
+  top:80px;
+  left:50%;
+  margin-left:-200px;
+
+}
+//////////////////////////////////////
+footer{
+  position:relative;
+  top:0px;
+  width: 100%;
+  margin: 0 auto;
+  height:80px;
+  background-color: $footer-color;
+}
+footer ul {
+  display:block;
+  list-style: none;
+  text-align:center;
+  margin: 0 auto;
+}
+footer ul li {
+  display: inline-block;
+  margin-top:30px;
+   color: lighten($orange, 25);
+  font-size:$footer-word-size;
+  padding:5px 5px;
+
+}
+footer ul li a{
+
+  text-decoration: none;
+  line-height: 6px;
+  margin-right:25px;
+  margin-top: 35px;
+  text-align:center;
+
+} 
+
+//////////////////////////////////////
+
+.dumbBoxWrap { /* The div that shows/hides. */
+    display:none; /* starts out hidden */
+    z-index:40001; /* High z-index to ensure it appears above all content */
+}
+.dumbBoxOverlay { /* Shades out background when selector is active */
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-color:black;
+    opacity:.5; /* Sets opacity so it's partly transparent */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE transparency */
+    filter:alpha(opacity=50); /* More IE transparency */
+    z-index:40001;
+}
+.vertical-offset { /* Fixed position to provide the vertical offset */
+    position:fixed;
+    top:30%;
+    width:100%;
+    z-index:40002; /* ensures box appears above overlay */
+}
+.dumbBox { /* The actual box, centered in the fixed-position div */
+    width:405px; /* Whatever width you want the box to be */
+    position:relative;
+    margin:0 auto;
+    /* Everything below is just visual styling */
+    background-color:white;
+    padding:10px;
+    border:1px solid black;
+}
+
+
+//////////////////////////////////////
+/*
+Referece:
+http://www.w3schools.com/css/css3_multiple_columns.asp
+http://blog.raventools.com/create-a-modal-dialog-using-css-and-javascript/
+http://webdesign.tutsplus.com/articles/an-introduction-to-the-css3-multiple-column-layout-module--webdesign-4934
+http://webdesign.tutsplus.com/tutorials/a-beginners-introduction-to-css-animation--cms-21068
+*/
+

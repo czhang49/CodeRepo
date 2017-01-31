@@ -1,0 +1,28 @@
+<div class="topic">
+  <h1> IMDB Top 250 Movie Directory </h1>
+</div>
+
+<div id="two_buttons">
+<a href="#/list"><button >Search</button></a>
+<a href="#/gallery"><button >Gallery</button></a>
+</div>
+
+<div class="gallery_buttons">
+<a href="#/details/{{prevMovie}}" class="left_button"><button>Previous</button></a>
+<a href="#/details/{{nextMovie}}" class="right_button"><button>Next</button></a>
+</div>
+
+
+<div class="details_info">
+<img ng-src="./data/images/{{movie.imdbID}}.jpg">
+<p>{{movie.title}}</p>
+<p><span>Rank: </span>{{movie.rank}}</p>
+<p><span>Release Date: </span>{{movie.released}}</p>
+<p><span>Tuntime: </span>{{movie.runtime}}</p>
+<p><span>Director: </span>{{movie.director}}</p>
+<p><span>Plot: </span>{{movie.plot}}</p>
+<p><span>Awards: </span>{{movie.awards}}</p>
+</div>
+
+
+
